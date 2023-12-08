@@ -1,27 +1,28 @@
 {
-  "name": "@akcybex/jstr",
-  "version": "1.0.0",
-  "description": "the string functions",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
-  "scripts": {
-    "build": "rollup -c",
-    "test": "node test/spec",
-    "pretest": "npm run build"
-  },
-  "author": "Akcybex",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.23.5",
-    "@babel/preset-env": "^7.23.5",
-    "rollup": "^2.79.1",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0"
-  },
-  "files": [
-    "dist",
-    "src"
-  ]
+    "name": "@akcybex/jstr",
+    "version": "1.0.0",
+    "description": "the string functions",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "browser": "dist/index.umd.js",
+    "scripts": {
+        "build": "rollup -c",
+        "test": "jest",
+        "pretest": "npm run build"
+    },
+    "author": "Akcybex",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.23.5",
+        "@babel/preset-env": "^7.23.5",
+        "jest": "^29.7.0",
+        "rollup": "^2.79.1",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0"
+    },
+    "files": [
+        "dist",
+        "src"
+    ]
 }
