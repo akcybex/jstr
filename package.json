@@ -1,35 +1,48 @@
 {
-  "name": "jstr",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/jstr.umd.cjs",
-  "module": "./dist/jstr.js",
-  "exports": {
-    ".": {
-      "import": "./dist/jstr.js",
-      "require": "./dist/jstr.umd.cjs"
-    }
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "test": "jest"
-  },
-  "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "jest": "^29.7.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8"
-  },
-  "dependencies": {
-    "@babel/preset-env": "^7.23.6",
-    "@babel/preset-typescript": "^7.23.3",
-    "@types/jest": "^29.5.11"
-  }
+    "name": "@akcybex/jstr",
+    "version": "1.0.0",
+    "private": false,
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/jstr.umd.cjs",
+    "module": "./dist/jstr.js",
+    "exports": {
+        ".": {
+            "import": "./dist/jstr.js",
+            "require": "./dist/jstr.umd.cjs"
+        }
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@jest/globals": "^29.7.0",
+        "jest": "^29.7.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.2.2",
+        "vite": "^5.0.8"
+    },
+    "dependencies": {
+        "@babel/preset-env": "^7.23.6",
+        "@babel/preset-typescript": "^7.23.3",
+        "@types/jest": "^29.5.11"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/akcybex/jstr.git"
+    },
+    "keywords": [
+        "string",
+    ],
+    "author": "AKCybex",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/akcybex/jstr/issues"
+    },
+    "homepage": "https://github.com/akcybex/jstr#readme"
 }

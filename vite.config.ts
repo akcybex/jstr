@@ -7,7 +7,7 @@ export default {
 			entry: resolve(__dirname, 'src/main.ts'),
 			name: 'JStr',
 			// the proper extensions will be added
-			fileName: 'jstr',
+			fileName: (format: any) => `jstr.${format}.js`
 		},
 		rollupOptions: {
 			// make sure to externalize deps that shouldn't be bundled
@@ -20,4 +20,8 @@ export default {
 			},
 		},
 	},
+	test: {
+		globals: false,
+		environment: 'jsdom'
+	}
 };
