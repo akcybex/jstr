@@ -15,9 +15,7 @@ const str = {
     return str.toUpperCase();
   },
   capitalize: (str: string) => {
-    return str.replace(/(^\w{1})|(\s+\w{1})/g, (letter) =>
-      letter.toUpperCase()
-    );
+    return str.replace(/(^\w{1})|(\s+\w{1})/g, (chr) => chr.toUpperCase());
   },
 };
 
