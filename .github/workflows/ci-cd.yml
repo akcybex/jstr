@@ -31,7 +31,9 @@ jobs:
                   node-version: '21'  # Use your project's Node.js version
                   npm-version: '10'
             - name: Install dependencies
-              run: npm install
+              run: |
+                rm -rf node_modules package-lock.json
+                npm install
             - name: Build
               run: npm run build  # Adjust if you have a different build script
 
