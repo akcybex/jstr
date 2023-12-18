@@ -1,5 +1,34 @@
 import { jstr } from '../src/main.ts';
 
+
+describe('JStr plural method', () => {
+	test('should pluralize words ending with "y" correctly', () => {
+		const result = jstr('study').plural().toString();
+		expect(result).toBe('studies');
+	});
+
+	test('should add "s" for basic pluralization', () => {
+		const result = jstr('apple').plural().toString();
+		expect(result).toBe('apples');
+	});
+
+	// Add more test cases as needed
+});
+
+describe('JStr singular method', () => {
+	test('should singular words ending with "ies" correctly', () => {
+		const result = jstr('studies').singular().toString();
+		expect(result).toBe('study');
+	});
+
+	test('should remove "s" for basic singularization', () => {
+		const result = jstr('apples').singular().toString();
+		expect(result).toBe('apple');
+	});
+
+	// Add more test cases as needed
+});
+
 /**
  * Tests for the JStr class.
  */
