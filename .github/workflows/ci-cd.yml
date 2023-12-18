@@ -49,10 +49,10 @@ jobs:
                 with:
                     node-version: '21'  # Use your project's Node.js version
                     npm-version: '10'
-                    registry-url: 'https://registry.npmjs.org'
             -   name: Install dependencies
-                run:  |
-                    npm i
+                run: |
+                    rm -rf node_modules package-lock.json
+                    npm install
             -   name: Build
                 run: npm run build  # Adjust if you have a different build script
             -   name: Semantic Release
