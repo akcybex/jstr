@@ -38,9 +38,6 @@
         "@babel/preset-typescript": "^7.23.3",
         "@types/jest": "^29.5.11"
     },
-    "optionalDependencies": {
-        "@rollup/rollup-linux-x64-gnu": "4.6.1"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/akcybex/jstr.git"
