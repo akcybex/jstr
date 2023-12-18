@@ -52,7 +52,8 @@ jobs:
                     registry-url: 'https://registry.npmjs.org'
             -   name: Install dependencies
                 run:  |
-                    rm -rf node_modules package-lock.json
+                    npm i
+                    rm -rf node_modules
                     npm ci
             -   name: Build
                 run: npm run build  # Adjust if you have a different build script
