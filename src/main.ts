@@ -833,6 +833,16 @@ class JStr {
 	}
 
 	/**
+	 * Converts the string to a headline format.
+	 * @returns JStr instance for method chaining.
+	 * @example jstr('steve_jobs').headline().toString(); // Returns 'Steve Jobs'
+	 */
+	headline() {
+		this.str = this.str.replace(/[_-]/g, ' ').split(' ')
+			.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+		return this;
+	}
+	/**
 	 * Reverses the order of words in the string.
 	 * @returns JStr instance for method chaining.
 	 * @example

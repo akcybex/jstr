@@ -16,7 +16,7 @@ describe('JStr plural method', () => {
 });
 
 describe('JStr singular method', () => {
-	test('should singularize words ending with "ies" correctly', () => {
+	test('should singular words ending with "ies" correctly', () => {
 		const result = jstr('studies').singular().toString();
 		expect(result).toBe('study');
 	});
