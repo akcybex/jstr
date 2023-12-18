@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@akcybex/jstr@^1.0.2", "@akcybex/jstr@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/@akcybex/jstr/-/jstr-1.0.3.tgz"
+  integrity sha512-IHpzsa0zj/PtetADEDGgsosNR28e/PzCIuTINAuM+r2/zJPdAQz8ghdpk912lhynTLcNcFwSR9LCyTdBqtDhwQ==
+  dependencies:
+    "@akcybex/jstr" "^1.0.2"
+    "@babel/preset-env" "^7.23.6"
+    "@babel/preset-typescript" "^7.23.3"
+    "@types/jest" "^29.5.11"
+
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
   resolved "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.2.1.tgz"
