@@ -53,8 +53,6 @@ jobs:
             -   name: Install dependencies
                 run:  |
                     npm i
-                    rm -rf node_modules
-                    npm ci
             -   name: Build
                 run: npm run build  # Adjust if you have a different build script
             -   name: Semantic Release
