@@ -232,7 +232,6 @@ After including the script, `jstr` will be available globally:
 | `wordCount`                |                             |
 | `words`                    |                             |
 
-
 ## Contributing
 
 Contributions to `@akcybex/jsr` are welcome. Please refer to the contributing guidelines for more information.
