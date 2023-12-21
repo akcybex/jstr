@@ -1,6 +1,11 @@
-# @akcybex/jsr
+# JSTR
 
-`@akcybex/jsr` is a JavaScript library for fluent string manipulation, providing a chainable API for common string operations.
+[![NPM version][npm-image]][npm-url]
+[![NPM downloads][downloads-image]][downloads-url]
+![File Size][filesize-url]
+[![CDNJS][cdnjs-image]][cdnjs-url]
+
+> `@akcybex/jsr` is a JavaScript library inspired by [Laravel 'Fluent String'](https://laravel.com/docs/10.x/strings#fluent-strings) offering a chainable API for streamlined string manipulation and facilitating common string operations in javascript with enhanced expressiveness.
 
 ## Installation
 
@@ -36,7 +41,7 @@ console.log(result); // Outputs: 'HELLOHELLOHELLO'
 For browser-based projects, you can use the CDN link:
 
 ```html
-<script src="https://cdn.example.com/@akcybex/jsr"></script>
+<script src="https://unpkg.com/@akcybex/jsr:"></script>
 ```
 
 After including the script, `jstr` will be available globally:
