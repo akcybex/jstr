@@ -1,4 +1,4 @@
-import { jstr } from "../src/main.ts";
+import JStr from "../src/main.ts";
 
 /**
  * Tests converting a string to uppercase.
@@ -6,27 +6,27 @@ import { jstr } from "../src/main.ts";
 
 describe("JStr upper method", () => {
   // HeLLo
-  test("jstr().upper() - converts a string to uppercase", () => {
-    expect(jstr("HeLLo").upper().toString()).toBe("HELLO");
+  test("JStr.of().upper() - converts a string to uppercase", () => {
+    expect(JStr.of("HeLLo").upper().toString()).toBe("HELLO");
   });
 
   // heLLo
-  test("jstr().upper() - converts a string to uppercase", () => {
-    expect(jstr("heLLo").upper().toString()).toBe("HELLO");
+  test("JStr.of().upper() - converts a string to uppercase", () => {
+    expect(JStr.of("heLLo").upper().toString()).toBe("HELLO");
   });
 
   // Space into upper
-  test("jstr().upper() - converts a string to uppercase", () => {
-    expect(jstr("").upper().toString()).toBe("");
+  test("JStr.of().upper() - converts a string to uppercase", () => {
+    expect(JStr.of("").upper().toString()).toBe("");
   });
 
   // hELLO WorLd!
-  test("jstr().upper() - converts a string to uppercase", () => {
-    expect(jstr("hELLO WorLd!").upper().toString()).toBe("HELLO WORLD!");
+  test("JStr.of().upper() - converts a string to uppercase", () => {
+    expect(JStr.of("hELLO WorLd!").upper().toString()).toBe("HELLO WORLD!");
   });
 
   // HELLO WORLD!
-  test("jstr().upper() - converts a string to uppercase", () => {
-    expect(jstr("hello world!").upper().toString()).toBe("HELLO WORLD!");
+  test("JStr.of().upper() - converts a string to uppercase", () => {
+    expect(JStr.of("hello world!").upper().toString()).toBe("HELLO WORLD!");
   });
 });
