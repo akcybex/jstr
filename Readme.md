@@ -59,6 +59,7 @@ After including the script, `jstr` will be available globally:
 ## Available Methods
 
 ### Strings
+A string is a fundamental data type in programming used to represent a sequence of characters. It stores and manipulates text data, and string operations are typically performed using methods or functions provided by the programming language or relevant libraries. Common operations include concatenation, searching, replacing, and formatting strings.
 
 | JSTR String Methods   | Description                                                                                         | Documentation Link                      |
 |-----------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------|
@@ -136,6 +137,9 @@ After including the script, `jstr` will be available globally:
 | `JStr.wordWrap`       | Wraps the string at a specified length with a specified line ending.                                | [Documentation](docs/WordWrap.md)       |
 | `JStr.words`          | Splits the string into an array of words.                                                           | [Documentation](docs/Words.md)          |
 | `JStr.wrap`           | Wraps the string at a specified length with a specified string.                                     | [Documentation](docs/Wrap.md)           |
+
+## Fluent String
+Fluent strings provide a more fluent, object-oriented interface for working with string values. This paradigm allows you to chain multiple string operations together, creating a more readable syntax compared to traditional string operations. Each method call returns a new fluent string object, enabling you to seamlessly chain operations while maintaining clarity and conciseness in your code.
 
 | JSTR Fluent String Methods | Description                                                                                         | Documentation Link                       |
 |----------------------------|-----------------------------------------------------------------------------------------------------|------------------------------------------|
