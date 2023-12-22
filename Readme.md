@@ -31,9 +31,9 @@ yarn add @akcybex/jsr
 After installing, you can use `@akcybex/jsr` in your Node.js application:
 
 ```javascript
-import {jstr} from '@akcybex/jsr';
+import JStr from '@akcybex/jsr';
 
-const result = jstr('hello').repeat(3).upper().toString();
+const result = JStr.of('hello').repeat(3).upper().toString();
 console.log(result); // Outputs: 'HELLOHELLOHELLO'
 ```
 
