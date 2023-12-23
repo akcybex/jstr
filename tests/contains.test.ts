@@ -1,4 +1,4 @@
-import { jstr } from "../src/main.ts";
+import JStr from "../src/main.ts";
 
 /**
  * The contains method determines if the given string contains the given value. This method is case sensitive:
@@ -6,44 +6,44 @@ import { jstr } from "../src/main.ts";
 
 describe("JStr contains method", () => {
   // find the Hello from string
-  test("jstr().after() - return true if give value found", () => {
-    expect(jstr("Hello world").contains("Hello")).toBe(true);
+  test("JStr.of().after() - return true if give value found", () => {
+    expect(JStr.of("Hello world").contains("Hello")).toBe(true);
   });
 
   // find the Hello from string
-  test("jstr().after() - return true if give value found", () => {
-    expect(jstr("We are saying hello to you").contains("hello")).toBe(true);
+  test("JStr.of().after() - return true if give value found", () => {
+    expect(JStr.of("We are saying hello to you").contains("hello")).toBe(true);
   });
 
-  test("jstr().after() - return false if give value not found", () => {
+  test("JStr.of().after() - return false if give value not found", () => {
     expect(
-      jstr(
+      JStr.of(
         "˝Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop"
       ).contains("simply dummy of")
     ).toBe(false);
   });
 
-  test("jstr().after() - return true if give value found", () => {
+  test("JStr.of().after() - return true if give value found", () => {
     expect(
-      jstr(
+      JStr.of(
         "˝Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop"
       ).contains("typesetting industry")
     ).toBe(true);
   });
 
   // any value from array find in the string
-  test("jstr().after() - return true if give value found", () => {
+  test("JStr.of().after() - return true if give value found", () => {
     expect(
-      jstr(
-        "˝Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop"
+      JStr.of(
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop"
       ).contains(["typesetting industry", "of"])
     ).toBe(true);
   });
 
     // any value from array find in the string
-    test("jstr().after() - return false if give value not found", () => {
+    test("JStr.of().after() - return false if give value not found", () => {
         expect(
-          jstr(
+          JStr.of(
             "˝Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop"
           ).contains(["jhon", "jack"])
         ).toBe(false);

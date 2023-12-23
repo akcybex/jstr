@@ -1,58 +1,48 @@
-/**
- * JStr class for chainable string manipulations.
- */
-class JStr {
-  private str: string;
-
+var u = Object.defineProperty;
+var l = (e, t, s) => t in e ? u(e, t, { enumerable: !0, configurable: !0, writable: !0, value: s }) : e[t] = s;
+var n = (e, t, s) => (l(e, typeof t != "symbol" ? t + "" : t, s), s);
+class h {
   /**
    * Initializes a new instance of JStr with the given string.
    * @param str - The initial string.
    */
-  constructor(str: string) {
-    this.str = str;
+  constructor(t) {
+    n(this, "str");
+    this.str = t;
   }
-
   /**
    * Repeats the string a specified number of times.
    * @param times - The number of times to repeat the string.
    * @returns JStr instance for method chaining.
    * @example jstr('a').repeat(3).toString(); // Returns 'aaa'
    */
-  repeat(times: number): JStr {
-    this.str = this.str.repeat(times);
-    return this;
+  repeat(t) {
+    return this.str = this.str.repeat(t), this;
   }
-
   /**
    * Converts the string to lowercase.
    * @returns JStr instance for method chaining.
    */
-  lower(): JStr {
-    this.str = this.str.toLowerCase();
-    return this;
+  lower() {
+    return this.str = this.str.toLowerCase(), this;
   }
-
   /**
    * Converts the string to uppercase.
    * @returns JStr instance for method chaining.
    */
-  upper(): JStr {
-    this.str = this.str.toUpperCase();
-    return this;
+  upper() {
+    return this.str = this.str.toUpperCase(), this;
   }
-
   /**
    * Capitalizes the first letter of each word in the string.
    * @returns JStr instance for method chaining.
    */
-  capitalize(): JStr {
-    this.str = this.str.toLowerCase();
-    this.str = this.str.replace(/(^\w{1})|(\s+\w{1})/g, (chr) =>
-      chr.toUpperCase()
-    );
-    return this;
+  capitalize() {
+    return this.str = this.str.toLowerCase(), this.str = this.str.replace(
+      /(^\w{1})|(\s+\w{1})/g,
+      (t) => t.toUpperCase()
+    ), this;
   }
-
   /**
    * Returns a new JStr instance containing the substring after the specified search string.
    * If the search string is not found, the original string is returned.
@@ -62,11 +52,9 @@ class JStr {
    * const result = new JStr("hello world").after("hello").toString();
    * // result: " world"
    */
-  after(search: string): JStr {
-    const index = this.str.indexOf(search);
-    if (index === -1) return this;
-    this.str = this.str.substring(index + search.length);
-    return this;
+  after(t) {
+    const s = this.str.indexOf(t);
+    return s === -1 ? this : (this.str = this.str.substring(s + t.length), this);
   }
   /**
    * Returns everything after the last occurrence of the given value in a string.
@@ -77,16 +65,10 @@ class JStr {
    * const result = new JStr("App\\Http\\Controllers\\Controller").afterLast("\\");
    * // result: Controller
    */
-  afterLast(search: string): string {
-    const lastIndex = this.str.lastIndexOf(search);
-
-    if (lastIndex !== -1) {
-      return this.str.substring(lastIndex + search.length);
-    } else {
-      return this.str;
-    }
+  afterLast(t) {
+    const s = this.str.lastIndexOf(t);
+    return s !== -1 ? this.str.substring(s + t.length) : this.str;
   }
-
   /**
    * Returns a new JStr instance containing the substring before the specified search string.
    * If the search string is not found, the original string is returned.
@@ -96,13 +78,10 @@ class JStr {
    * const result = new JStr("hello world").before("world").toString();
    * // result: "hello "
    */
-  before(search: string): JStr {
-    const index = this.str.indexOf(search);
-    if (index === -1) return this;
-    this.str = this.str.substring(0, index);
-    return this;
+  before(t) {
+    const s = this.str.indexOf(t);
+    return s === -1 ? this : (this.str = this.str.substring(0, s), this);
   }
-
   /**
    * Returns everything before the last occurrence of the given value in a string.
    * The entire string will be returned if the value does not exist within the string.
@@ -112,16 +91,10 @@ class JStr {
    * const result = new JStr("App\\Http\\Controllers\\Controller").beforeLast("\\");
    * // result: App\\Http\\Controllers
    */
-  beforeLast(search: string): JStr {
-    const lastIndex = this.str.lastIndexOf(search);
-
-    if (lastIndex !== -1) {
-      this.str = this.str.substring(0, lastIndex);
-    }
-
-    return this;
+  beforeLast(t) {
+    const s = this.str.lastIndexOf(t);
+    return s !== -1 && (this.str = this.str.substring(0, s)), this;
   }
-
   /**
    * Converts the string to camelCase.
    * @returns {JStr} JStr instance for method chaining.
@@ -129,14 +102,12 @@ class JStr {
    * const result = new JStr("hello world").camel().toString();
    * // result: "helloWorld"
    */
-  camel(): JStr {
-    this.str = this.str.replace(/[-_\s]+(.)?/g, (_match, chr) =>
-      chr ? chr.toUpperCase() : ""
-    );
-    this.str = this.str.substr(0, 1).toLowerCase() + this.str.substr(1);
-    return this;
+  camel() {
+    return this.str = this.str.replace(
+      /[-_\s]+(.)?/g,
+      (t, s) => s ? s.toUpperCase() : ""
+    ), this.str = this.str.substr(0, 1).toLowerCase() + this.str.substr(1), this;
   }
-
   /**
    * Checks if the string contains the specified substring.
    * @param {string} substring - The substring to check for.
@@ -145,15 +116,9 @@ class JStr {
    * const result = new JStr("hello world").contains("lo");
    * // result: true
    */
-  contains(substring: string | string[]): boolean {
-    if (typeof substring === "string") {
-      // If searchTerms is a string, convert it to an array
-      substring = [substring];
-    }
-
-    return substring.some((term) => this.str.includes(term));
+  contains(t) {
+    return typeof t == "string" && (t = [t]), t.some((s) => this.str.includes(s));
   }
-
   /**
    * Checks if the string starts with the specified substring.
    * @param {string} substring - The substring to check for.
@@ -162,10 +127,9 @@ class JStr {
    * const result = new JStr("hello world").startsWith("hello");
    * // result: true
    */
-  startsWith(substring: string): boolean {
-    return this.str.startsWith(substring);
+  startsWith(t) {
+    return this.str.startsWith(t);
   }
-
   /**
    * Checks if the string ends with the specified substring.
    * @param {string} substring - The substring to check for.
@@ -174,10 +138,9 @@ class JStr {
    * const result = new JStr("hello world").endsWith("world");
    * // result: true
    */
-  endsWith(substring: string): boolean {
-    return this.str.endsWith(substring);
+  endsWith(t) {
+    return this.str.endsWith(t);
   }
-
   /**
    * Converts the string to a slug by replacing spaces and special characters.
    * @param {string} [separator='-'] - The separator for the slug. Defaults to '-'.
@@ -186,31 +149,19 @@ class JStr {
    * const result = new JStr("Hello World!").slug();
    * // result: "hello-world"
    */
-  slug(separator: string = "-"): JStr {
-    this.str = this.str
-      .toLowerCase()
-      .replace(/[\s_]+/g, separator)
-      .replace(/[^\w-]+/g, "");
-    return this;
+  slug(t = "-") {
+    return this.str = this.str.toLowerCase().replace(/[\s_]+/g, t).replace(/[^\w-]+/g, ""), this;
   }
-
   /**
    * Converts the string to snake case.
    * @param separator - The separator to use between words, defaults to '_'.
    * @returns JStr instance for method chaining.
    * @example jstr('Hello World').snake().toString(); // Returns 'hello_world'
    */
-  snake(separator: string = "_"): JStr {
-    let snake = this.str
-      .replace(/[\s-]+/g, separator)
-      .replace(/([A-Z])/g, (_, char) => separator + char.toLowerCase());
-    if (snake.startsWith(separator)) {
-      snake = snake.substring(1);
-    }
-    this.str = snake;
-    return this;
+  snake(t = "_") {
+    let s = this.str.replace(/[\s-]+/g, t).replace(/([A-Z])/g, (r, i) => t + i.toLowerCase());
+    return s.startsWith(t) && (s = s.substring(1)), this.str = s, this;
   }
-
   /**
    * Converts the string to studly case, capitalizing each word and removing separators.
    * @returns {JStr} JStr instance for method chaining.
@@ -218,13 +169,9 @@ class JStr {
    * const result = new JStr("hello_world").studly().toString();
    * // result: "HelloWorld"
    */
-  studly(): JStr {
-    this.str = this.str
-      .toLowerCase()
-      .replace(/(?:^|\s|-)+(.)/g, (_, char) => char.toUpperCase());
-    return this;
+  studly() {
+    return this.str = this.str.toLowerCase().replace(/(?:^|\s|-)+(.)/g, (t, s) => s.toUpperCase()), this;
   }
-
   /**
    * Replaces occurrences of a search string with an array of replacement strings.
    * @param {string} search - The search string to replace.
@@ -234,15 +181,12 @@ class JStr {
    * const result = new JStr("hello world").replaceArray("o", ["a", "i"]).toString();
    * // result: "helli wird"
    */
-  replaceArray(search: string, replace: string[]): JStr {
-    let result = this.str;
-    replace.forEach((value) => {
-      result = result.replace(search, value);
-    });
-    this.str = result;
-    return this;
+  replaceArray(t, s) {
+    let r = this.str;
+    return s.forEach((i) => {
+      r = r.replace(t, i);
+    }), this.str = r, this;
   }
-
   /**
    * Replaces the first occurrence of a search string with a replacement string.
    * @param {string} search - The search string to replace.
@@ -252,16 +196,10 @@ class JStr {
    * const result = new JStr("hello world").replaceFirst("o", "a").toString();
    * // result: "hella world"
    */
-  replaceFirst(search: string, replace: string): JStr {
-    const index = this.str.indexOf(search);
-    if (index === -1) return this;
-    this.str =
-      this.str.substring(0, index) +
-      replace +
-      this.str.substring(index + search.length);
-    return this;
+  replaceFirst(t, s) {
+    const r = this.str.indexOf(t);
+    return r === -1 ? this : (this.str = this.str.substring(0, r) + s + this.str.substring(r + t.length), this);
   }
-
   /**
    * Replaces the last occurrence of a search string with a replacement string.
    * @param {string} search - The search string to replace.
@@ -271,16 +209,10 @@ class JStr {
    * const result = new JStr("hello world").replaceLast("o", "a").toString();
    * // result: "hellu ward"
    */
-  replaceLast(search: string, replace: string): JStr {
-    const index = this.str.lastIndexOf(search);
-    if (index === -1) return this;
-    this.str =
-      this.str.substring(0, index) +
-      replace +
-      this.str.substring(index + search.length);
-    return this;
+  replaceLast(t, s) {
+    const r = this.str.lastIndexOf(t);
+    return r === -1 ? this : (this.str = this.str.substring(0, r) + s + this.str.substring(r + t.length), this);
   }
-
   /**
    * Returns a new JStr instance containing a substring of the original string.
    * @param {number} start - The starting index of the substring.
@@ -290,11 +222,9 @@ class JStr {
    * const result = new JStr("hello world").substr(6, 5).toString();
    * // result: "world"
    */
-  substr(start: number, length?: number): JStr {
-    this.str = this.str.substr(start, length);
-    return this;
+  substr(t, s) {
+    return this.str = this.str.substr(t, s), this;
   }
-
   /**
    * Pads the string with a specified pad string on both sides to achieve the desired length.
    * @param {number} length - The target length of the padded string.
@@ -304,13 +234,9 @@ class JStr {
    * const result = new JStr("hello").padBoth(10, "-").toString();
    * // result: "--hello---"
    */
-  padBoth(length: number, padString: string): JStr {
-    this.str = this.str
-      .padStart((this.str.length + length) / 2, padString)
-      .padEnd(length, padString);
-    return this;
+  padBoth(t, s) {
+    return this.str = this.str.padStart((this.str.length + t) / 2, s).padEnd(t, s), this;
   }
-
   /**
    * Pads the string with a specified pad string on the left to achieve the desired length.
    * @param {number} length - The target length of the padded string.
@@ -320,11 +246,9 @@ class JStr {
    * const result = new JStr("hello").padLeft(8, "-").toString();
    * // result: "---hello"
    */
-  padLeft(length: number, padString: string): JStr {
-    this.str = this.str.padStart(length, padString);
-    return this;
+  padLeft(t, s) {
+    return this.str = this.str.padStart(t, s), this;
   }
-
   /**
    * Pads the string with a specified pad string on the right to achieve the desired length.
    * @param {number} length - The target length of the padded string.
@@ -334,11 +258,9 @@ class JStr {
    * const result = new JStr("hello").padRight(8, "-").toString();
    * // result: "hello---"
    */
-  padRight(length: number, padString: string): JStr {
-    this.str = this.str.padEnd(length, padString);
-    return this;
+  padRight(t, s) {
+    return this.str = this.str.padEnd(t, s), this;
   }
-
   /**
    * Limits the length of the string and appends an optional ending string.
    * @param {number} limit - The maximum length of the string.
@@ -348,13 +270,9 @@ class JStr {
    * const result = new JStr("Lorem ipsum dolor sit amet").limit(10, '...').toString();
    * // result: "Lorem ipsu..."
    */
-  limit(limit: number, end: string = ""): JStr {
-    if (this.str.length > limit) {
-      this.str = this.str.substring(0, limit) + end;
-    }
-    return this;
+  limit(t, s = "") {
+    return this.str.length > t && (this.str = this.str.substring(0, t) + s), this;
   }
-
   /**
    * Returns the length of the string.
    * @returns {number} The length of the string.
@@ -362,10 +280,9 @@ class JStr {
    * const result = new JStr("hello world").length();
    * // result: 11
    */
-  length(): number {
+  length() {
     return this.str.length;
   }
-
   /**
    * Matches the string against a regular expression or string pattern and returns an array of matches.
    * @param {RegExp | string} pattern - The pattern to match against. Can be a regular expression or a string.
@@ -374,10 +291,9 @@ class JStr {
    * const result = new JStr("hello 123").match(/\d+/g);
    * // result: ["123"]
    */
-  match(pattern: RegExp | string): string[] {
-    return this.str.match(pattern) || [];
+  match(t) {
+    return this.str.match(t) || [];
   }
-
   /**
    * Attempts to pluralize the string.
    * Note: Pluralization in natural language can be complex and may not be accurate for all cases.
@@ -386,31 +302,16 @@ class JStr {
    * const result = new JStr("study").plural().toString();
    * // result: "studies"
    */
-  plural(): JStr {
-    if (!this.str.endsWith("s")) {
-      if (
-        this.str.endsWith("y") &&
-        this.str.length > 1 &&
-        !"aeiou".includes(this.str[this.str.length - 2])
-      ) {
-        // Change 'y' to 'ies' for words like 'study'.
-        this.str = this.str.slice(0, -1) + "ies";
-      } else {
-        // Add 's' for a basic pluralization.
-        this.str += "s";
-      }
-    }
-    return this;
+  plural() {
+    return this.str.endsWith("s") || (this.str.endsWith("y") && this.str.length > 1 && !"aeiou".includes(this.str[this.str.length - 2]) ? this.str = this.str.slice(0, -1) + "ies" : this.str += "s"), this;
   }
-
   /**
    * Singularizes the string.
    * @returns JStr instance for method chaining.
    * @example jstr('children').singular().toString(); // Returns 'child'
    */
-  singular(): JStr {
-    // Define irregular plurals and their singular forms
-    const irregulars: { [key: string]: string } = {
+  singular() {
+    const t = {
       children: "child",
       mice: "mouse",
       geese: "goose",
@@ -428,30 +329,11 @@ class JStr {
       status: "status",
       syllabus: "syllabus",
       women: "woman",
-      men: "man",
+      men: "man"
       // Add more irregulars as needed
     };
-
-    // Check if the word is an irregular plural
-    if (irregulars.hasOwnProperty(this.str)) {
-      this.str = irregulars[this.str];
-    } else {
-      // Use a regex to handle regular plurals
-      const regularPluralRegex = /(?:s|x|z|sh|ch)$/;
-
-      if (regularPluralRegex.test(this.str)) {
-        this.str = this.str.replace(/(?:s|x|z|sh|ch)s$/, "$1");
-      }
-
-      // Handle words ending with "ies"
-      if (this.str.endsWith("ies")) {
-        this.str = this.str.replace(/ies$/, "y");
-      }
-    }
-
-    return this;
+    return t.hasOwnProperty(this.str) ? this.str = t[this.str] : (/(?:s|x|z|sh|ch)$/.test(this.str) && (this.str = this.str.replace(/(?:s|x|z|sh|ch)s$/, "$1")), this.str.endsWith("ies") && (this.str = this.str.replace(/ies$/, "y"))), this;
   }
-
   /**
    * Converts the string to title case, capitalizing the first letter of each word.
    * @returns {JStr} JStr instance for method chaining.
@@ -459,14 +341,12 @@ class JStr {
    * const result = new JStr("hello world").title().toString();
    * // result: "Hello World"
    */
-  title(): JStr {
-    this.str = this.str.replace(
+  title() {
+    return this.str = this.str.replace(
       /\w\S*/g,
-      (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-    );
-    return this;
+      (t) => t.charAt(0).toUpperCase() + t.substr(1).toLowerCase()
+    ), this;
   }
-
   /**
    * Generates a random string of the specified length.
    * If no length is provided, the default length is 16.
@@ -476,16 +356,13 @@ class JStr {
    * const result = JStr.random(8).toString();
    * // result: "aB3kL7fR"
    */
-  static random(length: number = 16): JStr {
-    const chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let randomStr = "";
-    for (let i = 0; i < length; i++) {
-      randomStr += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return new JStr(randomStr);
+  static random(t = 16) {
+    const s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let r = "";
+    for (let i = 0; i < t; i++)
+      r += s.charAt(Math.floor(Math.random() * s.length));
+    return new h(r);
   }
-
   /**
    * Returns a new JStr instance containing a substring of the original string.
    * @param {number} start - The starting index of the substring.
@@ -495,11 +372,9 @@ class JStr {
    * const result = new JStr("hello world").substring(6, 11).toString();
    * // result: "world"
    */
-  substring(start: number, end?: number): JStr {
-    this.str = this.str.substring(start, end);
-    return this;
+  substring(t, s) {
+    return this.str = this.str.substring(t, s), this;
   }
-
   /**
    * Splits the string by a string separator and returns an array of strings.
    * @param separator - The separator to use for splitting the string.
@@ -507,10 +382,9 @@ class JStr {
    * @returns An array of strings.
    * @example jstr('apple,orange,banana').split(','); // Returns ['apple', 'orange', 'banana']
    */
-  split(separator: string, limit?: number): string[] {
-    return this.str.split(separator, limit);
+  split(t, s) {
+    return this.str.split(t, s);
   }
-
   /**
    * Checks if the string starts with any of the specified substrings.
    * @param {string[]} substrings - An array of substrings to check.
@@ -519,10 +393,9 @@ class JStr {
    * const result = new JStr("hello world").startsWithAny(["hello", "hi"]);
    * // result: true
    */
-  startsWithAny(substrings: string[]): boolean {
-    return substrings.some((substring) => this.str.startsWith(substring));
+  startsWithAny(t) {
+    return t.some((s) => this.str.startsWith(s));
   }
-
   /**
    * Checks if the string ends with any of the specified substrings.
    * @param {string[]} substrings - An array of substrings to check.
@@ -531,10 +404,9 @@ class JStr {
    * const result = new JStr("hello world").endsWithAny(["world", "earth"]);
    * // result: true
    */
-  endsWithAny(substrings: string[]): boolean {
-    return substrings.some((substring) => this.str.endsWith(substring));
+  endsWithAny(t) {
+    return t.some((s) => this.str.endsWith(s));
   }
-
   /**
    * Removes diacritics from the string, converting it to ASCII.
    * @returns {JStr} JStr instance for method chaining.
@@ -542,12 +414,9 @@ class JStr {
    * const result = new JStr("héllô wórld").ascii().toString();
    * // result: "hello world"
    */
-  ascii(): JStr {
-    // This is a basic implementation. For a complete ASCII conversion, consider a library.
-    this.str = this.str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    return this;
+  ascii() {
+    return this.str = this.str.normalize("NFD").replace(/[\u0300-\u036f]/g, ""), this;
   }
-
   /**
    * Replaces all occurrences of a substring with another string.
    * @param {string} search - The substring to search for.
@@ -557,31 +426,25 @@ class JStr {
    * const result = new JStr("hello world").replace("world", "universe").toString();
    * // result: "hello universe"
    */
-  replace(search: string, replace: string): JStr {
-    this.str = this.str.replace(new RegExp(search, "g"), replace);
-    return this;
+  replace(t, s) {
+    return this.str = this.str.replace(new RegExp(t, "g"), s), this;
   }
-
   /**
    * Reverses the string.
    * @returns JStr instance for method chaining.
    * @example jstr('Hello').reverse().toString(); // Returns 'olleH'
    */
-  reverse(): JStr {
-    this.str = this.str.split("").reverse().join("");
-    return this;
+  reverse() {
+    return this.str = this.str.split("").reverse().join(""), this;
   }
-
   /**
    * Trims whitespace from both ends of the string.
    * @returns JStr instance for method chaining.
    * @example jstr('  Hello World  ').trim().toString(); // Returns 'Hello World'
    */
-  trim(): JStr {
-    this.str = this.str.trim();
-    return this;
+  trim() {
+    return this.str = this.str.trim(), this;
   }
-
   /**
    * Removes leading whitespace from the string.
    * @returns {JStr} JStr instance for method chaining.
@@ -589,11 +452,9 @@ class JStr {
    * const result = new JStr("   hello").trimStart().toString();
    * // result: "hello"
    */
-  trimStart(): JStr {
-    this.str = this.str.trimStart();
-    return this;
+  trimStart() {
+    return this.str = this.str.trimStart(), this;
   }
-
   /**
    * Removes trailing whitespace from the string.
    * @returns {JStr} JStr instance for method chaining.
@@ -601,11 +462,9 @@ class JStr {
    * const result = new JStr("hello   ").trimEnd().toString();
    * // result: "hello"
    */
-  trimEnd(): JStr {
-    this.str = this.str.trimEnd();
-    return this;
+  trimEnd() {
+    return this.str = this.str.trimEnd(), this;
   }
-
   /**
    * Checks if the string matches the specified pattern.
    * @param {string | RegExp} pattern - The pattern to match against. Can be a string or a RegExp.
@@ -618,13 +477,9 @@ class JStr {
    * const resultRegex = new JStr("hello").is(regex);
    * // resultRegex: true
    */
-  is(pattern: string | RegExp): boolean {
-    if (pattern instanceof RegExp) {
-      return pattern.test(this.str);
-    }
-    return new RegExp(pattern).test(this.str);
+  is(t) {
+    return t instanceof RegExp ? t.test(this.str) : new RegExp(t).test(this.str);
   }
-
   /**
    * Checks if the string contains all specified substrings.
    * @param {string[]} values - An array of substrings to check for.
@@ -633,10 +488,9 @@ class JStr {
    * const result = new JStr("hello world").containsAll(["hello", "world"]);
    * // result: true
    */
-  containsAll(values: string[]): boolean {
-    return values.every((value) => this.str.includes(value));
+  containsAll(t) {
+    return t.every((s) => this.str.includes(s));
   }
-
   /**
    * Generates a simple UUID v4 using a basic algorithm.
    * For more robust UUID generation, consider using a dedicated library.
@@ -645,17 +499,14 @@ class JStr {
    * const result = JStr.uuid().toString();
    * // result: "3e2d7b0d-16da-43b4-a2f5-99e91781ccbb"
    */
-  static uuid(): JStr {
-    // Simple UUID v4 generator; for more robust UUID generation, consider using a library.
-    return new JStr(
-      "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
-        const r = (Math.random() * 16) | 0,
-          v = c == "x" ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
+  static uuid() {
+    return new h(
+      "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (t) => {
+        const s = Math.random() * 16 | 0;
+        return (t == "x" ? s : s & 3 | 8).toString(16);
       })
     );
   }
-
   /**
    * Executes a callback on the JStr instance when a specified condition is met.
    * @param {boolean} condition - The condition to check.
@@ -667,13 +518,9 @@ class JStr {
    * }).toString();
    * // result: "hello world"
    */
-  when(condition: boolean, callback: (str: JStr) => void): JStr {
-    if (condition) {
-      callback(this);
-    }
-    return this;
+  when(t, s) {
+    return t && s(this), this;
   }
-
   /**
    * Executes a callback on the JStr instance when the string is empty.
    * @param {(str: JStr) => void} callback - The callback function to execute when the string is empty.
@@ -684,13 +531,9 @@ class JStr {
    * }).toString();
    * // result: "default"
    */
-  whenEmpty(callback: (str: JStr) => void): JStr {
-    if (!this.str) {
-      callback(this);
-    }
-    return this;
+  whenEmpty(t) {
+    return this.str || t(this), this;
   }
-
   /**
    * Appends the specified string to the end of the current string.
    * @param {string} appendStr - The string to append.
@@ -699,11 +542,9 @@ class JStr {
    * const result = new JStr("hello").append(" world").toString();
    * // result: "hello world"
    */
-  append(appendStr: string): JStr {
-    this.str += appendStr;
-    return this;
+  append(t) {
+    return this.str += t, this;
   }
-
   /**
    * Prepends the specified string to the start of the current string.
    * @param {string} prependStr - The string to prepend.
@@ -712,11 +553,9 @@ class JStr {
    * const result = new JStr("world").prepend("hello ").toString();
    * // result: "hello world"
    */
-  prepend(prependStr: string): JStr {
-    this.str = prependStr + this.str;
-    return this;
+  prepend(t) {
+    return this.str = t + this.str, this;
   }
-
   /**
    * Appends the specified value to the end of the string if it's not already present.
    * @param {string} value - The value to append.
@@ -725,13 +564,9 @@ class JStr {
    * const result = new JStr("hello").finish(" world").toString();
    * // result: "hello world"
    */
-  finish(value: string): JStr {
-    if (!this.str.endsWith(value)) {
-      this.str += value;
-    }
-    return this;
+  finish(t) {
+    return this.str.endsWith(t) || (this.str += t), this;
   }
-
   /**
    * Prepends the specified value to the start of the string if it's not already present.
    * @param {string} value - The value to prepend.
@@ -740,13 +575,9 @@ class JStr {
    * const result = new JStr("world").start("hello ").toString();
    * // result: "hello world"
    */
-  start(value: string): JStr {
-    if (!this.str.startsWith(value)) {
-      this.str = value + this.str;
-    }
-    return this;
+  start(t) {
+    return this.str.startsWith(t) || (this.str = t + this.str), this;
   }
-
   /**
    * Returns the word count of the string.
    * @returns {number} The word count.
@@ -754,10 +585,9 @@ class JStr {
    * const result = new JStr("hello world").wordCount();
    * // result: 2
    */
-  wordCount(): number {
+  wordCount() {
     return this.str.split(/\s+/).filter(Boolean).length;
   }
-
   /**
    * Checks if the string contains only ASCII characters.
    * @returns {boolean} `true` if the string is ASCII, otherwise `false`.
@@ -765,10 +595,9 @@ class JStr {
    * const result = new JStr("hello").isAscii();
    * // result: true
    */
-  isAscii(): boolean {
+  isAscii() {
     return /^[\x00-\x7F]*$/.test(this.str);
   }
-
   /**
    * Checks if the string is numeric.
    * @returns {boolean} `true` if the string is numeric, otherwise `false`.
@@ -776,10 +605,9 @@ class JStr {
    * const result = new JStr("123").isNumeric();
    * // result: true
    */
-  isNumeric(): boolean {
+  isNumeric() {
     return /^[0-9]+$/.test(this.str);
   }
-
   /**
    * Checks if the string contains only alphabetic characters.
    * @returns {boolean} `true` if the string is alphabetic, otherwise `false`.
@@ -787,10 +615,9 @@ class JStr {
    * const result = new JStr("hello").isAlpha();
    * // result: true
    */
-  isAlpha(): boolean {
+  isAlpha() {
     return /^[A-Za-z]+$/.test(this.str);
   }
-
   /**
    * Checks if the string contains only alphanumeric characters.
    * @returns Boolean indicating whether the string is alphanumeric.
@@ -798,10 +625,9 @@ class JStr {
    * // Returns true
    * jstr('Hello123').isAlphanumeric();
    */
-  isAlphanumeric(): boolean {
+  isAlphanumeric() {
     return /^[A-Za-z0-9]+$/.test(this.str);
   }
-
   /**
    * Converts the string to kebab-case.
    * @param separator - The separator to use, default is '-'.
@@ -810,14 +636,9 @@ class JStr {
    * // Returns 'hello-world'
    * jstr('Hello World').kebab().toString();
    */
-  kebab(separator: string = "-"): JStr {
-    this.str = this.str
-      .replace(/([a-z])([A-Z])/g, "$1" + separator + "$2")
-      .replace(/\s+/g, separator)
-      .toLowerCase();
-    return this;
+  kebab(t = "-") {
+    return this.str = this.str.replace(/([a-z])([A-Z])/g, "$1" + t + "$2").replace(/\s+/g, t).toLowerCase(), this;
   }
-
   /**
    * Extracts a section of the string.
    * @param start - The start index.
@@ -827,11 +648,9 @@ class JStr {
    * // Returns 'llo'
    * jstr('Hello').slice(2, 5).toString();
    */
-  slice(start: number, end?: number): JStr {
-    this.str = this.str.slice(start, end);
-    return this;
+  slice(t, s) {
+    return this.str = this.str.slice(t, s), this;
   }
-
   /**
    * Removes HTML and XML tags from the string.
    * @returns JStr instance for method chaining.
@@ -839,11 +658,9 @@ class JStr {
    * // Returns 'Hello World'
    * jstr('<p>Hello World</p>').stripTags().toString();
    */
-  stripTags(): JStr {
-    this.str = this.str.replace(/<\/?[^>]+(>|$)/g, "");
-    return this;
+  stripTags() {
+    return this.str = this.str.replace(/<\/?[^>]+(>|$)/g, ""), this;
   }
-
   /**
    * Truncates the string to a specified length, appending a specified ending if needed.
    * @param length - The maximum length of the string.
@@ -853,13 +670,9 @@ class JStr {
    * // Returns 'Hello...'
    * jstr('Hello World').excerpt(5).toString();
    */
-  excerpt(length: number, end: string = "..."): JStr {
-    if (this.str.length > length) {
-      this.str = this.str.substring(0, length) + end;
-    }
-    return this;
+  excerpt(t, s = "...") {
+    return this.str.length > t && (this.str = this.str.substring(0, t) + s), this;
   }
-
   /**
    * Pads the string to a certain length with another string.
    * @param length - The target length.
@@ -870,29 +683,21 @@ class JStr {
    * // Returns 'Hello     '
    * jstr('Hello').pad(10).toString();
    */
-  pad(
-    length: number,
-    padString: string,
-    padType: "left" | "right" | "both" = "right"
-  ): JStr {
-    switch (padType) {
+  pad(t, s, r = "right") {
+    switch (r) {
       case "left":
-        this.str = this.str.padStart(length, padString);
+        this.str = this.str.padStart(t, s);
         break;
       case "right":
-        this.str = this.str.padEnd(length, padString);
+        this.str = this.str.padEnd(t, s);
         break;
       case "both":
-        const padLen = length - this.str.length;
-        const padLeft = Math.floor(padLen / 2) + this.str.length;
-        this.str = this.str
-          .padStart(padLeft, padString)
-          .padEnd(length, padString);
+        const i = t - this.str.length, a = Math.floor(i / 2) + this.str.length;
+        this.str = this.str.padStart(a, s).padEnd(t, s);
         break;
     }
     return this;
   }
-
   /**
    * Limits the number of words in the string.
    * @param limit - The maximum number of words to include.
@@ -902,14 +707,10 @@ class JStr {
    * // Returns 'Hello...'
    * jstr('Hello World').words(1).toString();
    */
-  words(limit: number, end: string = "..."): JStr {
-    const words = this.str.split(/\s+/);
-    if (words.length > limit) {
-      this.str = words.slice(0, limit).join(" ") + end;
-    }
-    return this;
+  words(t, s = "...") {
+    const r = this.str.split(/\s+/);
+    return r.length > t && (this.str = r.slice(0, t).join(" ") + s), this;
   }
-
   /**
    * Counts the occurrences of a substring in the string.
    * @param substring - The substring to count.
@@ -918,39 +719,27 @@ class JStr {
    * // Returns 2
    * jstr('Hello World Hello').count('Hello');
    */
-  count(substring: string): number {
-    return (this.str.match(new RegExp(substring, "g")) || []).length;
+  count(t) {
+    return (this.str.match(new RegExp(t, "g")) || []).length;
   }
-
   /**
    * Swaps the case of each character in the string.
    * @returns JStr instance for method chaining.
    * @example jstr('Hello World').swapCase().toString(); // Returns 'hELLO wORLD'
    */
-  swapCase(): JStr {
-    this.str = this.str
-      .split("")
-      .map((char) =>
-        char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase()
-      )
-      .join("");
-    return this;
+  swapCase() {
+    return this.str = this.str.split("").map(
+      (t) => t === t.toUpperCase() ? t.toLowerCase() : t.toUpperCase()
+    ).join(""), this;
   }
-
   /**
    * Converts the string to a headline format.
    * @returns JStr instance for method chaining.
    * @example jstr('steve_jobs').headline().toString(); // Returns 'Steve Jobs'
    */
   headline() {
-    this.str = this.str
-      .replace(/[_-]/g, " ")
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-    return this;
+    return this.str = this.str.replace(/[_-]/g, " ").split(" ").map((t) => t.charAt(0).toUpperCase() + t.slice(1)).join(" "), this;
   }
-
   /**
    * Reverses the order of words in the string.
    * @returns JStr instance for method chaining.
@@ -958,11 +747,9 @@ class JStr {
    * // Returns 'World Hello'
    * jstr('Hello World').reverseWords().toString();
    */
-  reverseWords(): JStr {
-    this.str = this.str.split(" ").reverse().join(" ");
-    return this;
+  reverseWords() {
+    return this.str = this.str.split(" ").reverse().join(" "), this;
   }
-
   /**
    * Converts the string to a boolean.
    * Considers 'true', '1', 'yes', and 'on' as truthy values.
@@ -971,10 +758,9 @@ class JStr {
    * // Returns true
    * jstr('yes').toBoolean();
    */
-  toBoolean(): boolean {
+  toBoolean() {
     return /^(true|1|yes|on)$/i.test(this.str.trim());
   }
-
   /**
    * Truncates the string to a specified length.
    * @param length - The maximum length of the string.
@@ -984,11 +770,9 @@ class JStr {
    * // Returns 'Hello...'
    * jstr('Hello World').truncate(5).toString();
    */
-  truncate(length: number, end: string = "..."): JStr {
-    if (this.str.length <= length) return this;
-    return new JStr(this.str.substring(0, length - end.length) + end);
+  truncate(t, s = "...") {
+    return this.str.length <= t ? this : new h(this.str.substring(0, t - s.length) + s);
   }
-
   /**
    * Between the string to a specified words.
    * @param start - The start of the string.
@@ -998,15 +782,9 @@ class JStr {
    * // Returns 'brown'
    * jstr.of('The quick brown fox jumps over the lazy dog').between("quick", "fox").toString();
    */
-  between(start: string, end: string): string {
-    const startIndex = this.str.indexOf(start);
-    const endIndex = this.str.indexOf(end, startIndex + start.length);
-
-    if (startIndex !== -1 && endIndex !== -1 && startIndex < endIndex) {
-      return this.str.substring(startIndex + start.length, endIndex);
-    } else {
-      return "";
-    }
+  between(t, s) {
+    const r = this.str.indexOf(t), i = this.str.indexOf(s, r + t.length);
+    return r !== -1 && i !== -1 && r < i ? this.str.substring(r + t.length, i) : "";
   }
   /**
    * Creates a new JStr instance from the provided string.
@@ -1016,19 +794,18 @@ class JStr {
    * // Returns a JStr instance representing 'Hello, JStr!'
    * JStr.of('Hello, JStr!').toString();
    */
-  static of(str: string): JStr {
-    return new JStr(str);
+  static of(t) {
+    return new h(t);
   }
-
   /**
    * Returns the final string after all chained manipulations.
    * @returns The manipulated string.
    * @example jstr('Hello World').upper().toString(); // Returns 'HELLO WORLD'
    */
-  toString(): string {
+  toString() {
     return this.str;
   }
 }
-
-// Exporting JStr as the default export
-export default JStr;
+export {
+  h as default
+};
