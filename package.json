@@ -7,10 +7,10 @@
         "dist"
     ],
     "main": "./dist/jstr.umd.cjs",
-    "module": "./dist/jstr.js",
+    "module": "./dist/jstr.es.js",
     "exports": {
         ".": {
-            "import": "./dist/jstr.js",
+            "import": "./dist/jstr.es.js",
             "require": "./dist/jstr.umd.cjs"
         }
     },
