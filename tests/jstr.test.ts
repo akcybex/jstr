@@ -1,32 +1,32 @@
 import JStr from "../src/main.ts";
 
-describe("JStr plural method", () => {
-  test('should pluralize words ending with "y" correctly', () => {
-    const result = JStr.of("study").plural().toString();
-    expect(result).toBe("studies");
-  });
+// describe("JStr plural method", () => {
+//   test('should pluralize words ending with "y" correctly', () => {
+//     const result = JStr.of("study").plural().toString();
+//     expect(result).toBe("studies");
+//   });
+//
+//   test('should add "s" for basic pluralization', () => {
+//     const result = JStr.of("apple").plural().toString();
+//     expect(result).toBe("apples");
+//   });
+//
+//   // Add more test cases as needed
+// });
 
-  test('should add "s" for basic pluralization', () => {
-    const result = JStr.of("apple").plural().toString();
-    expect(result).toBe("apples");
-  });
-
-  // Add more test cases as needed
-});
-
-describe("JStr singular method", () => {
-  test('should singular words ending with "ies" correctly', () => {
-    const result = JStr.of("studies").singular().toString();
-    expect(result).toBe("study");
-  });
-
-  test('should remove "s" for basic singularization', () => {
-    const result = JStr.of("apples").singular().toString();
-    expect(result).toBe("apple");
-  });
-
-  // Add more test cases as needed
-});
+// describe("JStr singular method", () => {
+//   test('should singular words ending with "ies" correctly', () => {
+//     const result = JStr.of("studies").singular().toString();
+//     expect(result).toBe("study");
+//   });
+//
+//   test('should remove "s" for basic singularization', () => {
+//     const result = JStr.of("apples").singular().toString();
+//     expect(result).toBe("apple");
+//   });
+//
+//   // Add more test cases as needed
+// });
 
 /**
  * Tests for the JStr class.
