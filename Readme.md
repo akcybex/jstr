@@ -43,7 +43,7 @@ For browser-based projects, you can use the CDN link:
 
 ```html
 
-<script src="https://unpkg.com/@akcybex/jsr:{version}/jstr.es.js"></script>
+<script src="https://unpkg.com/@akcybex/jsr@x.x.x/jstr.umd.js"></script>
 ```
 
 After including the script, `jstr` will be available globally:
