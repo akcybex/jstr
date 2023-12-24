@@ -5,8 +5,7 @@
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const jstr = new JStr("\\App\\Http\\Controllers\\Controller");
-const result = jstr.afterLast("\\");
+const result = JStr.of("\\App\\Http\\Controllers\\Controller").afterLast("\\");
 console.log(result); // Outputs: 'Controller'
 ```
 
