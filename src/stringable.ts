@@ -570,6 +570,15 @@ class Stringable {
 	}
 
 	/**
+	 * Pluralize the last word of an English, studly caps case string.
+	 *
+	 * @return string
+	 */
+	pluralStudly(): Stringable {
+		return new Stringable(JStr.pluralStudly(this.str));
+	}
+
+	/**
 	 * Returns the portion of the string specified by the start and length parameters.
 	 * @param {number} start - The starting position of the substring.
 	 * @param {number | null} length - The length of the substring. If null, returns the substring from start to the end of the string.
@@ -932,6 +941,23 @@ class Stringable {
 		return this;
 	}
 
+	/**
+	 * Get the singular form of an English word.
+	 *
+	 * @return string
+	 */
+	singular(): Stringable {
+		return new Stringable(JStr.singular(this.str));
+	}
+
+	/**
+	 * Get the plural form of an English word.
+	 *
+	 * @return string
+	 */
+	plural(): Stringable {
+		return new Stringable(JStr.plural(this.str));
+	}
 
 	/**
 	 * Apply the callback if the given "value" is truthy.

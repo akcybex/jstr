@@ -1,5 +1,6 @@
+import { v4 as uuid4, validate as uuidValidate  } from 'uuid';
+import Pluralize from 'pluralize';
 import Stringable from './stringable.ts';
-
 /**
  * JStr class for chainable string manipulations.
  */
@@ -367,7 +368,7 @@ class JStr {
 	 * // result: true
 	 */
 	static isUuid(value: string): boolean {
-		return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
+		return uuidValidate(value);
 	}
 
 	/**
@@ -688,6 +689,18 @@ class JStr {
 			.replace(/(?:^|\s|-)+(.)/g, (_, char) => char.toUpperCase());
 	}
 
+	/**
+	 * Pluralize the last word of an English, studly caps case string.
+	 *
+	 * @return string
+	 * @param value
+	 */
+	static pluralStudly(value: string): string {
+		const parts = value.split(/(?=[A-Z])/);
+		const lastWord = parts.pop() || "";
+
+		return parts.join('') + this.plural(lastWord);
+	}
 
 	/**
 	 * Returns the portion of the string specified by the start and length parameters.
@@ -1085,6 +1098,35 @@ class JStr {
 		slug = slug.replace(new RegExp(`^${separator}+|${separator}+$`, 'gu'), '');
 
 		return slug;
+	}
+
+	/**
+	 * Generate a UUID (version 4).
+	 *
+	 * @return string
+	 */
+	static uuid(): string {
+		return uuid4();
+	}
+
+	/**
+	 * Get the singular form of an English word.
+	 *
+	 * @return string
+	 * @param value
+	 */
+	static singular(value: string): string {
+		return Pluralize.singular(value);
+	}
+
+	/**
+	 * Get the plural form of an English word.
+	 *
+	 * @return string
+	 * @param value
+	 */
+	static plural(value: string): string {
+		return Pluralize.plural(value);
 	}
 
 	/**
