@@ -1009,6 +1009,25 @@ class JStr {
     }
   }
   /**
+   * Between the first string to a specified words.
+   * @param start - The start of the string.
+   * @param end - The end of the string.
+   * @returns JStr instance for method chaining.
+   * @example
+   * // Returns 'brown'
+   * jstr.of('[a] bc [d]').betweenFirst('[', ']').toString();
+   */
+  betweenFirst(start: string, end: string): string {
+    const startIndex = this.str.indexOf(start);
+    const endIndex = this.str.indexOf(end);
+
+    if (startIndex !== -1 && endIndex !== -1 && startIndex < endIndex) {
+      return this.str.substring(startIndex + start.length, endIndex);
+    } else {
+      return "";
+    }
+  }
+  /**
    * Creates a new JStr instance from the provided string.
    * @param {string} str - The input string to be encapsulated in a JStr instance.
    * @returns {JStr} - A new JStr instance containing the provided string.
