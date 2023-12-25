@@ -1130,6 +1130,72 @@ class JStr {
 	}
 
 	/**
+	 * Remove all "extra" blank space from the given string.
+	 *
+	 * @param value - The string to be processed.
+	 * @return The processed string with extra spaces removed.
+	 */
+	static squish(value: string): string {
+		// Trim whitespace and Byte Order Mark (BOM) from start and end of the string
+		let result = value.replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
+
+		// Replace sequences of whitespace characters (including Hangul Filler and Hangul Jungseong Ae) within the string with a single space
+		result = result.replace(/(\s|\u3164|\u1160)+/g, ' ');
+
+		return result;
+	}
+
+	/**
+	 * Reverse the given string.
+	 *
+	 * @param value - The string to be reversed.
+	 * @return The reversed string.
+	 */
+	static reverse(value: string): string {
+		// Split the string into an array of characters, reverse it, and then join it back into a string
+		return Array.from(value).reverse().join('');
+	}
+
+	/**
+	 * Generate a more truly "random" alpha-numeric string.
+	 *
+	 * @param length - The length of the generated string.
+	 * @return The random alpha-numeric string.
+	 */
+	static random(length: number = 16): string {
+		let result = '';
+		const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+		for (let i = 0; i < length; i++) {
+			const randomIndex = Math.floor(Math.random() * characters.length);
+			result += characters[randomIndex];
+		}
+
+		return result;
+	}
+
+	/**
+	 * Remove any occurrence of the given string in the subject.
+	 *
+	 * @param search - The string to be removed.
+	 * @param subject - The string from which to remove.
+	 * @param caseSensitive - Whether the removal is case sensitive.
+	 * @return The string with the specified value removed.
+	 */
+	static remove(search: string | string[], subject: string, caseSensitive: boolean = true): string {
+		if (!Array.isArray(search)) {
+			search = [search];
+		}
+
+		for (let s of search) {
+			const pattern = RegExp(s, caseSensitive ? 'g' : 'gi');
+			subject = subject.replace(pattern, '');
+		}
+
+		return subject;
+	}
+
+	/**
 	 * Creates a new JStr instance from the provided string.
 	 * @param {string} str - The input string to be encapsulated in a JStr instance.
 	 * @returns {Stringable} - A new JStr instance containing the provided string.

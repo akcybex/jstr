@@ -107,22 +107,22 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔ `JStr.padLeft`       | Pads the string on the left side with a specified character to a specified length.                  | [Documentation](docs/PadLeft.md)        |
 | ✔ `JStr.padRight`      | Pads the string on the right side with a specified character to a specified length.                 | [Documentation](docs/PadRight.md)       |
 | ✔ `JStr.password`      | Generates a password string.                                                                        | [Documentation](docs/Password.md)       |
-| ✔ `JStr.plural`          | Converts the string to plural form.                                                                 | [Documentation](docs/Plural.md)         |
-| ✔ `JStr.pluralStudly`    | Converts the string to plural studly form.                                                          | [Documentation](docs/PluralStudly.md)   |
+| ✔ `JStr.plural`        | Converts the string to plural form.                                                                 | [Documentation](docs/Plural.md)         |
+| ✔ `JStr.pluralStudly`  | Converts the string to plural studly form.                                                          | [Documentation](docs/PluralStudly.md)   |
 | ✔ `JStr.position`      | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)       |
-| `JStr.random`          | Generates a random string.                                                                          | [Documentation](docs/Random.md)         |
-| `JStr.remove`          | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)         |
+| ✔ `JStr.random`        | Generates a random string.                                                                          | [Documentation](docs/Random.md)         |
+| ✔ `JStr.remove`        | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)         |
 | ✔ `JStr.repeat`        | Repeats the string a specified number of times.                                                     | [Documentation](docs/Repeat.md)         |
 | ✔ `JStr.replace`       | Replaces occurrences of a specified substring with another substring.                               | [Documentation](docs/Replace.md)        |
 | ✔ `JStr.replaceArray`  | Replaces occurrences of specified substrings with corresponding replacements.                       | [Documentation](docs/ReplaceArray.md)   |
 | ✔ `JStr.replaceFirst`  | Replaces the first occurrence of a specified substring with another substring.                      | [Documentation](docs/ReplaceFirst.md)   |
 | ✔ `JStr.replaceLast`   | Replaces the last occurrence of a specified substring with another substring.                       | [Documentation](docs/ReplaceLast.md)    |
 | ✔ `JStr.rtrim`         | Removes whitespace from the end of the string.                                                      | [Documentation](docs/Rtrim.md)          |
-| `JStr.reverse`         | Reverses the characters of the string.                                                              | [Documentation](docs/Reverse.md)        |
+| ✔ `JStr.reverse`       | Reverses the characters of the string.                                                              | [Documentation](docs/Reverse.md)        |
 | ✔ `JStr.singular`      | Converts the string to singular form.                                                               | [Documentation](docs/Singular.md)       |
 | ✔ `JStr.slug`          | Converts the string to a URL-friendly slug.                                                         | [Documentation](docs/Slug.md)           |
 | ✔ `JStr.snake`         | Converts the string to snake case.                                                                  | [Documentation](docs/Snake.md)          |
-| `JStr.squish`          | Reduces multiple consecutive whitespace characters to a single space.                               | [Documentation](docs/Squish.md)         |
+| ✔ `JStr.squish`        | Reduces multiple consecutive whitespace characters to a single space.                               | [Documentation](docs/Squish.md)         |
 | ✔ `JStr.start`         | Adds a specified prefix to the beginning of the string.                                             | [Documentation](docs/Start.md)          |
 | ✔ `JStr.startsWith`    | Checks if the string starts with a specified prefix.                                                | [Documentation](docs/StartsWith.md)     |
 | ✔ `JStr.studly`        | Converts the string to studly case.                                                                 | [Documentation](docs/Studly.md)         |
@@ -202,20 +202,21 @@ clarity and conciseness in your code.
 | ✔ `plural`                 | Converts the string to plural form.                                                                 | [Documentation](docs/Plural.md)          |
 | ✔ `position`               | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)        |
 | ✔ `prepend`                | Prepends a string or an array of strings to the beginning of the current string.                    | [Documentation](docs/Prepend.md)         |
-| `remove`                   | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)          |
+| ✔ `remove`                 | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)          |
 | ✔ `repeat`                 | Repeats the string a specified number of times.                                                     | [Documentation](docs/Repeat.md)          |
 | ✔ `replace`                | Replaces occurrences of a specified substring with another substring.                               | [Documentation](docs/Replace.md)         |
 | ✔ `replaceArray`           | Replaces occurrences of specified substrings with corresponding replacements.                       | [Documentation](docs/ReplaceArray.md)    |
 | ✔ `replaceFirst`           | Replaces the first occurrence of a specified substring with another substring.                      | [Documentation](docs/ReplaceFirst.md)    |
 | ✔ `replaceLast`            | Replaces the last occurrence of a specified substring with another substring.                       | [Documentation](docs/ReplaceLast.md)     |
 | ✔ `replaceMatches`         | Replaces occurrences of a specified pattern with a callback result.                                 | [Documentation](docs/ReplaceMatches.md)  |
+| ✔ `reverse`                | Reverses the characters of the string.                                                              | [Documentation](docs/Reverse.md)         |
 | ✔ `rtrim`                  | Removes whitespace from the end of the string.                                                      | [Documentation](docs/Rtrim.md)           |
-| `scan`                     | Returns an array of all occurrences of a regular expression pattern in the string.                  | [Documentation](docs/Scan.md)            |
+| ✔ `scan`                     | Returns an array of all occurrences of a regular expression pattern in the string.                  | [Documentation](docs/Scan.md)            |
 | ✔ `singular`               | Converts the string to singular form.                                                               | [Documentation](docs/Singular.md)        |
 | ✔ `slug`                   | Converts the string to a URL-friendly slug.                                                         | [Documentation](docs/Slug.md)            |
 | ✔ `snake`                  | Converts the string to snake case.                                                                  | [Documentation](docs/Snake.md)           |
-| `split`                    | Splits the string by a specified delimiter and returns an array of the parts.                       | [Documentation](docs/Split.md)           |
-| `squish`                   | Reduces multiple consecutive whitespace characters to a single space.                               | [Documentation](docs/Squish.md)          |
+| ✔ `split`                    | Splits the string by a specified delimiter and returns an array of the parts.                       | [Documentation](docs/Split.md)           |
+| ✔ `squish`                 | Reduces multiple consecutive whitespace characters to a single space.                               | [Documentation](docs/Squish.md)          |
 | ✔ `start`                  | Adds a specified prefix to the beginning of the string.                                             | [Documentation](docs/Start.md)           |
 | ✔ `startsWith`             | Checks if the string starts with a specified prefix.                                                | [Documentation](docs/StartsWith.md)      |
 | ✔ `studly`                 | Converts the string to studly case.                                                                 | [Documentation](docs/Studly.md)          |
@@ -226,7 +227,7 @@ clarity and conciseness in your code.
 | ✔ `swap`                   | Swaps the case of each character in the string.                                                     | [Documentation](docs/Swap.md)            |
 | ✔ `take`                   | Returns the first n characters from the string.                                                     | [Documentation](docs/Take.md)            |
 | ✔ `tap`                    | Passes the string to a callback and returns the string.                                             | [Documentation](docs/Tap.md)             |
-| `test`                     | Performs a regular expression match on the string and returns a boolean.                            | [Documentation](docs/Test.md)            |
+| ✔ `test`                     | Performs a regular expression match on the string and returns a boolean.                            | [Documentation](docs/Test.md)            |
 | ✔ `title`                  | Converts the first character of each word in the string to uppercase.                               | [Documentation](docs/Title.md)           |
 | ✔ `trim`                   | Removes whitespace from the beginning and end of the string.                                        | [Documentation](docs/Trim.md)            |
 | ✔ `ucfirst`                | Converts the first character of the string to uppercase.                                            | [Documentation](docs/Ucfirst.md)         |

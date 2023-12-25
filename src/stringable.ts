@@ -960,6 +960,73 @@ class Stringable {
 	}
 
 	/**
+	 * Remove all "extra" blank space from the given string.
+	 *
+	 * @return The processed string with extra spaces removed.
+	 */
+	squish(): Stringable {
+		return new Stringable(JStr.squish(this.str));
+	}
+
+	/**
+	 * Reverse the given string.
+	 *
+	 * @return The reversed string.
+	 */
+	reverse(): Stringable {
+		return new Stringable(JStr.reverse(this.str));
+	}
+
+	/**
+	 * Remove any occurrence of the given string in the subject.
+	 *
+	 * @param search - The string to be removed.
+	 * @param caseSensitive - Whether the removal is case-sensitive.
+	 * @return The string with the specified value removed.
+	 */
+	remove(search: string | string[], caseSensitive: boolean = true): Stringable {
+		return new Stringable(JStr.remove(search, this.str, caseSensitive));
+	}
+
+	/**
+	 * Parse input from a string to an array, according to a format.
+	 *
+	 * @param format - The format string.
+	 * @return An array of parsed elements.
+	 */
+	scan(format: string): any[] {
+		// This is a simple implementation. Complex format parsing like sscanf in PHP is not straightforward in JavaScript.
+		const regex = new RegExp(format);
+		const matches = regex.exec(this.str);
+		return matches ? matches.slice(1) : [];
+	}
+
+	/**
+	 * Split a string using a regular expression or by length.
+	 *
+	 * @param pattern - The pattern or length to split by.
+	 * @param limit - The maximum number of splits.
+	 * @return An array of string segments.
+	 */
+	split(pattern: string | number, limit: number = -1): string[] {
+		if (typeof pattern === 'number') {
+			return this.str.match(new RegExp(`.{1,${pattern}}`, 'g')) || [];
+		} else {
+			return this.str.split(new RegExp(pattern), limit);
+		}
+	}
+
+	/**
+	 * Determine if the string matches the given pattern.
+	 *
+	 * @param pattern - The pattern to test against.
+	 * @return True if the string matches the pattern, false otherwise.
+	 */
+	public test(pattern: string): boolean {
+		return this.isMatch(pattern)
+	}
+
+	/**
 	 * Apply the callback if the given "value" is truthy.
 	 * @param value - The value to evaluate or a function returning the value.
 	 * @param callback - The callback to execute if the value is truthy.
