@@ -27,7 +27,7 @@ describe('JStr static after method', () => {
 	});
 
 	test('JStr.after() - return jack after the given /', () => {
-		expect(JStr.after('This is my name / jack', '/').toString()).toBe(
+		expect(JStr.after('This is my name / jack', '/')).toBe(
 			' jack',
 		);
 	});

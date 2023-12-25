@@ -1,0 +1,23 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+
+# 4 spaces indentation
+[{*.js,*.ts}]
+indent_style = tab
+indent_size = 4
+
+[*.html]
+indent_style = tab
+indent_size = 4
+
+# Match all files without an explicit configuration
+# (this should be at the end of the file)
