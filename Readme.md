@@ -69,13 +69,13 @@ or relevant libraries. Common operations include concatenation, searching, repla
 
 | JSTR String Methods    | Description                                                                                         | Documentation Link                      |
 |------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------|
-| ✔ `JStr.after`         | Returns the portion of the string that comes after a specified substring.                           | [Documentation](docs/After.md)          |
-| ✔ `JStr.afterLast`     | Returns the portion of the string that comes after the last occurrence of a specified substring.    | [Documentation](docs/AfterLast.md)      |
+| ✔✔ `JStr.after`         | Returns the portion of the string that comes after a specified substring.                           | [Documentation](docs/After.md)          |
+| ✔✔ `JStr.afterLast`     | Returns the portion of the string that comes after the last occurrence of a specified substring.    | [Documentation](docs/AfterLast.md)      |
 | ✔ `JStr.ascii`         | Returns the ASCII representation of the string.                                                     | [Documentation](docs/Ascii.md)          |
-| ✔ `JStr.before`        | Returns the portion of the string that comes before a specified substring.                          | [Documentation](docs/Before.md)         |
-| ✔ `JStr.beforeLast`    | Returns the portion of the string that comes before the last occurrence of a specified substring.   | [Documentation](docs/BeforeLast.md)     |
-| ✔ `JStr.between`       | Returns the portion of the string that is between two specified substrings.                         | [Documentation](docs/Between.md)        |
-| ✔ `JStr.betweenFirst`  | Returns the portion of the string that is between the first occurrence of two specified substrings. | [Documentation](docs/BetweenFirst.md)   |
+| ✔✔ `JStr.before`        | Returns the portion of the string that comes before a specified substring.                          | [Documentation](docs/Before.md)         |
+| ✔✔ `JStr.beforeLast`    | Returns the portion of the string that comes before the last occurrence of a specified substring.   | [Documentation](docs/BeforeLast.md)     |
+| ✔✔ `JStr.between`       | Returns the portion of the string that is between two specified substrings.                         | [Documentation](docs/Between.md)        |
+| ✔✔ `JStr.betweenFirst`  | Returns the portion of the string that is between the first occurrence of two specified substrings. | [Documentation](docs/BetweenFirst.md)   |
 | ✔ `JStr.camel`         | Converts the string to camel case.                                                                  | [Documentation](docs/Camel.md)          |
 | ✔ `JStr.charAt`        | Returns the character at the specified position in the string.                                      | [Documentation](docs/CharAt.md)         |
 | ✔ `JStr.contains`      | Checks if the string contains a specified substring.                                                | [Documentation](docs/Contains.md)       |

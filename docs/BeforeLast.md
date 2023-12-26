@@ -5,7 +5,9 @@
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const result = JStr.of("\\App\\Http\\Controllers\\Controller").beforeLast("\\");
+const result = JStr.of("\\App\\Http\\Controllers\\Controller")
+  .beforeLast("\\")
+  .toString();
 console.log(result); // Outputs: '\\App\\Http\\Controllers'
 ```
 
@@ -14,6 +16,6 @@ console.log(result); // Outputs: '\\App\\Http\\Controllers'
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const result = JStr.of("abc123abc456abc789").afterLast("abc");
+const result = JStr.beforeLast("abc123abc456abc789", "abc");
 console.log(result); // Outputs: 'abc123abc456'
 ```

@@ -14,7 +14,7 @@ console.log(result); // Outputs: 'a'
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const result = JStr.of("[a]bcd").betweenFirst("[", "");
+const result = JStr.betweenFirst("[a]bcd", "[", "");
 
-console.log(result); // Outputs: ''
+console.log(result); // Outputs: '[a]bcd'
 ```

@@ -75,7 +75,7 @@ class Stringable {
 	 * // result: Controller
 	 */
 	afterLast(search: string): Stringable {
-		return new Stringable(JStr.after(this.str, search));
+		return new Stringable(JStr.afterLast(this.str, search));
 	}
 
 	/**

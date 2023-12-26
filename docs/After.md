@@ -14,7 +14,7 @@ console.log(result); // Outputs: 'world'
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const result = JStr.of("This is my name").after("This is");
+const result = JStr.of("This is my name").toString().trim().after("This is");
 
-console.log(result); // Outputs: ' my name'
+console.log(result); // Outputs: 'my name'
 ```
