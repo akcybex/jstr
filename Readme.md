@@ -125,7 +125,7 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔ `JStr.squish`        | Reduces multiple consecutive whitespace characters to a single space.                               | [Documentation](docs/Squish.md)         |
 | ✔ `JStr.start`         | Adds a specified prefix to the beginning of the string.                                             | [Documentation](docs/Start.md)          |
 | ✔ `JStr.startsWith`    | Checks if the string starts with a specified prefix.                                                | [Documentation](docs/StartsWith.md)     |
-| ✔ `JStr.studly`        | Converts the string to studly case.                                                                 | [Documentation](docs/Studly.md)         |
+| ✔✔ `JStr.studly`        | Converts the string to studly case.                                                                 | [Documentation](docs/Studly.md)         |
 | ✔ `JStr.substr`        | Returns a substring of the string starting from a specified position.                               | [Documentation](docs/Substr.md)         |
 | ✔ `JStr.substrCount`   | Counts the number of occurrences of a substring in the string.                                      | [Documentation](docs/SubstrCount.md)    |
 | ✔ `JStr.substrReplace` | Replaces a portion of the string with a specified substring.                                        | [Documentation](docs/SubstrReplace.md)  |
@@ -162,7 +162,7 @@ clarity and conciseness in your code.
 | ✔ `beforeLast`             | Returns the portion of the string that comes before the last occurrence of a specified substring.   | [Documentation](docs/BeforeLast.md)      |
 | ✔ `between`                | Returns the portion of the string that is between two specified substrings.                         | [Documentation](docs/Between.md)         |
 | ✔ `betweenFirst`           | Returns the portion of the string that is between the first occurrence of two specified substrings. | [Documentation](docs/BetweenFirst.md)    |
-| ✔ `camel`                  | Converts the string to camel case.                                                                  | [Documentation](docs/Camel.md)           |
+| ✔✔ `camel`                  | Converts the string to camel case.                                                                  | [Documentation](docs/Camel.md)           |
 | ✔ `charAt`                 | Returns the character at the specified position in the string.                                      | [Documentation](docs/CharAt.md)          |
 | `classBasename`            | Returns the class basename of a fully qualified class name.                                         | [Documentation](docs/ClassBasename.md)   |
 | ✔ `contains`               | Checks if the string contains a specified substring.                                                | [Documentation](docs/Contains.md)        |
@@ -230,7 +230,7 @@ clarity and conciseness in your code.
 | ✔ `test`                     | Performs a regular expression match on the string and returns a boolean.                            | [Documentation](docs/Test.md)            |
 | ✔ `title`                  | Converts the first character of each word in the string to uppercase.                               | [Documentation](docs/Title.md)           |
 | ✔ `trim`                   | Removes whitespace from the beginning and end of the string.                                        | [Documentation](docs/Trim.md)            |
-| ✔ `ucfirst`                | Converts the first character of the string to uppercase.                                            | [Documentation](docs/Ucfirst.md)         |
+| ✔✔ `ucfirst`                | Converts the first character of the string to uppercase.                                            | [Documentation](docs/Ucfirst.md)         |
 | ✔ `ucsplit`                | Splits the string into an array of words.                                                           | [Documentation](docs/Ucsplit.md)         |
 | ✔ `upper`                  | Converts the string to uppercase.                                                                   | [Documentation](docs/Upper.md)           |
 | ✔ `when`                   | Executes a callback if a given condition is true.                                                   | [Documentation](docs/When.md)            |
