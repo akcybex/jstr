@@ -1,33 +1,49 @@
-import JStr from "../src/main.ts";
+import JStr from '../src/main.ts';
 
-describe("JStr afterLast method", () => {
-  it("should return the substring after the last occurrence of the delimiter", () => {
-    expect(JStr.of("App\\Http\\Controllers\\Controller").afterLast("\\")).toBe(
-      "Controller"
-    );
-  });
+describe('JStr static afterLast method', () => {
+    test('should return the substring after the last occurrence of the delimiter', () => {
+        expect(JStr.afterLast('App\\Http\\Controllers\\Controller', '\\')).toBe(
+            'Controller',
+        );
+    });
 
-  it("should return the entire string if the delimiter is not found", () => {
-    const jstr = new JStr("HelloWorld");
-    const result = jstr.afterLast("\\");
-    expect(result).toBe("HelloWorld");
-  });
+    test('should return the entire string if the delimiter is not found', () => {
+        expect(JStr.afterLast('HelloWorld', '\\')).toBe('HelloWorld');
+    });
 
-  it("should handle an empty string correctly", () => {
-    const jstr = new JStr("");
-    const result = jstr.afterLast("\\");
-    expect(result).toBe("");
-  });
+    test('should handle an empty string correctly', () => {
+        expect(JStr.afterLast('', '\\')).toBe('');
+    });
 
-  it("should handle a delimiter at the beginning of the string", () => {
-    const jstr = new JStr("\\App\\Http\\Controllers\\Controller");
-    const result = jstr.afterLast("\\");
-    expect(result).toBe("Controller");
-  });
+    test('should handle a delimiter at the beginning of the string', () => {
+        expect(JStr.afterLast('\\App\\Http\\Controllers\\Controller', '\\')).toBe('Controller');
+    });
 
-  it("should handle a multi-character delimiter", () => {
-    const jstr = new JStr("abc123abc456abc789");
-    const result = jstr.afterLast("abc");
-    expect(result).toBe("789");
-  });
+    test('should handle a multi-character delimiter', () => {
+        expect(JStr.afterLast('abc123abc456abc789', 'abc')).toBe('789');
+    });
+});
+
+describe('JStr dynamic afterLast method', () => {
+    test('should return the substring after the last occurrence of the delimiter', () => {
+        expect(JStr.of('App\\Http\\Controllers\\Controller').afterLast('\\').toString()).toBe(
+            'Controller',
+        );
+    });
+
+    test('should return the entire string if the delimiter is not found', () => {
+        expect(JStr.of('HelloWorld').afterLast('\\').toString()).toBe('HelloWorld');
+    });
+
+    test('should handle an empty string correctly', () => {
+        expect(JStr.of('').afterLast('\\').toString()).toBe('');
+    });
+
+    test('should handle a delimiter at the beginning of the string', () => {
+        expect(JStr.of('\\App\\Http\\Controllers\\Controller').afterLast('\\').toString()).toBe('Controller');
+    });
+
+    test('should handle a multi-character delimiter', () => {
+        expect(JStr.of('abc123abc456abc789').afterLast('abc').toString()).toBe('789');
+    });
 });

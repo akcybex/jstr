@@ -5,8 +5,7 @@
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const jstr = new JStr("Hello world");
-const result = jstr.before("world");
+const result = JStr.of("Hello world").before("world").toString();
 console.log(result); // Outputs: 'Hello'
 ```
 
@@ -15,7 +14,7 @@ console.log(result); // Outputs: 'Hello'
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const result = JStr.of("This is my name").before("my name");
+const result = JStr.before("This is my name", "my name");
 
 console.log(result); // Outputs: 'This is '
 ```

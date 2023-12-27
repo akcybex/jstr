@@ -3,6 +3,8 @@
 ### Example#1
 
 ```javascript
-const str = jstr('HELLO').lower().toString();
+import JStr from "@akcybex/jsr";
+
+const str = JStr.of('HELLO').lower().toString();
 console.log(str); // Outputs: 'hello'
 ```

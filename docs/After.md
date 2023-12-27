@@ -5,8 +5,7 @@
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const jstr = new JStr("Hello world");
-const result = jstr.after("Hello");
+const result = JStr.after("Hello world", "Hello");
 console.log(result); // Outputs: 'world'
 ```
 
@@ -15,7 +14,7 @@ console.log(result); // Outputs: 'world'
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const result = JStr.of("This is my name").after("This is");
+const result = JStr.of("This is my name").toString().trim().after("This is");
 
-console.log(result); // Outputs: ' my name'
+console.log(result); // Outputs: 'my name'
 ```
