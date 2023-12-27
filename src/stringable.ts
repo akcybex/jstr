@@ -5,51 +5,18 @@ import JStr from './main.ts';
  */
 class Stringable {
 
-	private str: string;
-	private static delay = 10; // milliseconds for delay
+	private readonly value: string;
+
 	/**
 	 * Initializes a new instance of JStr with the given string.
-	 * @param str - The initial string.
+	 * @param value - The initial string.
 	 */
-	constructor(str: string | string[]) {
-		if (Array.isArray(str)) {
-			str = str.join(' ');
+	constructor(value: string | string[]) {
+		if (Array.isArray(value)) {
+			value = value.join(' ');
 		}
 
-		this.str = str;
-
-		interface StringableProxyHandler extends ProxyHandler<Stringable> {
-			endOfChain: boolean;
-		}
-
-		const proxyHandler: StringableProxyHandler = {
-			endOfChain: false,
-			get: (target, prop, receiver) => {
-				if (typeof target[prop as keyof JStr] === 'function') {
-					return (...args: any[]) => {
-						if (proxyHandler.endOfChain) {
-							proxyHandler.endOfChain = false; // Reset for subsequent calls
-							return target.toString();
-						}
-
-						const result = (target[prop as keyof Stringable] as Function).apply(target, args);
-
-						setTimeout(() => {
-							proxyHandler.endOfChain = true;
-						}, Stringable.delay);
-
-						return result instanceof Stringable ? new Proxy(result, proxyHandler) : result;
-					};
-				} else if (prop === 'valueOf' && proxyHandler.endOfChain) {
-					proxyHandler.endOfChain = false;
-					return () => target.toString();
-				}
-
-				return Reflect.get(target, prop, receiver);
-			}
-		};
-
-		return new Proxy(this, proxyHandler);
+		this.value = value;
 	}
 
 	/**
@@ -62,7 +29,7 @@ class Stringable {
 	 * // result: " world"
 	 */
 	after(search: string): Stringable {
-		return new Stringable(JStr.after(this.str, search));
+		return new Stringable(JStr.after(this.value, search));
 	}
 
 	/**
@@ -75,31 +42,31 @@ class Stringable {
 	 * // result: Controller
 	 */
 	afterLast(search: string): Stringable {
-		return new Stringable(JStr.afterLast(this.str, search));
+		return new Stringable(JStr.afterLast(this.value, search));
 	}
 
 	/**
 	 * Removes diacritics from the string, converting it to ASCII.
-	 * @returns {JStr} JStr instance for method chaining.
+	 * @returns {Stringable} JStr instance for method chaining.
 	 * @example
 	 * const result = new JStr("héllô wórld").ascii().toString();
 	 * // result: "hello world"
 	 */
 	ascii(): Stringable {
-		return new Stringable(JStr.ascii(this.str));
+		return new Stringable(JStr.ascii(this.value));
 	}
 
 	/**
 	 * Returns a new JStr instance containing the substring before the specified search string.
 	 * If the search string is not found, the original string is returned.
 	 * @param {string} search - The search string.
-	 * @returns {JStr} A new JStr instance with the substring before the search string.
+	 * @returns {Stringable} A new JStr instance with the substring before the search string.
 	 * @example
 	 * const result = new JStr("hello world").before("world").toString();
 	 * // result: "hello "
 	 */
 	before(search: string): Stringable {
-		return new Stringable(JStr.before(this.str, search));
+		return new Stringable(JStr.before(this.value, search));
 	}
 
 	/**
@@ -112,7 +79,7 @@ class Stringable {
 	 * // result: App\\Http\\Controllers
 	 */
 	beforeLast(search: string): Stringable {
-		return new Stringable(JStr.beforeLast(this.str, search));
+		return new Stringable(JStr.beforeLast(this.value, search));
 	}
 
 	/**
@@ -125,7 +92,7 @@ class Stringable {
 	 * JStr.of('The quick brown fox jumps over the lazy dog').between("quick", "fox").toString();
 	 */
 	between(start: string, end: string): Stringable {
-		return new Stringable(JStr.between(this.str, start, end));
+		return new Stringable(JStr.between(this.value, start, end));
 	}
 
 	/**
@@ -135,7 +102,7 @@ class Stringable {
 	 * @returns {Stringable}
 	 */
 	betweenFirst(start: string, end: string): Stringable {
-		return new Stringable(JStr.betweenFirst(this.str, start, end));
+		return new Stringable(JStr.betweenFirst(this.value, start, end));
 	}
 
 	/**
@@ -146,7 +113,7 @@ class Stringable {
 	 * // result: "helloWorld"
 	 */
 	camel(): Stringable {
-		return new Stringable(JStr.camel(this.str));
+		return new Stringable(JStr.camel(this.value));
 	}
 
 	/**
@@ -158,7 +125,7 @@ class Stringable {
 	 * // result: "W"
 	 */
 	chatAt(index: number): any {
-		return new Stringable(JStr.chatAt(this.str, index));
+		return new Stringable(JStr.chatAt(this.value, index));
 	}
 
 	/**
@@ -171,7 +138,7 @@ class Stringable {
 	 * // result: true
 	 */
 	contains(substring: string | string[], ignoreCase: boolean = false): boolean {
-		return JStr.contains(this.str, substring, ignoreCase);
+		return JStr.contains(this.value, substring, ignoreCase);
 	}
 
 	/**
@@ -184,7 +151,7 @@ class Stringable {
 	 * // result: true
 	 */
 	containsAll(values: string[], ignoreCase: boolean = false): boolean {
-		return JStr.containsAll(this.str, values, ignoreCase);
+		return JStr.containsAll(this.value, values, ignoreCase);
 	}
 
 	/**
@@ -196,7 +163,7 @@ class Stringable {
 	 * // result: true
 	 */
 	endsWith(substring: string): boolean {
-		return JStr.endsWith(this.str, substring);
+		return JStr.endsWith(this.value, substring);
 	}
 
 	/**
@@ -209,32 +176,32 @@ class Stringable {
 	 * @param options
 	 */
 	excerpt(phrase: string = '', options: { radius?: number; omission?: string } = {}): string | null {
-		return JStr.excerpt(this.str, phrase, options);
+		return JStr.excerpt(this.value, phrase, options);
 	}
 
 	/**
 	 * Appends the specified value to the end of the string if it's not already present.
-	 * @returns {JStr} JStr instance for method chaining.
+	 * @returns {Stringable} JStr instance for method chaining.
 	 * @example
 	 * const result = new JStr("hello").finish(" world").toString();
 	 * // result: "hello world"
 	 * @param cap
 	 */
 	finish(cap: string): string {
-		return JStr.finish(this.str, cap);
+		return JStr.finish(this.value, cap);
 	}
 
 	/**
 	 * Wraps the string with the given strings.
 	 * @param {string} before - The string to be prepended to the input.
 	 * @param {string | null} after - The string to be appended to the input.
-	 * @returns {JStr} A new JStr instance with the wrapped string.
+	 * @returns {Stringable} A new JStr instance with the wrapped string.
 	 * @example
 	 * const result = JStr.of("example").wrap("[", "]");
 	 * // result: JStr instance with value "[example]"
 	 */
 	wrap(before: string, after: string | null = null): Stringable {
-		return new Stringable(JStr.wrap(this.str, before, after));
+		return new Stringable(JStr.wrap(this.value, before, after));
 	}
 
 	/**
@@ -243,7 +210,7 @@ class Stringable {
 	 * @example jstr('steve_jobs').headline().toString(); // Returns 'Steve Jobs'
 	 */
 	headline() {
-		return new Stringable(JStr.headline(this.str));
+		return new Stringable(JStr.headline(this.value));
 	}
 
 	/**
@@ -259,7 +226,7 @@ class Stringable {
 	 * // resultRegex: true
 	 */
 	is(pattern: any | any[]): boolean {
-		return JStr.is(pattern, this.str);
+		return JStr.is(pattern, this.value);
 	}
 
 	/**
@@ -270,7 +237,7 @@ class Stringable {
 	 * // result: true
 	 */
 	isAscii(): boolean {
-		return JStr.isAscii(this.str);
+		return JStr.isAscii(this.value);
 	}
 
 	/**
@@ -281,7 +248,7 @@ class Stringable {
 	 * // result: true
 	 */
 	isEmpty(): boolean {
-		return this.str === '';
+		return this.value === '';
 	}
 
 	/**
@@ -303,7 +270,7 @@ class Stringable {
 	 * // result: true
 	 */
 	isJson(): boolean {
-		return JStr.isJson(this.str);
+		return JStr.isJson(this.value);
 	}
 
 	/**
@@ -314,7 +281,7 @@ class Stringable {
 	 * // result: true
 	 */
 	isUuid(): boolean {
-		return JStr.isUuid(this.str);
+		return JStr.isUuid(this.value);
 	}
 
 	/**
@@ -325,7 +292,7 @@ class Stringable {
 	 * // result: true
 	 */
 	isUlid(): boolean {
-		return JStr.isUlid(this.str);
+		return JStr.isUlid(this.value);
 	}
 
 	/**
@@ -336,7 +303,7 @@ class Stringable {
 	 * // result: true
 	 */
 	isUrl(): boolean {
-		return JStr.isUrl(this.str);
+		return JStr.isUrl(this.value);
 	}
 
 	/**
@@ -347,7 +314,7 @@ class Stringable {
 	 * jstr('Hello World').kebab().toString();
 	 */
 	kebab(): Stringable {
-		return new Stringable(JStr.kebab(this.str));
+		return new Stringable(JStr.kebab(this.value));
 	}
 
 	/**
@@ -357,7 +324,7 @@ class Stringable {
 	 * @param delimiter
 	 */
 	snake(delimiter: string = '_'): Stringable {
-		return new Stringable(JStr.snake(this.str, delimiter));
+		return new Stringable(JStr.snake(this.value, delimiter));
 	}
 
 	/**
@@ -368,7 +335,7 @@ class Stringable {
 	 * // result: JStr instance with value "hello World"
 	 */
 	lcfirst(): Stringable {
-		return new Stringable(JStr.lcfirst(this.str));
+		return new Stringable(JStr.lcfirst(this.value));
 	}
 
 	/**
@@ -380,7 +347,7 @@ class Stringable {
 	 * // result: 'Hello'
 	 */
 	ucfirst(): Stringable {
-		return new Stringable(JStr.ucfirst(this.str));
+		return new Stringable(JStr.ucfirst(this.value));
 	}
 
 	/**
@@ -392,7 +359,7 @@ class Stringable {
 	 * // result: ['hello', 'World']
 	 */
 	ucsplit(): string[] {
-		return JStr.ucsplit(this.str);
+		return JStr.ucsplit(this.value);
 	}
 
 	/**
@@ -403,20 +370,20 @@ class Stringable {
 	 * // result: 11
 	 */
 	length(encoding: string | null): number {
-		return JStr.length(this.str, encoding);
+		return JStr.length(this.value, encoding);
 	}
 
 	/**
 	 * Limits the length of the string and appends an optional ending string.
 	 * @param {number} limit - The maximum length of the string.
 	 * @param {string} [end=''] - The optional ending string to append if the limit is exceeded.
-	 * @returns {JStr} JStr instance for method chaining.
+	 * @returns {Stringable} JStr instance for method chaining.
 	 * @example
 	 * const result = new JStr("Lorem ipsum dolor sit amet").limit(10, '...').toString();
 	 * // result: "Lorem ipsu..."
 	 */
 	limit(limit: number = 100, end: string = '...'): Stringable {
-		return new Stringable(JStr.limit(this.str, limit, end));
+		return new Stringable(JStr.limit(this.value, limit, end));
 	}
 
 	/**
@@ -424,7 +391,7 @@ class Stringable {
 	 * @returns JStr instance for method chaining.
 	 */
 	lower(): Stringable {
-		return new Stringable(JStr.lower(this.str));
+		return new Stringable(JStr.lower(this.value));
 	}
 
 	/**
@@ -432,7 +399,7 @@ class Stringable {
 	 * @returns JStr instance for method chaining.
 	 */
 	upper(): Stringable {
-		return new Stringable(JStr.upper(this.str));
+		return new Stringable(JStr.upper(this.value));
 	}
 
 	/**
@@ -444,7 +411,7 @@ class Stringable {
 	 * // result: 'hello'
 	 */
 	ltrim(characters: string = '\r\n\t\v\0'): Stringable {
-		return new Stringable(JStr.ltrim(this.str, characters));
+		return new Stringable(JStr.ltrim(this.value, characters));
 	}
 
 	/**
@@ -455,7 +422,7 @@ class Stringable {
 	 * // result: 'hello'
 	 */
 	trim(): Stringable {
-		return new Stringable(JStr.trim(this.str));
+		return new Stringable(JStr.trim(this.value));
 	}
 
 	/**
@@ -467,7 +434,7 @@ class Stringable {
 	 * // result: 'hello'
 	 */
 	rtrim(characters: string = '\r\n\t\v\0'): Stringable {
-		return new Stringable(JStr.rtrim(this.str, characters));
+		return new Stringable(JStr.rtrim(this.value, characters));
 	}
 
 	/**
@@ -483,7 +450,7 @@ class Stringable {
 	 * // result: 'pass***123'
 	 */
 	mask(character: string, index: number, length: number | null = null, encoding: string = 'UTF-8'): Stringable {
-		return new Stringable(JStr.mask(this.str, character, index, length, encoding));
+		return new Stringable(JStr.mask(this.value, character, index, length, encoding));
 	}
 
 	/**
@@ -495,7 +462,7 @@ class Stringable {
 	 * // result: '123'
 	 */
 	match(pattern: RegExp): Stringable {
-		return new Stringable(JStr.match(pattern, this.str));
+		return new Stringable(JStr.match(pattern, this.value));
 	}
 
 	/**
@@ -507,7 +474,7 @@ class Stringable {
 	 * // result: true
 	 */
 	isMatch(pattern: string | RegExp | Iterable<string | RegExp>): boolean {
-		return JStr.isMatch(pattern, this.str);
+		return JStr.isMatch(pattern, this.value);
 	}
 
 	/**
@@ -519,13 +486,13 @@ class Stringable {
 	 * // result: ['123', '456']
 	 */
 	matchAll(pattern: RegExp): Array<string> {
-		return JStr.matchAll(pattern, this.str);
+		return JStr.matchAll(pattern, this.value);
 	}
 
 	/**
 	 * Appends a new line to the string.
 	 * @param {number} count - The number of new lines to append. Default is 1.
-	 * @returns {JStr} A new JStr instance with the appended new lines.
+	 * @returns {Stringable} A new JStr instance with the appended new lines.
 	 * @example
 	 * const result = new JStr("Hello").newLine(2);
 	 * // result: JStr instance with value "Hello\n\n"
@@ -537,36 +504,36 @@ class Stringable {
 	/**
 	 * Appends the given values to the string.
 	 * @param {...(string | number | boolean | symbol)[]} values - The values to append to the string.
-	 * @returns {JStr} A new JStr instance with the appended values.
+	 * @returns {Stringable} A new JStr instance with the appended values.
 	 * @example
 	 * const result = new JStr("Hello").append(" World", 42, true);
 	 * // result: JStr instance with value "Hello World42true"
 	 */
 	append(...values: (string | number | boolean | symbol)[]): Stringable {
-		return new Stringable(this.str + values.join(''));
+		return new Stringable(this.value + values.join(''));
 	}
 
 	/**
 	 * Prepends the given values to the string.
 	 * @param {...string} values - The values to prepend to the string.
-	 * @returns {JStr} A new JStr instance with the given values prepended.
+	 * @returns {Stringable} A new JStr instance with the given values prepended.
 	 * @example
 	 * const result = new JStr("World").prepend("Hello, ");
 	 * // result: JStr instance with value "Hello, World"
 	 */
 	prepend(...values: string[]): Stringable {
-		return new Stringable(values.join('') + this.str);
+		return new Stringable(values.join('') + this.value);
 	}
 
 	/**
 	 * Converts the string to studly case, capitalizing each word and removing separators.
-	 * @returns {JStr} JStr instance for method chaining.
+	 * @returns {Stringable} JStr instance for method chaining.
 	 * @example
 	 * const result = new JStr("hello_world").studly().toString();
 	 * // result: "HelloWorld"
 	 */
 	studly(): Stringable {
-		return new Stringable(JStr.studly(this.str));
+		return new Stringable(JStr.studly(this.value));
 	}
 
 	/**
@@ -575,7 +542,7 @@ class Stringable {
 	 * @return string
 	 */
 	pluralStudly(): Stringable {
-		return new Stringable(JStr.pluralStudly(this.str));
+		return new Stringable(JStr.pluralStudly(this.value));
 	}
 
 	/**
@@ -589,7 +556,7 @@ class Stringable {
 	 * // result: "World"
 	 */
 	substr(start: number, length: number | null = null, encoding: string = 'UTF-8'): Stringable {
-		return new Stringable(JStr.substr(this.str, start, length, encoding));
+		return new Stringable(JStr.substr(this.value, start, length, encoding));
 	}
 
 	/**
@@ -603,7 +570,7 @@ class Stringable {
 	 * // result: 3
 	 */
 	substrCount(needle: string, offset: number = 0, length: number | null = null): number {
-		return JStr.substrCount(this.str, needle, offset, length);
+		return JStr.substrCount(this.value, needle, offset, length);
 	}
 
 	/**
@@ -617,7 +584,7 @@ class Stringable {
 	 * // result: "Hello, Universe"
 	 */
 	substrReplace(replace: string | string[], offset: number | number[], length?: number | number[]): Stringable {
-		return new Stringable(JStr.substrReplace(this.str, replace, offset, length));
+		return new Stringable(JStr.substrReplace(this.value, replace, offset, length));
 	}
 
 	/**
@@ -629,7 +596,7 @@ class Stringable {
 	 * // result: "bar world"
 	 */
 	swap(map: Record<string, string>): Stringable {
-		return new Stringable(JStr.swap(map, this.str));
+		return new Stringable(JStr.swap(map, this.value));
 	}
 
 	/**
@@ -643,7 +610,7 @@ class Stringable {
 	 * // result: "--Hello---"
 	 */
 	padBoth(length: number, pad: string = ' '): Stringable {
-		return new Stringable(JStr.padBoth(this.str, length, pad));
+		return new Stringable(JStr.padBoth(this.value, length, pad));
 	}
 
 	/**
@@ -657,7 +624,7 @@ class Stringable {
 	 * // result: "-----Hello"
 	 */
 	padLeft(length: number, pad: string = ' '): Stringable {
-		return new Stringable(JStr.padLeft(this.str, length, pad));
+		return new Stringable(JStr.padLeft(this.value, length, pad));
 	}
 
 	/**
@@ -671,7 +638,7 @@ class Stringable {
 	 * // result: "Hello-----"
 	 */
 	padRight(length: number, pad: string = ' '): Stringable {
-		return new Stringable(JStr.padRight(this.str, length, pad));
+		return new Stringable(JStr.padRight(this.value, length, pad));
 	}
 
 	/**
@@ -683,7 +650,7 @@ class Stringable {
 	 * // result: "HelloHelloHello"
 	 */
 	repeat(times: number): Stringable {
-		return new Stringable(JStr.repeat(this.str, times));
+		return new Stringable(JStr.repeat(this.value, times));
 	}
 
 	/**
@@ -696,7 +663,7 @@ class Stringable {
 	 * // result: "GoodbyeHelloWorldUniverse"
 	 */
 	replaceArray(search: string, replace: string[]): Stringable {
-		return new Stringable(JStr.replaceArray(search, replace, this.str));
+		return new Stringable(JStr.replaceArray(search, replace, this.value));
 	}
 
 	/**
@@ -715,7 +682,7 @@ class Stringable {
 		replace: string | string[],
 		caseSensitive: boolean = true,
 	): Stringable {
-		return new Stringable(JStr.replace(search, replace, this.str, caseSensitive));
+		return new Stringable(JStr.replace(search, replace, this.value, caseSensitive));
 	}
 
 	/**
@@ -728,7 +695,7 @@ class Stringable {
 	 * // result: "An fruit and an apple."
 	 */
 	replaceFirst(search: string, replace: string): Stringable {
-		return new Stringable(JStr.replaceFirst(search, replace, this.str));
+		return new Stringable(JStr.replaceFirst(search, replace, this.value));
 	}
 
 	/**
@@ -741,7 +708,7 @@ class Stringable {
 	 * // result: "An apple and an fruit."
 	 */
 	replaceLast(search: string, replace: string): Stringable {
-		return new Stringable(JStr.replaceFirst(search, replace, this.str));
+		return new Stringable(JStr.replaceFirst(search, replace, this.value));
 	}
 
 	/**
@@ -749,13 +716,13 @@ class Stringable {
 	 * @param {string | RegExp} pattern - The regular expression pattern to match.
 	 * @param {((match: string, ...groups: any[]) => string) | string} replace - The replacement function or string.
 	 * @param _limit
-	 * @returns {JStr} A new JStr instance after replacements.
+	 * @returns {Stringable} A new JStr instance after replacements.
 	 * @example
 	 * const result = new JStr("Hello 123 World").replaceMatches(/\d+/, match => `[${match}]`, 1);
 	 * // result: JStr instance with value "Hello [123] World"
 	 */
 	replaceMatches(pattern: string | RegExp, replace: ((match: string, ...groups: any[]) => string) | string, _limit: number = -1): Stringable {
-		const input = this.str;
+		const input = this.value;
 		const regex = pattern instanceof RegExp ? pattern : new RegExp(pattern, 'g');
 
 		if (typeof replace === 'function') {
@@ -776,7 +743,7 @@ class Stringable {
 	 * // count: 2
 	 */
 	wordCount(characters: string | null = null): number {
-		return JStr.wordCount(this.str, characters);
+		return JStr.wordCount(this.value, characters);
 	}
 
 	/**
@@ -790,7 +757,7 @@ class Stringable {
 	 * // result: "Lorem ipsum dolor..."
 	 */
 	words(words: number = 100, end: string = '...'): Stringable {
-		return new Stringable(JStr.words(this.str, words, end));
+		return new Stringable(JStr.words(this.value, words, end));
 	}
 
 	/**
@@ -804,7 +771,7 @@ class Stringable {
 	 * // wrappedString: "Lorem ipsum dolor\nsit amet"
 	 */
 	wordWrap(characters: number = 75, breakStr: string = '\n', cutLongWords: boolean = false): Stringable {
-		return new Stringable(JStr.wordWrap(this.str, characters, breakStr, cutLongWords));
+		return new Stringable(JStr.wordWrap(this.value, characters, breakStr, cutLongWords));
 	}
 
 	/**
@@ -817,7 +784,7 @@ class Stringable {
 	 */
 	exactly(value: string | Stringable): boolean {
 		const targetValue = value instanceof Stringable ? value.toString() : value;
-		return this.str === targetValue;
+		return this.value === targetValue;
 	}
 
 	/**
@@ -830,19 +797,19 @@ class Stringable {
 	 * // result: ["apple", "orange", "banana"]
 	 */
 	explode(delimiter: string, limit: number = Number.MAX_SAFE_INTEGER): string[] {
-		return this.str.split(delimiter, limit);
+		return this.value.split(delimiter, limit);
 	}
 
 	/**
 	 * Call the given callback and return a new string.
 	 * @param {Function} callback - The callback function to apply to the string.
-	 * @returns {JStr} A new JStr instance resulting from the callback.
+	 * @returns {Stringable} A new JStr instance resulting from the callback.
 	 * @example
 	 * const result = new JStr("Hello, World").pipe((str) => str.toUpperCase());
 	 * // result: JStr instance with value "HELLO, WORLD"
 	 */
 	pipe(callback: (str: string) => string): Stringable {
-		return new Stringable(callback(this.str));
+		return new Stringable(callback(this.value));
 	}
 
 	/**
@@ -856,7 +823,7 @@ class Stringable {
 	 * // result: 7
 	 */
 	position(needle: string, offset: number = 0, encoding: string | null = null): number | false {
-		return JStr.position(this.str, needle, offset, encoding);
+		return JStr.position(this.value, needle, offset, encoding);
 	}
 
 	/**
@@ -868,7 +835,7 @@ class Stringable {
 	 * // result: "Hello, World"
 	 */
 	start(prefix: string): Stringable {
-		return new Stringable(JStr.start(this.str, prefix));
+		return new Stringable(JStr.start(this.value, prefix));
 	}
 
 	/**
@@ -880,7 +847,7 @@ class Stringable {
 	 * // result: true
 	 */
 	startsWith(needles: string | string[]): boolean {
-		return JStr.startsWith(this.str, needles);
+		return JStr.startsWith(this.value, needles);
 	}
 
 	/**
@@ -907,7 +874,7 @@ class Stringable {
 	 * // result: "Hello World"
 	 */
 	title(): Stringable {
-		return new Stringable(JStr.title(this.str));
+		return new Stringable(JStr.title(this.value));
 	}
 
 	/**
@@ -922,7 +889,7 @@ class Stringable {
 	 * // result: "hello-world"
 	 */
 	slug(separator: string = '-', language: string | null = null, dictionary: Record<string, string> = {'@' : 'at'}): Stringable {
-		return new Stringable(JStr.slug(this.str, separator, language, dictionary));
+		return new Stringable(JStr.slug(this.value, separator, language, dictionary));
 	}
 
 	/**
@@ -947,7 +914,7 @@ class Stringable {
 	 * @return string
 	 */
 	singular(): Stringable {
-		return new Stringable(JStr.singular(this.str));
+		return new Stringable(JStr.singular(this.value));
 	}
 
 	/**
@@ -956,7 +923,7 @@ class Stringable {
 	 * @return string
 	 */
 	plural(): Stringable {
-		return new Stringable(JStr.plural(this.str));
+		return new Stringable(JStr.plural(this.value));
 	}
 
 	/**
@@ -965,7 +932,7 @@ class Stringable {
 	 * @return The processed string with extra spaces removed.
 	 */
 	squish(): Stringable {
-		return new Stringable(JStr.squish(this.str));
+		return new Stringable(JStr.squish(this.value));
 	}
 
 	/**
@@ -974,7 +941,7 @@ class Stringable {
 	 * @return The reversed string.
 	 */
 	reverse(): Stringable {
-		return new Stringable(JStr.reverse(this.str));
+		return new Stringable(JStr.reverse(this.value));
 	}
 
 	/**
@@ -985,7 +952,7 @@ class Stringable {
 	 * @return The string with the specified value removed.
 	 */
 	remove(search: string | string[], caseSensitive: boolean = true): Stringable {
-		return new Stringable(JStr.remove(search, this.str, caseSensitive));
+		return new Stringable(JStr.remove(search, this.value, caseSensitive));
 	}
 
 	/**
@@ -997,7 +964,7 @@ class Stringable {
 	scan(format: string): any[] {
 		// This is a simple implementation. Complex format parsing like sscanf in PHP is not straightforward in JavaScript.
 		const regex = new RegExp(format);
-		const matches = regex.exec(this.str);
+		const matches = regex.exec(this.value);
 		return matches ? matches.slice(1) : [];
 	}
 
@@ -1010,9 +977,9 @@ class Stringable {
 	 */
 	split(pattern: string | number, limit: number = -1): string[] {
 		if (typeof pattern === 'number') {
-			return this.str.match(new RegExp(`.{1,${pattern}}`, 'g')) || [];
+			return this.value.match(new RegExp(`.{1,${pattern}}`, 'g')) || [];
 		} else {
-			return this.str.split(new RegExp(pattern), limit);
+			return this.value.split(new RegExp(pattern), limit);
 		}
 	}
 
@@ -1077,7 +1044,7 @@ class Stringable {
 	 * @returns The integer representation of the string.
 	 */
 	public toInteger(): number {
-		return parseInt(this.str, 10);
+		return parseInt(this.value, 10);
 	}
 
 	/**
@@ -1085,7 +1052,7 @@ class Stringable {
 	 * @returns The float representation of the string.
 	 */
 	public toFloat(): number {
-		return parseFloat(this.str);
+		return parseFloat(this.value);
 	}
 
 	/**
@@ -1095,7 +1062,7 @@ class Stringable {
 	 */
 	public toBoolean(): boolean {
 		const truthyValues = ['1', 'true', 'on', 'yes'];
-		return truthyValues.includes(this.str.toLowerCase());
+		return truthyValues.includes(this.value.toLowerCase());
 	}
 
 	/**
@@ -1106,7 +1073,7 @@ class Stringable {
 	 */
 	public toDate(format?: string): Date | null {
 		if (!format) {
-			return new Date(this.str);
+			return new Date(this.value);
 		}
 
 		// Simple format replacement - this can be expanded to support more formats
@@ -1122,7 +1089,7 @@ class Stringable {
 			regexPattern = regexPattern.replace(key, formatMap[key]);
 		}
 
-		const match = new RegExp(regexPattern).exec(this.str);
+		const match = new RegExp(regexPattern).exec(this.value);
 		if (!match) {
 			return null;
 		}
@@ -1146,7 +1113,7 @@ class Stringable {
 	 * @example JStr.of('Hello World').upper().toString(); // Returns 'HELLO WORLD'
 	 */
 	toString(): string {
-		return this.str;
+		return this.value;
 	}
 }
 

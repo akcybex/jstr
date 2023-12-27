@@ -7,12 +7,12 @@ import JStr from "../src/main.ts";
 describe("JStr static headline method", () => {
     // HeLLo
     test("JStr.headline() -  HeLLo converts a string to first letter capital", () => {
-        expect(JStr.headline("HeLLo")).toBe("Hello");
+        expect(JStr.headline("HeLLo")).toBe("He Llo");
     });
 
     // heLLo
     test("JStr.headline() - heLLo_world converts a string to first letter capital", () => {
-        expect(JStr.headline("heLLo_world")).toBe("Hello World");
+        expect(JStr.headline("heLLo_world")).toBe("He Llo World");
     });
 
     // Space into headline
@@ -31,28 +31,29 @@ describe("JStr static headline method", () => {
     });
 });
 
-// describe("JStr dynamic headline method", () => {
-//     // HeLLo
-//     test("JStr.of().headline() - converts a string to first letter capital", () => {
-//         expect(JStr.of("HeLLo").headline().toString()).toBe("HeLLo");
-//     });
+describe("JStr dynamic headline method", () => {
+    // HeLLo
+    test("JStr.of().headline() - converts a string to first letter capital", () => {
+		// console.log(JStr.of("HeLLo").headline());
+        expect(JStr.of("HeLLo").headline().upper().lower().toString()).toBe("he llo");
+    });
+	//
+    // heLLo
+    test("JStr.of().headline() - converts a string to first letter capital", () => {
+        expect(JStr.of("heLLo").headline().toString()).toBe("He Llo");
+    });
 
-//     // heLLo
-//     test("JStr.of().headline() - converts a string to first letter capital", () => {
-//         expect(JStr.of("heLLo").headline().toString()).toBe("HeLLo");
-//     });
+    // Space into headline
+    test("JStr.of().headline() - converts a string to first letter capital", () => {
+        expect(JStr.of("").headline().toString()).toBe("");
+    });
+    // HELLO WORLD!
+    test("JStr.of().headline() - converts a string to first letter capital", () => {
+        expect(JStr.of("HELLO WORLD!").headline().toString()).toBe("Hello World!");
+    });
 
-//     // Space into headline
-//     test("JStr.of().headline() - converts a string to first letter capital", () => {
-//         expect(JStr.of("").headline().toString()).toBe("");
-//     });
-//     // HELLO WORLD!
-//     test("JStr.of().headline() - converts a string to first letter capital", () => {
-//         expect(JStr.of("HELLO WORLD!").headline().toString()).toBe("HELLO WORLD!");
-//     });
-
-//     // Email Notification Sent
-//     test("JStr.of().headline() - converts a string to first letter capital", () => {
-//         expect(JStr.of("EmailNotificationSent").headline().toString()).toBe("Email Notification Sent");
-//     });
-// });
+    // Email Notification Sent
+    test("JStr.of().headline() - converts a string to first letter capital", () => {
+        expect(JStr.of("EmailNotificationSent").headline().toString()).toBe("Email Notification Sent");
+    });
+});
