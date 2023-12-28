@@ -1,12 +1,9 @@
 # JSTR
+`@akcybex/jstr` is a JavaScript library inspired by [Laravel 'Strings'](https://laravel.com/docs/10.x/strings) offering a chainable API for streamlined string manipulation and facilitating common string operations in javascript with enhanced expressiveness.
 
 [![NPM Version](https://img.shields.io/npm/v/@akcybex/jstr.svg)](https://www.npmjs.com/package/@akcybex/jstr)
 [![NPM Downloads](https://img.shields.io/npm/dm/@akcybex/jstr.svg)](https://www.npmjs.com/package/@akcybex/jstr)
 [![File Size](https://img.shields.io/github/size/akcybex/jstr/dist/jstr.es.js)](https://github.com/akcybex/jstr)
-
-> `@akcybex/jstr` is a JavaScript library inspired
-> by [Laravel 'Strings'](https://laravel.com/docs/10.x/strings) offering a chainable API for
-> streamlined string manipulation and facilitating common string operations in javascript with enhanced expressiveness.
 
 ## Installation
 
