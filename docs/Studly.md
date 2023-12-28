@@ -3,7 +3,7 @@
 ### Example#1
 
 ```javascript
-import JStr from "@akcybex/jsr";
+import JStr from "@akcybex/jstr";
 
 const result = JStr.of("foo_bar").studly().toString();
 console.log(result); // Outputs: 'FooBar'
@@ -12,7 +12,7 @@ console.log(result); // Outputs: 'FooBar'
 ### Example#2
 
 ```javascript
-import JStr from "@akcybex/jsr";
+import JStr from "@akcybex/jstr";
 
 const result = JStr.studly("foo bar");
 
