@@ -14,8 +14,8 @@ console.log(str); // Outputs: 'Hello World'
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const str = JStr.of("hELLO world").headline().toString();
-console.log(str); // Outputs: 'Hello World'
+const str = JStr.of("HeLLo").headline().toString();
+console.log(str); // Outputs: 'He Llo'
 ```
 
 ### Example#3
@@ -23,6 +23,6 @@ console.log(str); // Outputs: 'Hello World'
 ```javascript
 import JStr from "@akcybex/jsr";
 
-const str = JStr.ucfirst("hELLOworld");
-console.log(str); // Outputs: 'Hello World'
+const str = JStr.headline("hELLOworld");
+console.log(str); // Outputs: 'H Elloworld'
 ```

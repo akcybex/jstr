@@ -301,6 +301,17 @@ class JStr {
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(' ');
     }
+    /**
+     * Convert the given string to capital case for each word first letter.
+     * @returns JStr instance for method chaining.
+     * @example jstr('hello world').capitalize().toString(); // Returns 'Hello World!'
+     */
+    static capitalize(value: string): string {
+        return value
+            .toLowerCase()
+            .replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+
+    }
 
     /**
      * Determine if a given string matches a given pattern.

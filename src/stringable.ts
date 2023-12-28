@@ -212,6 +212,15 @@ class Stringable {
 	headline() {
 		return new Stringable(JStr.headline(this.value));
 	}
+     /**
+     * Convert the given string to capital case for each word first letter.
+     * @returns JStr instance for method chaining.
+     * @example jstr('hello world').capitalize().toString(); // Returns 'Hello World!'
+     */
+     capitalize() {
+        return new Stringable(JStr.capitalize(this.value));
+
+    }
 
 	/**
 	 * Checks if the string matches the specified pattern.
