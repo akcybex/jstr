@@ -4,7 +4,7 @@
 [![NPM Downloads](https://img.shields.io/npm/dm/@akcybex/jstr.svg)](https://www.npmjs.com/package/@akcybex/jstr)
 [![File Size](https://img.shields.io/github/size/akcybex/jstr/dist/jstr.es.js)](https://github.com/akcybex/jstr)
 
-> `@akcybex/jsr` is a JavaScript library inspired
+> `@akcybex/jstr` is a JavaScript library inspired
 > by [Laravel 'Strings'](https://laravel.com/docs/10.x/strings) offering a chainable API for
 > streamlined string manipulation and facilitating common string operations in javascript with enhanced expressiveness.
 
@@ -12,10 +12,10 @@
 
 ### Using npm
 
-You can install `@akcybex/jsr` using npm:
+You can install `@akcybex/jstr` using npm:
 
 ```bash
-npm install @akcybex/jsr
+npm install @akcybex/jstr
 ```
 
 ### Using Yarn
@@ -23,15 +23,15 @@ npm install @akcybex/jsr
 Alternatively, you can use Yarn to add the package:
 
 ```bash
-yarn add @akcybex/jsr
+yarn add @akcybex/jstr
 ```
 
 ## Usage in Node.js
 
-After installing, you can use `@akcybex/jsr` in your Node.js application:
+After installing, you can use `@akcybex/jstr` in your Node.js application:
 
 ```javascript
-import JStr from "@akcybex/jsr";
+import JStr from "@akcybex/jstr";
 
 const result = JStr.of("hello").repeat(3).upper().toString();
 console.log(result); // Outputs: 'HELLOHELLOHELLO'
@@ -253,7 +253,7 @@ clarity and conciseness in your code.
 
 ## Contributing
 
-Contributions to `@akcybex/jsr` are welcome. Please refer to the contributing guidelines for more information.
+Contributions to `@akcybex/jstr` are welcome. Please refer to the contributing guidelines for more information.
 
 ## License
 

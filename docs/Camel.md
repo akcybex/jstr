@@ -3,7 +3,7 @@
 ### Example#1
 
 ```javascript
-import JStr from "@akcybex/jsr";
+import JStr from "@akcybex/jstr";
 
 const result = JStr.of("foo_bar").camel().toString();
 console.log(result); // Outputs: 'fooBar'
@@ -12,7 +12,7 @@ console.log(result); // Outputs: 'fooBar'
 ### Example#2
 
 ```javascript
-import JStr from "@akcybex/jsr";
+import JStr from "@akcybex/jstr";
 
 const result = JStr.camel("foo bar");
 

@@ -3,7 +3,7 @@
 ### Example#1
 
 ```javascript
-import JStr from "@akcybex/jsr";
+import JStr from "@akcybex/jstr";
 
 const str = JStr.of("he").repeat(5).toString();
 console.log(str); // Outputs: 'hehehehehe'
@@ -12,7 +12,7 @@ console.log(str); // Outputs: 'hehehehehe'
 ### Example#2
 
 ```javascript
-import JStr from "@akcybex/jsr";
+import JStr from "@akcybex/jstr";
 
 const str = JStr.repeat("a", 5);
 console.log(str); // Outputs: 'aaaaa'
