@@ -15,7 +15,7 @@
 You can install `@akcybex/jstr` using npm:
 
 ```bash
-npm install @akcybex/jstr
+npm i @akcybex/jstr -S
 ```
 
 ### Using Yarn
