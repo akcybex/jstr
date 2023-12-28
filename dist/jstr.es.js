@@ -1,123 +1,123 @@
-var P = Object.defineProperty;
-var k = (o, t, e) => t in o ? P(o, t, { enumerable: !0, configurable: !0, writable: !0, value: e }) : o[t] = e;
-var E = (o, t, e) => (k(o, typeof t != "symbol" ? t + "" : t, e), e);
-let C;
-const M = new Uint8Array(16);
-function S() {
-  if (!C && (C = typeof crypto < "u" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto), !C))
+var I = Object.defineProperty;
+var M = (o, e, t) => e in o ? I(o, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : o[e] = t;
+var C = (o, e, t) => (M(o, typeof e != "symbol" ? e + "" : e, t), t);
+let L;
+const O = new Uint8Array(16);
+function z() {
+  if (!L && (L = typeof crypto < "u" && crypto.getRandomValues && crypto.getRandomValues.bind(crypto), !L))
     throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
-  return C(M);
+  return L(O);
 }
-const z = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-function F(o) {
-  return typeof o == "string" && z.test(o);
+const k = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+function P(o) {
+  return typeof o == "string" && k.test(o);
 }
-const d = [];
+const g = [];
 for (let o = 0; o < 256; ++o)
-  d.push((o + 256).toString(16).slice(1));
-function D(o, t = 0) {
-  return d[o[t + 0]] + d[o[t + 1]] + d[o[t + 2]] + d[o[t + 3]] + "-" + d[o[t + 4]] + d[o[t + 5]] + "-" + d[o[t + 6]] + d[o[t + 7]] + "-" + d[o[t + 8]] + d[o[t + 9]] + "-" + d[o[t + 10]] + d[o[t + 11]] + d[o[t + 12]] + d[o[t + 13]] + d[o[t + 14]] + d[o[t + 15]];
+  g.push((o + 256).toString(16).slice(1));
+function q(o, e = 0) {
+  return g[o[e + 0]] + g[o[e + 1]] + g[o[e + 2]] + g[o[e + 3]] + "-" + g[o[e + 4]] + g[o[e + 5]] + "-" + g[o[e + 6]] + g[o[e + 7]] + "-" + g[o[e + 8]] + g[o[e + 9]] + "-" + g[o[e + 10]] + g[o[e + 11]] + g[o[e + 12]] + g[o[e + 13]] + g[o[e + 14]] + g[o[e + 15]];
 }
-const W = typeof crypto < "u" && crypto.randomUUID && crypto.randomUUID.bind(crypto), U = {
-  randomUUID: W
+const D = typeof crypto < "u" && crypto.randomUUID && crypto.randomUUID.bind(crypto), U = {
+  randomUUID: D
 };
-function q(o, t, e) {
-  if (U.randomUUID && !t && !o)
+function W(o, e, t) {
+  if (U.randomUUID && !e && !o)
     return U.randomUUID();
   o = o || {};
-  const r = o.random || (o.rng || S)();
-  if (r[6] = r[6] & 15 | 64, r[8] = r[8] & 63 | 128, t) {
-    e = e || 0;
+  const r = o.random || (o.rng || z)();
+  if (r[6] = r[6] & 15 | 64, r[8] = r[8] & 63 | 128, e) {
+    t = t || 0;
     for (let s = 0; s < 16; ++s)
-      t[e + s] = r[s];
-    return t;
+      e[t + s] = r[s];
+    return e;
   }
-  return D(r);
+  return q(r);
 }
 var Y = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
-function T(o) {
+function V(o) {
   return o && o.__esModule && Object.prototype.hasOwnProperty.call(o, "default") ? o.default : o;
 }
-function V(o) {
+function T(o) {
   throw new Error('Could not dynamically require "' + o + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
 }
-var I = { exports: {} };
-(function(o, t) {
-  (function(e, r) {
-    typeof V == "function" ? o.exports = r() : e.pluralize = r();
+var F = { exports: {} };
+(function(o, e) {
+  (function(t, r) {
+    typeof T == "function" ? o.exports = r() : t.pluralize = r();
   })(Y, function() {
-    var e = [], r = [], s = {}, u = {}, l = {};
-    function h(a) {
-      return typeof a == "string" ? new RegExp("^" + a + "$", "i") : a;
+    var t = [], r = [], s = {}, a = {}, l = {};
+    function h(u) {
+      return typeof u == "string" ? new RegExp("^" + u + "$", "i") : u;
     }
-    function f(a, c) {
-      return a === c ? c : a === a.toLowerCase() ? c.toLowerCase() : a === a.toUpperCase() ? c.toUpperCase() : a[0] === a[0].toUpperCase() ? c.charAt(0).toUpperCase() + c.substr(1).toLowerCase() : c.toLowerCase();
+    function f(u, c) {
+      return u === c ? c : u === u.toLowerCase() ? c.toLowerCase() : u === u.toUpperCase() ? c.toUpperCase() : u[0] === u[0].toUpperCase() ? c.charAt(0).toUpperCase() + c.substr(1).toLowerCase() : c.toLowerCase();
     }
-    function p(a, c) {
-      return a.replace(/\$(\d{1,2})/g, function(y, m) {
+    function p(u, c) {
+      return u.replace(/\$(\d{1,2})/g, function(y, m) {
         return c[m] || "";
       });
     }
-    function x(a, c) {
-      return a.replace(c[0], function(y, m) {
-        var $ = p(c[1], arguments);
-        return f(y === "" ? a[m - 1] : y, $);
+    function v(u, c) {
+      return u.replace(c[0], function(y, m) {
+        var w = p(c[1], arguments);
+        return f(y === "" ? u[m - 1] : y, w);
       });
     }
-    function b(a, c, y) {
-      if (!a.length || s.hasOwnProperty(a))
+    function x(u, c, y) {
+      if (!u.length || s.hasOwnProperty(u))
         return c;
       for (var m = y.length; m--; ) {
-        var $ = y[m];
-        if ($[0].test(c))
-          return x(c, $);
+        var w = y[m];
+        if (w[0].test(c))
+          return v(c, w);
       }
       return c;
     }
-    function R(a, c, y) {
+    function R(u, c, y) {
       return function(m) {
-        var $ = m.toLowerCase();
-        return c.hasOwnProperty($) ? f(m, $) : a.hasOwnProperty($) ? f(m, a[$]) : b($, m, y);
+        var w = m.toLowerCase();
+        return c.hasOwnProperty(w) ? f(m, w) : u.hasOwnProperty(w) ? f(m, u[w]) : x(w, m, y);
       };
     }
-    function v(a, c, y, m) {
-      return function($) {
-        var A = $.toLowerCase();
-        return c.hasOwnProperty(A) ? !0 : a.hasOwnProperty(A) ? !1 : b(A, A, y) === A;
+    function E(u, c, y, m) {
+      return function(w) {
+        var A = w.toLowerCase();
+        return c.hasOwnProperty(A) ? !0 : u.hasOwnProperty(A) ? !1 : x(A, A, y) === A;
       };
     }
-    function g(a, c, y) {
-      var m = c === 1 ? g.singular(a) : g.plural(a);
+    function d(u, c, y) {
+      var m = c === 1 ? d.singular(u) : d.plural(u);
       return (y ? c + " " : "") + m;
     }
-    return g.plural = R(
+    return d.plural = R(
       l,
-      u,
-      e
-    ), g.isPlural = v(
+      a,
+      t
+    ), d.isPlural = E(
       l,
-      u,
-      e
-    ), g.singular = R(
-      u,
-      l,
-      r
-    ), g.isSingular = v(
-      u,
+      a,
+      t
+    ), d.singular = R(
+      a,
       l,
       r
-    ), g.addPluralRule = function(a, c) {
-      e.push([h(a), c]);
-    }, g.addSingularRule = function(a, c) {
-      r.push([h(a), c]);
-    }, g.addUncountableRule = function(a) {
-      if (typeof a == "string") {
-        s[a.toLowerCase()] = !0;
+    ), d.isSingular = E(
+      a,
+      l,
+      r
+    ), d.addPluralRule = function(u, c) {
+      t.push([h(u), c]);
+    }, d.addSingularRule = function(u, c) {
+      r.push([h(u), c]);
+    }, d.addUncountableRule = function(u) {
+      if (typeof u == "string") {
+        s[u.toLowerCase()] = !0;
         return;
       }
-      g.addPluralRule(a, "$0"), g.addSingularRule(a, "$0");
-    }, g.addIrregularRule = function(a, c) {
-      c = c.toLowerCase(), a = a.toLowerCase(), l[a] = c, u[c] = a;
+      d.addPluralRule(u, "$0"), d.addSingularRule(u, "$0");
+    }, d.addIrregularRule = function(u, c) {
+      c = c.toLowerCase(), u = u.toLowerCase(), l[u] = c, a[c] = u;
     }, [
       // Pronouns.
       ["I", "we"],
@@ -171,8 +171,8 @@ var I = { exports: {} };
       ["groove", "grooves"],
       ["pickaxe", "pickaxes"],
       ["passerby", "passersby"]
-    ].forEach(function(a) {
-      return g.addIrregularRule(a[0], a[1]);
+    ].forEach(function(u) {
+      return d.addIrregularRule(u[0], u[1]);
     }), [
       [/s?$/i, "s"],
       [/[^\u0000-\u007F]$/i, "$0"],
@@ -199,8 +199,8 @@ var I = { exports: {} };
       [/eaux$/i, "$0"],
       [/m[ae]n$/i, "men"],
       ["thou", "you"]
-    ].forEach(function(a) {
-      return g.addPluralRule(a[0], a[1]);
+    ].forEach(function(u) {
+      return d.addPluralRule(u[0], u[1]);
     }), [
       [/s$/i, ""],
       [/(ss)$/i, "$1"],
@@ -225,8 +225,8 @@ var I = { exports: {} };
       [/(child)ren$/i, "$1"],
       [/(eau)x?$/i, "$1"],
       [/men$/i, "man"]
-    ].forEach(function(a) {
-      return g.addSingularRule(a[0], a[1]);
+    ].forEach(function(u) {
+      return d.addSingularRule(u[0], u[1]);
     }), [
       // Singular words with no plurals.
       "adulthood",
@@ -337,31 +337,19 @@ var I = { exports: {} };
       /pox$/i,
       // "chickpox", "smallpox"
       /sheep$/i
-    ].forEach(g.addUncountableRule), g;
+    ].forEach(d.addUncountableRule), d;
   });
-})(I);
-var j = I.exports;
-const O = /* @__PURE__ */ T(j), i = class i {
-  // milliseconds for delay
+})(F);
+var N = F.exports;
+const b = /* @__PURE__ */ V(N);
+class i {
   /**
    * Initializes a new instance of JStr with the given string.
-   * @param str - The initial string.
+   * @param value - The initial string.
    */
-  constructor(t) {
-    E(this, "str");
-    Array.isArray(t) && (t = t.join(" ")), this.str = t;
-    const e = {
-      endOfChain: !1,
-      get: (r, s, u) => typeof r[s] == "function" ? (...l) => {
-        if (e.endOfChain)
-          return e.endOfChain = !1, r.toString();
-        const h = r[s].apply(r, l);
-        return setTimeout(() => {
-          e.endOfChain = !0;
-        }, i.delay), h instanceof i ? new Proxy(h, e) : h;
-      } : s === "valueOf" && e.endOfChain ? (e.endOfChain = !1, () => r.toString()) : Reflect.get(r, s, u)
-    };
-    return new Proxy(this, e);
+  constructor(e) {
+    C(this, "value");
+    Array.isArray(e) && (e = e.join(" ")), this.value = e;
   }
   /**
    * Returns a new JStr instance containing the substring after the specified search string.
@@ -372,8 +360,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.of("hello world").after("hello").toString();
    * // result: " world"
    */
-  after(t) {
-    return new i(n.after(this.str, t));
+  after(e) {
+    return new i(n.after(this.value, e));
   }
   /**
    * Returns everything after the last occurrence of the given value in a string.
@@ -384,30 +372,30 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.of("App\\Http\\Controllers\\Controller").afterLast("\\").toString();
    * // result: Controller
    */
-  afterLast(t) {
-    return new i(n.after(this.str, t));
+  afterLast(e) {
+    return new i(n.afterLast(this.value, e));
   }
   /**
    * Removes diacritics from the string, converting it to ASCII.
-   * @returns {JStr} JStr instance for method chaining.
+   * @returns {Stringable} JStr instance for method chaining.
    * @example
    * const result = new JStr("héllô wórld").ascii().toString();
    * // result: "hello world"
    */
   ascii() {
-    return new i(n.ascii(this.str));
+    return new i(n.ascii(this.value));
   }
   /**
    * Returns a new JStr instance containing the substring before the specified search string.
    * If the search string is not found, the original string is returned.
    * @param {string} search - The search string.
-   * @returns {JStr} A new JStr instance with the substring before the search string.
+   * @returns {Stringable} A new JStr instance with the substring before the search string.
    * @example
    * const result = new JStr("hello world").before("world").toString();
    * // result: "hello "
    */
-  before(t) {
-    return new i(n.before(this.str, t));
+  before(e) {
+    return new i(n.before(this.value, e));
   }
   /**
    * Returns everything before the last occurrence of the given value in a string.
@@ -418,8 +406,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = new JStr("App\\Http\\Controllers\\Controller").beforeLast("\\");
    * // result: App\\Http\\Controllers
    */
-  beforeLast(t) {
-    return new i(n.beforeLast(this.str, t));
+  beforeLast(e) {
+    return new i(n.beforeLast(this.value, e));
   }
   /**
    * Between the string to a specified words.
@@ -430,8 +418,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // Returns 'brown'
    * JStr.of('The quick brown fox jumps over the lazy dog').between("quick", "fox").toString();
    */
-  between(t, e) {
-    return new i(n.between(this.str, t, e));
+  between(e, t) {
+    return new i(n.between(this.value, e, t));
   }
   /**
    * Between the string to a specified words.
@@ -439,8 +427,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @param end - The end of the string.
    * @returns {Stringable}
    */
-  betweenFirst(t, e) {
-    return new i(n.betweenFirst(this.str, t, e));
+  betweenFirst(e, t) {
+    return new i(n.betweenFirst(this.value, e, t));
   }
   /**
    * Converts the string to camelCase.
@@ -450,7 +438,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: "helloWorld"
    */
   camel() {
-    return new i(n.camel(this.str));
+    return new i(n.camel(this.value));
   }
   /**
    * Returns the character at the specified position in the string.
@@ -460,8 +448,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.chatAt("Hello World", 6);
    * // result: "W"
    */
-  chatAt(t) {
-    return new i(n.chatAt(this.str, t));
+  chatAt(e) {
+    return new i(n.chatAt(this.value, e));
   }
   /**
    * Checks if the string contains the specified substring.
@@ -472,8 +460,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = new JStr("hello world").contains("lo");
    * // result: true
    */
-  contains(t, e = !1) {
-    return n.contains(this.str, t, e);
+  contains(e, t = !1) {
+    return n.contains(this.value, e, t);
   }
   /**
    * Checks if the string contains all specified substrings.
@@ -484,8 +472,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = new JStr("hello world").containsAll(["hello", "world"]);
    * // result: true
    */
-  containsAll(t, e = !1) {
-    return n.containsAll(this.str, t, e);
+  containsAll(e, t = !1) {
+    return n.containsAll(this.value, e, t);
   }
   /**
    * Checks if the string ends with the specified substring.
@@ -495,8 +483,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = new JStr("hello world").endsWith("world");
    * // result: true
    */
-  endsWith(t) {
-    return n.endsWith(this.str, t);
+  endsWith(e) {
+    return n.endsWith(this.value, e);
   }
   /**
    * Truncates the string to a specified length, appending a specified ending if needed.
@@ -507,31 +495,31 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @param phrase
    * @param options
    */
-  excerpt(t = "", e = {}) {
-    return n.excerpt(this.str, t, e);
+  excerpt(e = "", t = {}) {
+    return n.excerpt(this.value, e, t);
   }
   /**
    * Appends the specified value to the end of the string if it's not already present.
-   * @returns {JStr} JStr instance for method chaining.
+   * @returns {Stringable} JStr instance for method chaining.
    * @example
    * const result = new JStr("hello").finish(" world").toString();
    * // result: "hello world"
    * @param cap
    */
-  finish(t) {
-    return n.finish(this.str, t);
+  finish(e) {
+    return n.finish(this.value, e);
   }
   /**
    * Wraps the string with the given strings.
    * @param {string} before - The string to be prepended to the input.
    * @param {string | null} after - The string to be appended to the input.
-   * @returns {JStr} A new JStr instance with the wrapped string.
+   * @returns {Stringable} A new JStr instance with the wrapped string.
    * @example
    * const result = JStr.of("example").wrap("[", "]");
    * // result: JStr instance with value "[example]"
    */
-  wrap(t, e = null) {
-    return new i(n.wrap(this.str, t, e));
+  wrap(e, t = null) {
+    return new i(n.wrap(this.value, e, t));
   }
   /**
    * Convert the given string to title case for each word.
@@ -539,7 +527,15 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @example jstr('steve_jobs').headline().toString(); // Returns 'Steve Jobs'
    */
   headline() {
-    return new i(n.headline(this.str));
+    return new i(n.headline(this.value));
+  }
+  /**
+  * Convert the given string to capital case for each word first letter.
+  * @returns JStr instance for method chaining.
+  * @example jstr('hello world').capitalize().toString(); // Returns 'Hello World!'
+  */
+  capitalize() {
+    return new i(n.capitalize(this.value));
   }
   /**
    * Checks if the string matches the specified pattern.
@@ -553,8 +549,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const resultRegex = new JStr("hello").is(regex);
    * // resultRegex: true
    */
-  is(t) {
-    return n.is(t, this.str);
+  is(e) {
+    return n.is(e, this.value);
   }
   /**
    * Checks if the string contains only ASCII characters.
@@ -564,7 +560,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: true
    */
   isAscii() {
-    return n.isAscii(this.str);
+    return n.isAscii(this.value);
   }
   /**
    * Determine if the string is empty.
@@ -574,7 +570,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: true
    */
   isEmpty() {
-    return this.str === "";
+    return this.value === "";
   }
   /**
    * Determine if the string is not empty.
@@ -594,7 +590,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: true
    */
   isJson() {
-    return n.isJson(this.str);
+    return n.isJson(this.value);
   }
   /**
    * Checks if the string is a valid UUID.
@@ -604,7 +600,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: true
    */
   isUuid() {
-    return n.isUuid(this.str);
+    return n.isUuid(this.value);
   }
   /**
    * Checks if the string is a valid ULID (Universally Unique Lexicographically Sortable Identifier).
@@ -614,7 +610,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: true
    */
   isUlid() {
-    return n.isUlid(this.str);
+    return n.isUlid(this.value);
   }
   /**
    * Checks if the string is a valid URL.
@@ -624,7 +620,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: true
    */
   isUrl() {
-    return n.isUrl(this.str);
+    return n.isUrl(this.value);
   }
   /**
    * Converts the string to kebab-case.
@@ -634,7 +630,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * jstr('Hello World').kebab().toString();
    */
   kebab() {
-    return new i(n.kebab(this.str));
+    return new i(n.kebab(this.value));
   }
   /**
    * Converts the string to snake case.
@@ -642,8 +638,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @example jstr('Hello World').snake().toString(); // Returns 'hello_world'
    * @param delimiter
    */
-  snake(t = "_") {
-    return new i(n.snake(this.str, t));
+  snake(e = "_") {
+    return new i(n.snake(this.value, e));
   }
   /**
    * Make a string's first character lowercase.
@@ -653,7 +649,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: JStr instance with value "hello World"
    */
   lcfirst() {
-    return new i(n.lcfirst(this.str));
+    return new i(n.lcfirst(this.value));
   }
   /**
    * Converts the first character of the string to uppercase.
@@ -664,7 +660,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: 'Hello'
    */
   ucfirst() {
-    return new i(n.ucfirst(this.str));
+    return new i(n.ucfirst(this.value));
   }
   /**
    * Splits the string into an array of words by uppercase characters.
@@ -675,7 +671,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: ['hello', 'World']
    */
   ucsplit() {
-    return n.ucsplit(this.str);
+    return n.ucsplit(this.value);
   }
   /**
    * Returns the length of the string.
@@ -684,34 +680,34 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = new JStr("hello world").length();
    * // result: 11
    */
-  length(t) {
-    return n.length(this.str, t);
+  length(e) {
+    return n.length(this.value, e);
   }
   /**
    * Limits the length of the string and appends an optional ending string.
    * @param {number} limit - The maximum length of the string.
    * @param {string} [end=''] - The optional ending string to append if the limit is exceeded.
-   * @returns {JStr} JStr instance for method chaining.
+   * @returns {Stringable} JStr instance for method chaining.
    * @example
    * const result = new JStr("Lorem ipsum dolor sit amet").limit(10, '...').toString();
    * // result: "Lorem ipsu..."
    */
-  limit(t = 100, e = "...") {
-    return new i(n.limit(this.str, t, e));
+  limit(e = 100, t = "...") {
+    return new i(n.limit(this.value, e, t));
   }
   /**
    * Converts the string to lowercase.
    * @returns JStr instance for method chaining.
    */
   lower() {
-    return new i(n.lower(this.str));
+    return new i(n.lower(this.value));
   }
   /**
    * Converts the string to uppercase.
    * @returns JStr instance for method chaining.
    */
   upper() {
-    return new i(n.upper(this.str));
+    return new i(n.upper(this.value));
   }
   /**
    * Removes whitespace from the beginning of the string.
@@ -721,9 +717,9 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.ltrim('   hello');
    * // result: 'hello'
    */
-  ltrim(t = `\r
+  ltrim(e = `\r
 	\v\0`) {
-    return new i(n.ltrim(this.str, t));
+    return new i(n.ltrim(this.value, e));
   }
   /**
    * Removes whitespace from the beginning and end of the string.
@@ -733,7 +729,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: 'hello'
    */
   trim() {
-    return new i(n.trim(this.str));
+    return new i(n.trim(this.value));
   }
   /**
    * Removes whitespace from the end of the string.
@@ -743,9 +739,9 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.rtrim('hello   ');
    * // result: 'hello'
    */
-  rtrim(t = `\r
+  rtrim(e = `\r
 	\v\0`) {
-    return new i(n.rtrim(this.str, t));
+    return new i(n.rtrim(this.value, e));
   }
   /**
    * Masks a portion of a string with a repeated character.
@@ -759,8 +755,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.mask('password123', '*', 4, 3);
    * // result: 'pass***123'
    */
-  mask(t, e, r = null, s = "UTF-8") {
-    return new i(n.mask(this.str, t, e, r, s));
+  mask(e, t, r = null, s = "UTF-8") {
+    return new i(n.mask(this.value, e, t, r, s));
   }
   /**
    * Get the string matching the given pattern.
@@ -770,8 +766,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.match(/\d+/, 'abc123def');
    * // result: '123'
    */
-  match(t) {
-    return new i(n.match(t, this.str));
+  match(e) {
+    return new i(n.match(e, this.value));
   }
   /**
    * Determine if a given string matches a given pattern.
@@ -781,8 +777,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.isMatch(/\d+/, 'abc123def');
    * // result: true
    */
-  isMatch(t) {
-    return n.isMatch(t, this.str);
+  isMatch(e) {
+    return n.isMatch(e, this.value);
   }
   /**
    * Get the strings matching the given pattern.
@@ -792,52 +788,52 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.matchAll(/\d+/, 'abc123def456');
    * // result: ['123', '456']
    */
-  matchAll(t) {
-    return n.matchAll(t, this.str);
+  matchAll(e) {
+    return n.matchAll(e, this.value);
   }
   /**
    * Appends a new line to the string.
    * @param {number} count - The number of new lines to append. Default is 1.
-   * @returns {JStr} A new JStr instance with the appended new lines.
+   * @returns {Stringable} A new JStr instance with the appended new lines.
    * @example
    * const result = new JStr("Hello").newLine(2);
    * // result: JStr instance with value "Hello\n\n"
    */
-  newLine(t = 1) {
+  newLine(e = 1) {
     return this.append(`
-`.repeat(t));
+`.repeat(e));
   }
   /**
    * Appends the given values to the string.
    * @param {...(string | number | boolean | symbol)[]} values - The values to append to the string.
-   * @returns {JStr} A new JStr instance with the appended values.
+   * @returns {Stringable} A new JStr instance with the appended values.
    * @example
    * const result = new JStr("Hello").append(" World", 42, true);
    * // result: JStr instance with value "Hello World42true"
    */
-  append(...t) {
-    return new i(this.str + t.join(""));
+  append(...e) {
+    return new i(this.value + e.join(""));
   }
   /**
    * Prepends the given values to the string.
    * @param {...string} values - The values to prepend to the string.
-   * @returns {JStr} A new JStr instance with the given values prepended.
+   * @returns {Stringable} A new JStr instance with the given values prepended.
    * @example
    * const result = new JStr("World").prepend("Hello, ");
    * // result: JStr instance with value "Hello, World"
    */
-  prepend(...t) {
-    return new i(t.join("") + this.str);
+  prepend(...e) {
+    return new i(e.join("") + this.value);
   }
   /**
    * Converts the string to studly case, capitalizing each word and removing separators.
-   * @returns {JStr} JStr instance for method chaining.
+   * @returns {Stringable} JStr instance for method chaining.
    * @example
    * const result = new JStr("hello_world").studly().toString();
    * // result: "HelloWorld"
    */
   studly() {
-    return new i(n.studly(this.str));
+    return new i(n.studly(this.value));
   }
   /**
    * Pluralize the last word of an English, studly caps case string.
@@ -845,7 +841,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @return string
    */
   pluralStudly() {
-    return new i(n.pluralStudly(this.str));
+    return new i(n.pluralStudly(this.value));
   }
   /**
    * Returns the portion of the string specified by the start and length parameters.
@@ -857,8 +853,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.substr("Hello, World", 7, 5);
    * // result: "World"
    */
-  substr(t, e = null, r = "UTF-8") {
-    return new i(n.substr(this.str, t, e, r));
+  substr(e, t = null, r = "UTF-8") {
+    return new i(n.substr(this.value, e, t, r));
   }
   /**
    * Returns the number of substring occurrences.
@@ -870,8 +866,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.substrCount("ababab", "ab");
    * // result: 3
    */
-  substrCount(t, e = 0, r = null) {
-    return n.substrCount(this.str, t, e, r);
+  substrCount(e, t = 0, r = null) {
+    return n.substrCount(this.value, e, t, r);
   }
   /**
    * Replace text within a portion of a string.
@@ -883,8 +879,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.substrReplace("Hello, World", "Universe", 7, 5);
    * // result: "Hello, Universe"
    */
-  substrReplace(t, e, r) {
-    return new i(n.substrReplace(this.str, t, e, r));
+  substrReplace(e, t, r) {
+    return new i(n.substrReplace(this.value, e, t, r));
   }
   /**
    * Swap multiple keywords in a string with other keywords.
@@ -894,8 +890,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.swap({ 'foo': 'bar', 'hello': 'world' }, 'foo hello');
    * // result: "bar world"
    */
-  swap(t) {
-    return new i(n.swap(t, this.str));
+  swap(e) {
+    return new i(n.swap(e, this.value));
   }
   /**
    * Pad both sides of a string with another.
@@ -907,8 +903,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.padBoth("Hello", 10, "-");
    * // result: "--Hello---"
    */
-  padBoth(t, e = " ") {
-    return new i(n.padBoth(this.str, t, e));
+  padBoth(e, t = " ") {
+    return new i(n.padBoth(this.value, e, t));
   }
   /**
    * Pad the left side of a string with another.
@@ -920,8 +916,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.padLeft("Hello", 10, "-");
    * // result: "-----Hello"
    */
-  padLeft(t, e = " ") {
-    return new i(n.padLeft(this.str, t, e));
+  padLeft(e, t = " ") {
+    return new i(n.padLeft(this.value, e, t));
   }
   /**
    * Pad the right side of a string with another.
@@ -933,8 +929,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.padRight("Hello", 10, "-");
    * // result: "Hello-----"
    */
-  padRight(t, e = " ") {
-    return new i(n.padRight(this.str, t, e));
+  padRight(e, t = " ") {
+    return new i(n.padRight(this.value, e, t));
   }
   /**
    * Repeat the given string.
@@ -944,8 +940,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.repeat("Hello", 3);
    * // result: "HelloHelloHello"
    */
-  repeat(t) {
-    return new i(n.repeat(this.str, t));
+  repeat(e) {
+    return new i(n.repeat(this.value, e));
   }
   /**
    * Replace a given value in the string sequentially with an array.
@@ -956,8 +952,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.replaceArray(" ", ["Hello", "World"], "Goodbye Universe");
    * // result: "GoodbyeHelloWorldUniverse"
    */
-  replaceArray(t, e) {
-    return new i(n.replaceArray(t, e, this.str));
+  replaceArray(e, t) {
+    return new i(n.replaceArray(e, t, this.value));
   }
   /**
    * Replace the given value in the given string.
@@ -970,8 +966,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.replace(["apple", "orange"], ["fruit1", "fruit2"], "An apple and an orange.");
    * // result: "An fruit1 and an fruit2."
    */
-  replace(t, e, r = !0) {
-    return new i(n.replace(t, e, this.str, r));
+  replace(e, t, r = !0) {
+    return new i(n.replace(e, t, this.value, r));
   }
   /**
    * Replace the first occurrence of a given value in the string.
@@ -982,8 +978,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.replaceFirst("apple", "fruit", "An apple and an apple.");
    * // result: "An fruit and an apple."
    */
-  replaceFirst(t, e) {
-    return new i(n.replaceFirst(t, e, this.str));
+  replaceFirst(e, t) {
+    return new i(n.replaceFirst(e, t, this.value));
   }
   /**
    * Replace the last occurrence of a given value in the string.
@@ -994,26 +990,26 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.replaceLast("apple", "fruit", "An apple and an apple.");
    * // result: "An apple and an fruit."
    */
-  replaceLast(t, e) {
-    return new i(n.replaceFirst(t, e, this.str));
+  replaceLast(e, t) {
+    return new i(n.replaceFirst(e, t, this.value));
   }
   /**
    * Replace the patterns matching the given regular expression.
    * @param {string | RegExp} pattern - The regular expression pattern to match.
    * @param {((match: string, ...groups: any[]) => string) | string} replace - The replacement function or string.
    * @param _limit
-   * @returns {JStr} A new JStr instance after replacements.
+   * @returns {Stringable} A new JStr instance after replacements.
    * @example
    * const result = new JStr("Hello 123 World").replaceMatches(/\d+/, match => `[${match}]`, 1);
    * // result: JStr instance with value "Hello [123] World"
    */
-  replaceMatches(t, e, r = -1) {
-    const s = this.str, u = t instanceof RegExp ? t : new RegExp(t, "g");
-    if (typeof e == "function") {
-      const l = s.replace(u, (...h) => e(h[0], ...h.slice(1)));
+  replaceMatches(e, t, r = -1) {
+    const s = this.value, a = e instanceof RegExp ? e : new RegExp(e, "g");
+    if (typeof t == "function") {
+      const l = s.replace(a, (...h) => t(h[0], ...h.slice(1)));
       return new i(l);
     } else {
-      const l = s.replace(u, e);
+      const l = s.replace(a, t);
       return new i(l);
     }
   }
@@ -1025,8 +1021,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const count = JStr.wordCount("Hello World");
    * // count: 2
    */
-  wordCount(t = null) {
-    return n.wordCount(this.str, t);
+  wordCount(e = null) {
+    return n.wordCount(this.value, e);
   }
   /**
    * Limit the number of words in a string.
@@ -1038,8 +1034,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.words("Lorem ipsum dolor sit amet", 3, '...');
    * // result: "Lorem ipsum dolor..."
    */
-  words(t = 100, e = "...") {
-    return new i(n.words(this.str, t, e));
+  words(e = 100, t = "...") {
+    return new i(n.words(this.value, e, t));
   }
   /**
    * Wrap a string to a given number of characters.
@@ -1051,9 +1047,9 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const wrappedString = JStr.wordWrap("Lorem ipsum dolor sit amet", 20, "\n", true);
    * // wrappedString: "Lorem ipsum dolor\nsit amet"
    */
-  wordWrap(t = 75, e = `
+  wordWrap(e = 75, t = `
 `, r = !1) {
-    return new i(n.wordWrap(this.str, t, e, r));
+    return new i(n.wordWrap(this.value, e, t, r));
   }
   /**
    * Determine if the string is an exact match with the given value.
@@ -1063,9 +1059,9 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const isMatch = new JStr("Hello, World").exactly("Hello, World");
    * // isMatch: true
    */
-  exactly(t) {
-    const e = t instanceof i ? t.toString() : t;
-    return this.str === e;
+  exactly(e) {
+    const t = e instanceof i ? e.toString() : e;
+    return this.value === t;
   }
   /**
    * Explode the string into an array.
@@ -1076,19 +1072,19 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = new JStr("apple,orange,banana").explode(",");
    * // result: ["apple", "orange", "banana"]
    */
-  explode(t, e = Number.MAX_SAFE_INTEGER) {
-    return this.str.split(t, e);
+  explode(e, t = Number.MAX_SAFE_INTEGER) {
+    return this.value.split(e, t);
   }
   /**
    * Call the given callback and return a new string.
    * @param {Function} callback - The callback function to apply to the string.
-   * @returns {JStr} A new JStr instance resulting from the callback.
+   * @returns {Stringable} A new JStr instance resulting from the callback.
    * @example
    * const result = new JStr("Hello, World").pipe((str) => str.toUpperCase());
    * // result: JStr instance with value "HELLO, WORLD"
    */
-  pipe(t) {
-    return new i(t(this.str));
+  pipe(e) {
+    return new i(e(this.value));
   }
   /**
    * Find the multibyte safe position of the first occurrence of a given substring in a string.
@@ -1100,8 +1096,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.position("Hello, World", "World", 0, "UTF-8");
    * // result: 7
    */
-  position(t, e = 0, r = null) {
-    return n.position(this.str, t, e, r);
+  position(e, t = 0, r = null) {
+    return n.position(this.value, e, t, r);
   }
   /**
    * Begin a string with a single instance of a given value.
@@ -1111,8 +1107,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.start("World", "Hello, ");
    * // result: "Hello, World"
    */
-  start(t) {
-    return new i(n.start(this.str, t));
+  start(e) {
+    return new i(n.start(this.value, e));
   }
   /**
    * Determine if a given string starts with a given substring.
@@ -1122,8 +1118,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.startsWith("Hello, World", ["Hello", "Hi"]);
    * // result: true
    */
-  startsWith(t) {
-    return n.startsWith(this.str, t);
+  startsWith(e) {
+    return n.startsWith(this.value, e);
   }
   /**
    * Take the first or last {limit} characters.
@@ -1133,8 +1129,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.take(5);
    * // result: "Hello"
    */
-  take(t) {
-    return t < 0 ? this.substr(t) : this.substr(0, t);
+  take(e) {
+    return e < 0 ? this.substr(e) : this.substr(0, e);
   }
   /**
    * Convert the given string to title case.
@@ -1144,7 +1140,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * // result: "Hello World"
    */
   title() {
-    return new i(n.title(this.str));
+    return new i(n.title(this.value));
   }
   /**
    * Generate a URL-friendly "slug" from a given string.
@@ -1157,8 +1153,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const result = JStr.slug("Hello World", "-", "en", {'@': 'at'});
    * // result: "hello-world"
    */
-  slug(t = "-", e = null, r = { "@": "at" }) {
-    return new i(n.slug(this.str, t, e, r));
+  slug(e = "-", t = null, r = { "@": "at" }) {
+    return new i(n.slug(this.value, e, t, r));
   }
   /**
    * Call the given callback function with this instance then return the instance.
@@ -1169,8 +1165,8 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * const modified = jstr.tap(instance => instance.toUpperCase()).getValue();
    * // modified: 'HELLO WORLD'
    */
-  tap(t) {
-    return t && t(this), this;
+  tap(e) {
+    return e && e(this), this;
   }
   /**
    * Get the singular form of an English word.
@@ -1178,7 +1174,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @return string
    */
   singular() {
-    return new i(n.singular(this.str));
+    return new i(n.singular(this.value));
   }
   /**
    * Get the plural form of an English word.
@@ -1186,7 +1182,62 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @return string
    */
   plural() {
-    return new i(n.plural(this.str));
+    return new i(n.plural(this.value));
+  }
+  /**
+   * Remove all "extra" blank space from the given string.
+   *
+   * @return The processed string with extra spaces removed.
+   */
+  squish() {
+    return new i(n.squish(this.value));
+  }
+  /**
+   * Reverse the given string.
+   *
+   * @return The reversed string.
+   */
+  reverse() {
+    return new i(n.reverse(this.value));
+  }
+  /**
+   * Remove any occurrence of the given string in the subject.
+   *
+   * @param search - The string to be removed.
+   * @param caseSensitive - Whether the removal is case-sensitive.
+   * @return The string with the specified value removed.
+   */
+  remove(e, t = !0) {
+    return new i(n.remove(e, this.value, t));
+  }
+  /**
+   * Parse input from a string to an array, according to a format.
+   *
+   * @param format - The format string.
+   * @return An array of parsed elements.
+   */
+  scan(e) {
+    const r = new RegExp(e).exec(this.value);
+    return r ? r.slice(1) : [];
+  }
+  /**
+   * Split a string using a regular expression or by length.
+   *
+   * @param pattern - The pattern or length to split by.
+   * @param limit - The maximum number of splits.
+   * @return An array of string segments.
+   */
+  split(e, t = -1) {
+    return typeof e == "number" ? this.value.match(new RegExp(`.{1,${e}}`, "g")) || [] : this.value.split(new RegExp(e), t);
+  }
+  /**
+   * Determine if the string matches the given pattern.
+   *
+   * @param pattern - The pattern to test against.
+   * @return True if the string matches the pattern, false otherwise.
+   */
+  test(e) {
+    return this.isMatch(e);
   }
   /**
    * Apply the callback if the given "value" is truthy.
@@ -1195,9 +1246,9 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @param defaultCallback - The callback to execute if the value is falsy.
    * @returns The result of the callback or the instance itself.
    */
-  when(t, e, r) {
-    let s = typeof t == "function" ? t() : t;
-    return s && e ? e(this) : !s && r ? r(this) : this;
+  when(e, t, r) {
+    let s = typeof e == "function" ? e() : e;
+    return s && t ? t(this) : !s && r ? r(this) : this;
   }
   /**
    * Apply the callback if the given "value" is falsy.
@@ -1206,23 +1257,23 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @param defaultCallback - The callback to execute if the value is truthy.
    * @returns The result of the callback or the instance itself.
    */
-  unless(t, e, r) {
-    let s = typeof t == "function" ? t() : t;
-    return !s && e ? e(this) : s && r ? r(this) : this;
+  unless(e, t, r) {
+    let s = typeof e == "function" ? e() : e;
+    return !s && t ? t(this) : s && r ? r(this) : this;
   }
   /**
    * Get the underlying string value as an integer.
    * @returns The integer representation of the string.
    */
   toInteger() {
-    return parseInt(this.str, 10);
+    return parseInt(this.value, 10);
   }
   /**
    * Get the underlying string value as a float.
    * @returns The float representation of the string.
    */
   toFloat() {
-    return parseFloat(this.str);
+    return parseFloat(this.value);
   }
   /**
    * Get the underlying string value as a boolean.
@@ -1230,7 +1281,7 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @returns The boolean representation of the string.
    */
   toBoolean() {
-    return ["1", "true", "on", "yes"].includes(this.str.toLowerCase());
+    return ["1", "true", "on", "yes"].includes(this.value.toLowerCase());
   }
   /**
    * Get the underlying string value as a Date instance.
@@ -1238,23 +1289,23 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @param format - The date format (optional).
    * @returns The Date representation of the string.
    */
-  toDate(t) {
-    if (!t)
-      return new Date(this.str);
-    const e = {
+  toDate(e) {
+    if (!e)
+      return new Date(this.value);
+    const t = {
       YYYY: "(\\d{4})",
       MM: "(\\d{2})",
       DD: "(\\d{2})"
       // Add more format specifiers as needed
     };
-    let r = t;
-    for (const b in e)
-      r = r.replace(b, e[b]);
-    const s = new RegExp(r).exec(this.str);
+    let r = e;
+    for (const x in t)
+      r = r.replace(x, t[x]);
+    const s = new RegExp(r).exec(this.value);
     if (!s)
       return null;
-    const u = t.indexOf("YYYY") !== -1 ? t.split("YYYY")[0].length : -1, l = t.indexOf("MM") !== -1 ? t.split("MM")[0].length : -1, h = t.indexOf("DD") !== -1 ? t.split("DD")[0].length : -1, f = u !== -1 ? parseInt(s[u + 1]) : 0, p = l !== -1 ? parseInt(s[l + 1]) - 1 : 0, x = h !== -1 ? parseInt(s[h + 1]) : 1;
-    return new Date(f, p, x);
+    const a = e.indexOf("YYYY") !== -1 ? e.split("YYYY")[0].length : -1, l = e.indexOf("MM") !== -1 ? e.split("MM")[0].length : -1, h = e.indexOf("DD") !== -1 ? e.split("DD")[0].length : -1, f = a !== -1 ? parseInt(s[a + 1]) : 0, p = l !== -1 ? parseInt(s[l + 1]) - 1 : 0, v = h !== -1 ? parseInt(s[h + 1]) : 1;
+    return new Date(f, p, v);
   }
   /**
    * Returns the final string after all chained manipulations.
@@ -1262,12 +1313,10 @@ const O = /* @__PURE__ */ T(j), i = class i {
    * @example JStr.of('Hello World').upper().toString(); // Returns 'HELLO WORLD'
    */
   toString() {
-    return this.str;
+    return this.value;
   }
-};
-E(i, "delay", 10);
-let L = i;
-class w {
+}
+class $ {
   /**
    * Returns a new JStr instance containing the substring after the specified search string.
    * If the search string is not found, the original string is returned.
@@ -1278,9 +1327,9 @@ class w {
    * const result = JStr.after("hello world", "hello");
    * // result: " world"
    */
-  static after(t, e) {
-    const r = t.indexOf(e);
-    return r === -1 ? t : t.substring(r + e.length);
+  static after(e, t) {
+    const r = e.indexOf(t);
+    return r === -1 ? e : e.substring(r + t.length);
   }
   /**
    * Returns everything after the last occurrence of the given value in a string.
@@ -1292,9 +1341,9 @@ class w {
    * const result = new JStr("App\\Http\\Controllers\\Controller").afterLast("\\");
    * // result: Controller
    */
-  static afterLast(t, e) {
-    const r = t.lastIndexOf(e);
-    return r !== -1 ? t.substring(r + e.length) : t;
+  static afterLast(e, t) {
+    const r = e.lastIndexOf(t);
+    return r !== -1 ? e.substring(r + t.length) : e;
   }
   /**
    * Removes diacritics from the string, converting it to ASCII.
@@ -1303,8 +1352,8 @@ class w {
    * const result = new JStr("héllô wórld").ascii().toString();
    * // result: "hello world"
    */
-  static ascii(t) {
-    return t.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  static ascii(e) {
+    return e.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
   /**
    * Returns a new JStr instance containing the substring before the specified search string.
@@ -1316,9 +1365,9 @@ class w {
    * const result = new JStr("hello world").before("world").toString();
    * // result: "hello "
    */
-  static before(t, e) {
-    const r = t.indexOf(e);
-    return r === -1 ? t : t.substring(0, r);
+  static before(e, t) {
+    const r = e.indexOf(t);
+    return r === -1 ? e : e.substring(0, r);
   }
   /**
    * Returns everything before the last occurrence of the given value in a string.
@@ -1330,9 +1379,9 @@ class w {
    * const result = new JStr("App\\Http\\Controllers\\Controller").beforeLast("\\");
    * // result: App\\Http\\Controllers
    */
-  static beforeLast(t, e) {
-    const r = t.lastIndexOf(e);
-    return r !== -1 ? t.substring(0, r) : t;
+  static beforeLast(e, t) {
+    const r = e.lastIndexOf(t);
+    return r !== -1 ? e.substring(0, r) : e;
   }
   /**
    * Between the string to a specified words.
@@ -1344,8 +1393,8 @@ class w {
    * // Returns 'brown'
    *  JStr.between('The quick brown fox jumps over the lazy dog', "quick", "fox");
    */
-  static between(t, e, r) {
-    return e === "" || e === null || r === "" || r === null ? t : w.beforeLast(w.after(t, e), r);
+  static between(e, t, r) {
+    return t === "" || t === null || r === "" || r === null ? e : $.beforeLast($.after(e, t), r);
   }
   /**
    * Between the string to a specified words.
@@ -1354,8 +1403,8 @@ class w {
    * @param to - The end of the string.
    * @returns string
    */
-  static betweenFirst(t, e, r) {
-    return e === "" || e === null || r === "" || r === null ? t : w.before(w.after(t, e), r);
+  static betweenFirst(e, t, r) {
+    return t === "" || t === null || r === "" || r === null ? e : $.before($.after(e, t), r);
   }
   /**
    * Converts the string to camelCase.
@@ -1364,8 +1413,8 @@ class w {
    * const result = new JStr("hello world").camel().toString();
    * // result: "helloWorld"
    */
-  static camel(t) {
-    return w.lcfirst(w.studly(t));
+  static camel(e) {
+    return $.lcfirst($.studly(e));
   }
   /**
    * Returns the character at the specified position in the string.
@@ -1376,9 +1425,9 @@ class w {
    * const result = JStr.chatAt("Hello World", 6);
    * // result: "W"
    */
-  static chatAt(t, e) {
-    const r = t.length;
-    return (e < 0 ? e < -r : e > r - 1) ? !1 : t.charAt(e);
+  static chatAt(e, t) {
+    const r = e.length;
+    return (t < 0 ? t < -r : t > r - 1) ? !1 : e.charAt(t);
   }
   /**
    * Checks if the string contains the specified substring.
@@ -1390,8 +1439,8 @@ class w {
    * const result = new JStr("hello world").contains("lo");
    * // result: true
    */
-  static contains(t, e, r = !1) {
-    return r && (t = t.toLowerCase()), typeof e == "string" && (e = [e]), e.some((s) => t.includes(s));
+  static contains(e, t, r = !1) {
+    return r && (e = e.toLowerCase()), typeof t == "string" && (t = [t]), t.some((s) => e.includes(s));
   }
   /**
    * Checks if the string contains all specified substrings.
@@ -1403,9 +1452,9 @@ class w {
    * const result = new JStr("hello world").containsAll(["hello", "world"]);
    * // result: true
    */
-  static containsAll(t, e, r = !1) {
-    for (let s = 0; s < e.length; s++)
-      if (!w.contains(t, e[s], r))
+  static containsAll(e, t, r = !1) {
+    for (let s = 0; s < t.length; s++)
+      if (!$.contains(e, t[s], r))
         return !1;
     return !0;
   }
@@ -1418,10 +1467,10 @@ class w {
    * const result = new JStr("hello world").endsWith("world");
    * // result: true
    */
-  static endsWith(t, e) {
-    typeof e == "string" && (e = [e]);
-    for (let r = 0; r < e.length; r++)
-      if (e[r] !== "" && t.endsWith(e[r]))
+  static endsWith(e, t) {
+    typeof t == "string" && (t = [t]);
+    for (let r = 0; r < t.length; r++)
+      if (t[r] !== "" && e.endsWith(t[r]))
         return !0;
     return !1;
   }
@@ -1435,14 +1484,14 @@ class w {
    * const excerpt = JStr.excerpt('Hello world, this is a test', 'world', {radius: 5, omission: '...'});
    * // excerpt: '...world, this...'
    */
-  static excerpt(t, e = "", r = {}) {
-    const s = r.radius ?? 100, u = r.omission ?? "...", l = new RegExp(`^(.*?)(${e.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&")})(.*)$`, "iu"), h = t.match(l);
+  static excerpt(e, t = "", r = {}) {
+    const s = r.radius ?? 100, a = r.omission ?? "...", l = new RegExp(`^(.*?)(${t.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&")})(.*)$`, "iu"), h = e.match(l);
     if (!h)
       return null;
     let f = h[1];
-    f = f.substring(Math.max(f.length - s, 0)), f.length > s && (f = u + f);
+    f = f.substring(Math.max(f.length - s, 0)), f.length > s && (f = a + f);
     let p = h[3];
-    return p = p.substring(0, s), p.length > s && (p += u), f + h[2] + p;
+    return p = p.substring(0, s), p.length > s && (p += a), f + h[2] + p;
   }
   /**
    * Cap a string with a single instance of a given value.
@@ -1453,9 +1502,9 @@ class w {
    * const result = JStr.finish('hello', 'world');
    * // result: 'helloworld'
    */
-  static finish(t, e) {
-    const r = e.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&"), s = new RegExp(`(?:${r})+$`, "u");
-    return t.replace(s, "") + e;
+  static finish(e, t) {
+    const r = t.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&"), s = new RegExp(`(?:${r})+$`, "u");
+    return e.replace(s, "") + t;
   }
   /**
    * Wraps the string with the given strings.
@@ -1467,16 +1516,24 @@ class w {
    * const result = JStr.wrap("example", "[", "]");
    * // result: "[example]"
    */
-  static wrap(t, e, r = null) {
-    return r || (r = e), e + t + r;
+  static wrap(e, t, r = null) {
+    return r || (r = t), t + e + r;
   }
   /**
    * Convert the given string to title case for each word.
    * @returns JStr instance for method chaining.
    * @example jstr('steve_jobs').headline().toString(); // Returns 'Steve Jobs'
    */
-  static headline(t) {
-    return t.replace(/[_-]/g, " ").split(" ").map((e) => e.charAt(0).toUpperCase() + e.slice(1)).join(" ");
+  static headline(e) {
+    return e.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/[_-]/g, " ").replace(/\s+/g, " ").trim().toLowerCase().split(" ").map((t) => t.charAt(0).toUpperCase() + t.slice(1)).join(" ");
+  }
+  /**
+   * Convert the given string to capital case for each word first letter.
+   * @returns JStr instance for method chaining.
+   * @example jstr('hello world').capitalize().toString(); // Returns 'Hello World!'
+   */
+  static capitalize(e) {
+    return e.toLowerCase().replace(/(^\w{1})|(\s+\w{1})/g, (t) => t.toUpperCase());
   }
   /**
    * Determine if a given string matches a given pattern.
@@ -1487,14 +1544,14 @@ class w {
    * const result = JStr.is(["pattern1", "pattern2"], "pattern1");
    * // result: true
    */
-  static is(t, e) {
-    Array.isArray(t) || (t = [t]);
-    for (const r of t) {
+  static is(e, t) {
+    Array.isArray(e) || (e = [e]);
+    for (const r of e) {
       const s = r.toString();
-      if (s === e)
+      if (s === t)
         return !0;
       const l = s.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&").replace(/\\\*/g, ".*");
-      if (new RegExp("^" + l + "\\z", "u").test(e))
+      if (new RegExp("^" + l + "\\z", "u").test(t))
         return !0;
     }
     return !1;
@@ -1506,8 +1563,8 @@ class w {
    * const result = new JStr("hello").isAscii();
    * // result: true
    */
-  static isAscii(t) {
-    return /^[\x00-\x7F]*$/.test(t);
+  static isAscii(e) {
+    return /^[\x00-\x7F]*$/.test(e);
   }
   /**
    * Checks if the string is a valid JSON format.
@@ -1517,9 +1574,9 @@ class w {
    * const result = JStr.isJson('{"name": "John", "age": 30}');
    * // result: true
    */
-  static isJson(t) {
+  static isJson(e) {
     try {
-      JSON.parse(t);
+      JSON.parse(e);
     } catch {
       return !1;
     }
@@ -1533,8 +1590,8 @@ class w {
    * const result = JStr.isUuid('550e8400-e29b-41d4-a716-446655440000');
    * // result: true
    */
-  static isUuid(t) {
-    return F(t);
+  static isUuid(e) {
+    return P(e);
   }
   /**
    * Determine if a given value is a valid ULID.
@@ -1544,8 +1601,8 @@ class w {
    * const isValid = JStr.isUlid('01F3Z46YKPAWZVJMXTHWCKQWDT');
    * // isValid: true
    */
-  static isUlid(t) {
-    return typeof t != "string" ? !1 : /^[0-7][0-9A-HJKMNP-TV-Z]{25}$/.test(t);
+  static isUlid(e) {
+    return typeof e != "string" ? !1 : /^[0-7][0-9A-HJKMNP-TV-Z]{25}$/.test(e);
   }
   /**
    * Checks if the string is a valid URL.
@@ -1555,9 +1612,9 @@ class w {
    * const result = JStr.isUrl('https://www.example.com');
    * // result: true
    */
-  static isUrl(t) {
+  static isUrl(e) {
     try {
-      return new URL(t), !0;
+      return new URL(e), !0;
     } catch {
       return !1;
     }
@@ -1570,8 +1627,8 @@ class w {
    * jstr('Hello World').kebab().toString();
    * @param value
    */
-  static kebab(t) {
-    return w.snake(t, "-");
+  static kebab(e) {
+    return $.snake(e, "-");
   }
   /**
    * Converts the string to snake case.
@@ -1580,9 +1637,9 @@ class w {
    * @param value
    * @param delimiter
    */
-  static snake(t, e = "_") {
-    let r = t.replace(/[\s-]+/g, e).replace(/([A-Z])/g, (s, u) => e + u.toLowerCase());
-    return r.startsWith(e) && (r = r.substring(1)), r;
+  static snake(e, t = "_") {
+    let r = e.replace(/[\s-]+/g, t).replace(/([A-Z])/g, (s, a) => t + a.toLowerCase());
+    return r.startsWith(t) && (r = r.substring(1)), r;
   }
   /**
    * Make a string's first character lowercase.
@@ -1591,8 +1648,8 @@ class w {
    * const result = new JStr("Hello World").lcfirst();
    * // result: JStr instance with value "hello World"
    */
-  static lcfirst(t) {
-    return t.charAt(0).toLowerCase() + t.slice(1);
+  static lcfirst(e) {
+    return e.charAt(0).toLowerCase() + e.slice(1);
   }
   /**
    * Converts the first character of the string to uppercase.
@@ -1602,8 +1659,8 @@ class w {
    * const result = JStr.ucfirst('hello');
    * // result: 'Hello'
    */
-  static ucfirst(t) {
-    return t.charAt(0).toUpperCase() + t.slice(1);
+  static ucfirst(e) {
+    return e.charAt(0).toUpperCase() + e.slice(1);
   }
   /**
    * Splits the string into an array of words by uppercase characters.
@@ -1613,8 +1670,8 @@ class w {
    * const result = JStr.ucsplit('helloWorld');
    * // result: ['hello', 'World']
    */
-  static ucsplit(t) {
-    return t.split(new RegExp("(?=\\p{Lu})", "u")).filter(Boolean);
+  static ucsplit(e) {
+    return e.split(new RegExp("(?=\\p{Lu})", "u")).filter(Boolean);
   }
   /**
    * Returns the length of the string.
@@ -1623,8 +1680,8 @@ class w {
    * const result = new JStr("hello world").length();
    * // result: 11
    */
-  static length(t, e) {
-    return t.length;
+  static length(e, t) {
+    return e.length;
   }
   /**
    * Limits the length of the string and appends an optional ending string.
@@ -1636,22 +1693,22 @@ class w {
    * const result = new JStr("Lorem ipsum dolor sit amet").limit(10, '...').toString();
    * // result: "Lorem ipsu..."
    */
-  static limit(t, e = 100, r = "...") {
-    return t.length > e ? t.substring(0, e) + r : t;
+  static limit(e, t = 100, r = "...") {
+    return e.length > t ? e.substring(0, t) + r : e;
   }
   /**
    * Converts the string to lowercase.
    * @returns JStr instance for method chaining.
    */
-  static lower(t) {
-    return t.toLowerCase();
+  static lower(e) {
+    return e.toLowerCase();
   }
   /**
    * Converts the string to uppercase.
    * @returns JStr instance for method chaining.
    */
-  static upper(t) {
-    return t.toUpperCase();
+  static upper(e) {
+    return e.toUpperCase();
   }
   /**
    * Removes whitespace from the beginning of the string.
@@ -1662,9 +1719,9 @@ class w {
    * const result = JStr.ltrim('   hello');
    * // result: 'hello'
    */
-  static ltrim(t, e = `\r
+  static ltrim(e, t = `\r
 	\v\0`) {
-    return t.replace(/^\s+/u, e);
+    return e.replace(/^\s+/u, t);
   }
   /**
    * Removes specified characters or whitespace from the beginning and end of the string.
@@ -1675,9 +1732,9 @@ class w {
    * const result = JStr.trim('---hello---', '-');
    * // result: 'hello'
    */
-  static trim(t, e = "\\s") {
-    const r = e.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&"), s = new RegExp(`^${r}+|${r}+$`, "g");
-    return t.replace(s, "");
+  static trim(e, t = "\\s") {
+    const r = t.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&"), s = new RegExp(`^${r}+|${r}+$`, "g");
+    return e.replace(s, "");
   }
   /**
    * Removes whitespace from the end of the string.
@@ -1688,9 +1745,9 @@ class w {
    * const result = JStr.rtrim('hello   ');
    * // result: 'hello'
    */
-  static rtrim(t, e = `\r
+  static rtrim(e, t = `\r
 	\v\0`) {
-    return t.replace(/\s+$/u, e);
+    return e.replace(/\s+$/u, t);
   }
   /**
    * Masks a portion of a string with a repeated character.
@@ -1704,14 +1761,14 @@ class w {
    * const result = JStr.mask('password123', '*', 4, 3);
    * // result: 'pass***123'
    */
-  static mask(t, e, r, s = null, u = "UTF-8") {
-    if (e === "")
-      return t;
-    const l = s !== null ? t.substr(r, s) : t.substr(r);
+  static mask(e, t, r, s = null, a = "UTF-8") {
+    if (t === "")
+      return e;
+    const l = s !== null ? e.substr(r, s) : e.substr(r);
     if (l === "")
-      return t;
-    const h = r < 0 ? r < -t.length ? 0 : t.length + r : r, f = t.substr(0, h), p = l.length, x = t.substr(h + p);
-    return f + e.charAt(0).repeat(p) + x;
+      return e;
+    const h = r < 0 ? r < -e.length ? 0 : e.length + r : r, f = e.substr(0, h), p = l.length, v = e.substr(h + p);
+    return f + t.charAt(0).repeat(p) + v;
   }
   /**
    * Get the string matching the given pattern.
@@ -1722,8 +1779,8 @@ class w {
    * const result = JStr.match(/\d+/, 'abc123def');
    * // result: '123'
    */
-  static match(t, e) {
-    const r = e.match(t);
+  static match(e, t) {
+    const r = t.match(e);
     return r ? r[1] ?? r[0] : "";
   }
   /**
@@ -1735,10 +1792,10 @@ class w {
    * const result = JStr.isMatch(/\d+/, 'abc123def');
    * // result: true
    */
-  static isMatch(t, e) {
-    const r = e.toString();
-    Symbol.iterator in Object(t) ? t = Array.from(t) : t = [t];
-    for (const s of t)
+  static isMatch(e, t) {
+    const r = t.toString();
+    Symbol.iterator in Object(e) ? e = Array.from(e) : e = [e];
+    for (const s of e)
       if ((s instanceof RegExp ? s : new RegExp(s)).test(r))
         return !0;
     return !1;
@@ -1752,8 +1809,8 @@ class w {
    * const result = JStr.matchAll(/\d+/, 'abc123def456');
    * // result: ['123', '456']
    */
-  static matchAll(t, e) {
-    const r = e.matchAll(t);
+  static matchAll(e, t) {
+    const r = t.matchAll(e);
     return r ? Array.from(r).map((s) => s[1] ?? s[0]) : [];
   }
   /**
@@ -1768,9 +1825,9 @@ class w {
    * const result = JStr.password(12, true, true, true, false);
    * // result: Random secure password with length 12 containing letters, numbers, and symbols.
    */
-  static password(t = 32, e = !0, r = !0, s = !0, u = !1) {
+  static password(e = 32, t = !0, r = !0, s = !0, a = !1) {
     const l = [];
-    return e && l.push(..."abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), r && l.push(..."0123456789"), s && l.push(..."~!#$%^&*()-_.,<>?/\\{}[]|:;"), u && l.push(" "), Array.from({ length: t }, () => l[Math.floor(Math.random() * l.length)]).join("");
+    return t && l.push(..."abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), r && l.push(..."0123456789"), s && l.push(..."~!#$%^&*()-_.,<>?/\\{}[]|:;"), a && l.push(" "), Array.from({ length: e }, () => l[Math.floor(Math.random() * l.length)]).join("");
   }
   /**
    * Converts the string to studly case, capitalizing each word and removing separators.
@@ -1779,8 +1836,8 @@ class w {
    * const result = new JStr("hello_world").studly().toString();
    * // result: "HelloWorld"
    */
-  static studly(t) {
-    return t.toLowerCase().replace(/(?:^|\s|-)+(.)/g, (e, r) => r.toUpperCase());
+  static studly(e) {
+    return e.toLowerCase().replace(/(?:^|\s|-|_)+(.)/g, (t, r) => r.toUpperCase());
   }
   /**
    * Pluralize the last word of an English, studly caps case string.
@@ -1788,9 +1845,9 @@ class w {
    * @return string
    * @param value
    */
-  static pluralStudly(t) {
-    const e = t.split(/(?=[A-Z])/), r = e.pop() || "";
-    return e.join("") + this.plural(r);
+  static pluralStudly(e) {
+    const t = e.split(/(?=[A-Z])/), r = t.pop() || "";
+    return t.join("") + this.plural(r);
   }
   /**
    * Returns the portion of the string specified by the start and length parameters.
@@ -1803,8 +1860,8 @@ class w {
    * const result = JStr.substr("Hello, World", 7, 5);
    * // result: "World"
    */
-  static substr(t, e, r = null, s = "UTF-8") {
-    return t.substring(e, r !== null ? e + r : void 0);
+  static substr(e, t, r = null, s = "UTF-8") {
+    return e.substring(t, r !== null ? t + r : void 0);
   }
   /**
    * Returns the number of substring occurrences.
@@ -1817,8 +1874,8 @@ class w {
    * const result = JStr.substrCount("ababab", "ab");
    * // result: 3
    */
-  static substrCount(t, e, r = 0, s = null) {
-    return s !== null ? t.substring(r, r + s).split(e).length - 1 : t.substring(r).split(e).length - 1;
+  static substrCount(e, t, r = 0, s = null) {
+    return s !== null ? e.substring(r, r + s).split(t).length - 1 : e.substring(r).split(t).length - 1;
   }
   /**
    * Replace text within a portion of a string.
@@ -1831,14 +1888,14 @@ class w {
    * const result = JStr.substrReplace("Hello, World", "Universe", 7, 5);
    * // result: "Hello, Universe"
    */
-  static substrReplace(t, e, r, s) {
-    if (typeof t == "string" && typeof e == "string" && typeof r == "number" && (typeof s == "number" || s === void 0)) {
-      const p = t.substring(0, r), x = t.substring(r + (s ?? t.length));
-      return `${p}${e}${x}`;
-    } else if (Array.isArray(t) && Array.isArray(e) && Array.isArray(r) && (Array.isArray(s) || s === void 0))
-      return t.map((p, x) => {
-        const b = r[x] ?? r[0], R = s ? s[x] ?? s[0] : p.length, v = p.substring(0, b), g = p.substring(b + R);
-        return `${v}${e[x] ?? e[0]}${g}`;
+  static substrReplace(e, t, r, s) {
+    if (typeof e == "string" && typeof t == "string" && typeof r == "number" && (typeof s == "number" || s === void 0)) {
+      const p = e.substring(0, r), v = e.substring(r + (s ?? e.length));
+      return `${p}${t}${v}`;
+    } else if (Array.isArray(e) && Array.isArray(t) && Array.isArray(r) && (Array.isArray(s) || s === void 0))
+      return e.map((p, v) => {
+        const x = r[v] ?? r[0], R = s ? s[v] ?? s[0] : p.length, E = p.substring(0, x), d = p.substring(x + R);
+        return `${E}${t[v] ?? t[0]}${d}`;
       });
     throw new Error("Invalid input type. Expected string or array of strings with corresponding types for replace, offset, and length.");
   }
@@ -1851,10 +1908,10 @@ class w {
    * const result = JStr.swap({ 'foo': 'bar', 'hello': 'world' }, 'foo hello');
    * // result: "bar world"
    */
-  static swap(t, e) {
-    return e.replace(
-      new RegExp(Object.keys(t).map((r) => r.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")).join("|"), "g"),
-      (r) => t[r]
+  static swap(e, t) {
+    return t.replace(
+      new RegExp(Object.keys(e).map((r) => r.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")).join("|"), "g"),
+      (r) => e[r]
     );
   }
   /**
@@ -1867,9 +1924,9 @@ class w {
    * const result = JStr.padBoth("Hello", 10, "-");
    * // result: "--Hello---"
    */
-  static padBoth(t, e, r = " ") {
-    const s = Math.max(0, e - t.length), u = Math.floor(s / 2), l = Math.ceil(s / 2);
-    return `${r.repeat(u)}${t}${r.repeat(l)}`;
+  static padBoth(e, t, r = " ") {
+    const s = Math.max(0, t - e.length), a = Math.floor(s / 2), l = Math.ceil(s / 2);
+    return `${r.repeat(a)}${e}${r.repeat(l)}`;
   }
   /**
    * Pad the left side of a string with another.
@@ -1881,9 +1938,9 @@ class w {
    * const result = JStr.padLeft("Hello", 10, "-");
    * // result: "-----Hello"
    */
-  static padLeft(t, e, r = " ") {
-    const s = Math.max(0, e - t.length);
-    return `${r.repeat(s)}${t}`;
+  static padLeft(e, t, r = " ") {
+    const s = Math.max(0, t - e.length);
+    return `${r.repeat(s)}${e}`;
   }
   /**
    * Pad the right side of a string with another.
@@ -1895,9 +1952,9 @@ class w {
    * const result = JStr.padRight("Hello", 10, "-");
    * // result: "Hello-----"
    */
-  static padRight(t, e, r = " ") {
-    const s = Math.max(0, e - t.length);
-    return `${t}${r.repeat(s)}`;
+  static padRight(e, t, r = " ") {
+    const s = Math.max(0, t - e.length);
+    return `${e}${r.repeat(s)}`;
   }
   /**
    * Repeat the given string.
@@ -1908,8 +1965,8 @@ class w {
    * const result = JStr.repeat("Hello", 3);
    * // result: "HelloHelloHello"
    */
-  static repeat(t, e) {
-    return t.repeat(e);
+  static repeat(e, t) {
+    return e.repeat(t);
   }
   /**
    * Replace a given value in the string sequentially with an array.
@@ -1921,12 +1978,12 @@ class w {
    * const result = JStr.replaceArray(" ", ["Hello", "World"], "Goodbye Universe");
    * // result: "GoodbyeHelloWorldUniverse"
    */
-  static replaceArray(t, e, r) {
-    const s = r.split(t);
-    let u = s.shift();
+  static replaceArray(e, t, r) {
+    const s = r.split(e);
+    let a = s.shift();
     for (const l of s)
-      u += (e.shift() ?? t) + l;
-    return u;
+      a += (t.shift() ?? e) + l;
+    return a;
   }
   /**
    * Replace the given value in the given string.
@@ -1939,8 +1996,8 @@ class w {
    * const result = JStr.replace(["apple", "orange"], ["fruit1", "fruit2"], "An apple and an orange.");
    * // result: "An fruit1 and an fruit2."
    */
-  static replace(t, e, r, s = !0) {
-    const u = Array.isArray(t) ? t : [t], l = Array.isArray(e) ? e : [e], h = s ? "" : "i", f = new RegExp(u.map((p) => p.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")).join("|"), h);
+  static replace(e, t, r, s = !0) {
+    const a = Array.isArray(e) ? e : [e], l = Array.isArray(t) ? t : [t], h = s ? "" : "i", f = new RegExp(a.map((p) => p.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")).join("|"), h);
     return r.replace(f, (p) => l.shift() ?? p);
   }
   /**
@@ -1953,9 +2010,9 @@ class w {
    * const result = JStr.replaceFirst("apple", "fruit", "An apple and an apple.");
    * // result: "An fruit and an apple."
    */
-  static replaceFirst(t, e, r) {
-    const s = r.indexOf(t);
-    return s !== -1 ? r.substring(0, s) + e + r.substring(s + t.length) : r;
+  static replaceFirst(e, t, r) {
+    const s = r.indexOf(e);
+    return s !== -1 ? r.substring(0, s) + t + r.substring(s + e.length) : r;
   }
   /**
    * Replace the last occurrence of a given value in the string.
@@ -1967,9 +2024,9 @@ class w {
    * const result = JStr.replaceLast("apple", "fruit", "An apple and an apple.");
    * // result: "An apple and an fruit."
    */
-  static replaceLast(t, e, r) {
-    const s = r.lastIndexOf(t);
-    return s !== -1 ? r.substring(0, s) + e + r.substring(s + t.length) : r;
+  static replaceLast(e, t, r) {
+    const s = r.lastIndexOf(e);
+    return s !== -1 ? r.substring(0, s) + t + r.substring(s + e.length) : r;
   }
   /**
    * Get the number of words a string contains.
@@ -1980,9 +2037,9 @@ class w {
    * const count = JStr.wordCount("Hello World");
    * // count: 2
    */
-  static wordCount(t, e = null) {
-    const r = `[\\s${e ? e.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&") : ""}]+`, s = new RegExp(r, "u");
-    return t.split(s).filter((u) => u.length > 0).length;
+  static wordCount(e, t = null) {
+    const r = `[\\s${t ? t.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&") : ""}]+`, s = new RegExp(r, "u");
+    return e.split(s).filter((a) => a.length > 0).length;
   }
   /**
    * Limit the number of words in a string.
@@ -1994,9 +2051,9 @@ class w {
    * const result = JStr.words("Lorem ipsum dolor sit amet", 3, '...');
    * // result: "Lorem ipsum dolor..."
    */
-  static words(t, e = 100, r = "...") {
-    const s = "^\\s*+(?:\\S++\\s*+){1," + e + "}", u = new RegExp(s, "u"), l = t.match(u);
-    return !l || l[0].length === t.length ? t : l[0].trimEnd() + r;
+  static words(e, t = 100, r = "...") {
+    const s = "^\\s*+(?:\\S++\\s*+){1," + t + "}", a = new RegExp(s, "u"), l = e.match(a);
+    return !l || l[0].length === e.length ? e : l[0].trimEnd() + r;
   }
   /**
    * Wrap a string to a given number of characters.
@@ -2009,11 +2066,11 @@ class w {
    * const wrappedString = JStr.wordWrap("Lorem ipsum dolor sit amet", 20, "\n", true);
    * // wrappedString: "Lorem ipsum dolor\nsit amet"
    */
-  static wordWrap(t, e = 75, r = `
+  static wordWrap(e, t = 75, r = `
 `, s = !1) {
-    return t.replace(
-      new RegExp(`.{1,${e}}`, "g"),
-      (u, l) => s && l % e !== 0 ? u : u + r
+    return e.replace(
+      new RegExp(`.{1,${t}}`, "g"),
+      (a, l) => s && l % t !== 0 ? a : a + r
     );
   }
   /**
@@ -2027,8 +2084,8 @@ class w {
    * const result = JStr.position("Hello, World", "World", 0, "UTF-8");
    * // result: 7
    */
-  static position(t, e, r = 0, s = null) {
-    return t.indexOf(e, r);
+  static position(e, t, r = 0, s = null) {
+    return e.indexOf(t, r);
   }
   /**
    * Begin a string with a single instance of a given value.
@@ -2039,9 +2096,9 @@ class w {
    * const result = JStr.start("World", "Hello, ");
    * // result: "Hello, World"
    */
-  static start(t, e) {
-    const r = e.replace(/[.*+\-?^${}()|[\]\\]/g, "\\$&");
-    return e + t.replace(new RegExp(`^(?:${r})+`, "u"), "");
+  static start(e, t) {
+    const r = t.replace(/[.*+\-?^${}()|[\]\\]/g, "\\$&");
+    return t + e.replace(new RegExp(`^(?:${r})+`, "u"), "");
   }
   /**
    * Determine if a given string starts with a given substring.
@@ -2052,8 +2109,8 @@ class w {
    * const result = JStr.startsWith("Hello, World", ["Hello", "Hi"]);
    * // result: true
    */
-  static startsWith(t, e) {
-    return Array.isArray(e) || (e = [e]), e.some((r) => r !== "" && t.startsWith(r));
+  static startsWith(e, t) {
+    return Array.isArray(t) || (t = [t]), t.some((r) => r !== "" && e.startsWith(r));
   }
   /**
    * Take the first or last {limit} characters of a string.
@@ -2064,8 +2121,8 @@ class w {
    * const result = JStr.take("Hello, World", 5);
    * // result: "Hello"
    */
-  static take(t, e) {
-    return e < 0 ? w.substr(t, e) : w.substr(t, 0, e);
+  static take(e, t) {
+    return t < 0 ? $.substr(e, t) : $.substr(e, 0, t);
   }
   /**
    * Convert the given string to title case.
@@ -2075,8 +2132,8 @@ class w {
    * const result = JStr.title("hello world");
    * // result: "Hello World"
    */
-  static title(t) {
-    return t.replace(/\b\w+/g, (e) => e.charAt(0).toUpperCase() + e.slice(1).toLowerCase());
+  static title(e) {
+    return e.replace(/\b\w+/g, (t) => t.charAt(0).toUpperCase() + t.slice(1).toLowerCase());
   }
   /**
    * Generate a URL-friendly "slug" from a given string.
@@ -2089,12 +2146,12 @@ class w {
    * const result = JStr.slug("Hello World", "-", "en", {'@': 'at'});
    * // result: "hello-world"
    */
-  static slug(t, e = "-", r = null, s = { "@": "at" }) {
-    t = r ? w.ascii(t) : t;
-    let u = t.toLowerCase().replace(/\s+/gu, e);
+  static slug(e, t = "-", r = null, s = { "@": "at" }) {
+    e = r ? $.ascii(e) : e;
+    let a = e.toLowerCase().replace(/\s+/gu, t);
     for (const [l, h] of Object.entries(s))
-      u = u.replace(new RegExp(l, "gu"), e + h + e);
-    return u = u.replace(/[^a-z0-9-_\s]+/gu, ""), u = u.replace(new RegExp(`[${e}\\s]+`, "gu"), e), u = u.replace(new RegExp(`^${e}+|${e}+$`, "gu"), ""), u;
+      a = a.replace(new RegExp(l, "gu"), t + h + t);
+    return a = a.replace(/[^a-z0-9-_\s]+/gu, ""), a = a.replace(new RegExp(`[${t}\\s]+`, "gu"), t), a = a.replace(new RegExp(`^${t}+|${t}+$`, "gu"), ""), a;
   }
   /**
    * Generate a UUID (version 4).
@@ -2102,7 +2159,7 @@ class w {
    * @return string
    */
   static uuid() {
-    return q();
+    return W();
   }
   /**
    * Get the singular form of an English word.
@@ -2110,8 +2167,8 @@ class w {
    * @return string
    * @param value
    */
-  static singular(t) {
-    return O.singular(t);
+  static singular(e) {
+    return b.singular(e);
   }
   /**
    * Get the plural form of an English word.
@@ -2119,8 +2176,58 @@ class w {
    * @return string
    * @param value
    */
-  static plural(t) {
-    return O.plural(t);
+  static plural(e) {
+    return b.plural(e);
+  }
+  /**
+   * Remove all "extra" blank space from the given string.
+   *
+   * @param value - The string to be processed.
+   * @return The processed string with extra spaces removed.
+   */
+  static squish(e) {
+    let t = e.replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, "");
+    return t = t.replace(/(\s|\u3164|\u1160)+/g, " "), t;
+  }
+  /**
+   * Reverse the given string.
+   *
+   * @param value - The string to be reversed.
+   * @return The reversed string.
+   */
+  static reverse(e) {
+    return Array.from(e).reverse().join("");
+  }
+  /**
+   * Generate a more truly "random" alpha-numeric string.
+   *
+   * @param length - The length of the generated string.
+   * @return The random alpha-numeric string.
+   */
+  static random(e = 16) {
+    let t = "";
+    const r = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (let s = 0; s < e; s++) {
+      const a = Math.floor(Math.random() * r.length);
+      t += r[a];
+    }
+    return t;
+  }
+  /**
+   * Remove any occurrence of the given string in the subject.
+   *
+   * @param search - The string to be removed.
+   * @param subject - The string from which to remove.
+   * @param caseSensitive - Whether the removal is case sensitive.
+   * @return The string with the specified value removed.
+   */
+  static remove(e, t, r = !0) {
+    Array.isArray(e) || (e = [e]);
+    for (let s of e) {
+      const a = RegExp(s, r ? "g" : "gi");
+      t = t.replace(a, "");
+    }
+    return t;
   }
   /**
    * Creates a new JStr instance from the provided string.
@@ -2130,11 +2237,11 @@ class w {
    * // Returns a JStr instance representing 'Hello, JStr!'
    * JStr.of('Hello, JStr!').toString();
    */
-  static of(t) {
-    return new L(t);
+  static of(e) {
+    return new i(e);
   }
 }
-const n = w;
+const n = $;
 export {
   n as default
 };
