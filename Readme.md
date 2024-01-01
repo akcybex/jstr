@@ -66,13 +66,13 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ---------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------- |
 | ✔✔ `JStr.after`        | Returns the portion of the string that comes after a specified substring.                           | [Documentation](docs/After.md)          |
 | ✔✔ `JStr.afterLast`    | Returns the portion of the string that comes after the last occurrence of a specified substring.    | [Documentation](docs/AfterLast.md)      |
-| ✔ `JStr.ascii`         | Returns the ASCII representation of the string.                                                     | [Documentation](docs/Ascii.md)          |
+| ✔✔ `JStr.ascii`         | Returns the ASCII representation of the string.                                                     | [Documentation](docs/Ascii.md)          |
 | ✔✔ `JStr.before`       | Returns the portion of the string that comes before a specified substring.                          | [Documentation](docs/Before.md)         |
 | ✔✔ `JStr.beforeLast`   | Returns the portion of the string that comes before the last occurrence of a specified substring.   | [Documentation](docs/BeforeLast.md)     |
 | ✔✔ `JStr.between`      | Returns the portion of the string that is between two specified substrings.                         | [Documentation](docs/Between.md)        |
 | ✔✔ `JStr.betweenFirst` | Returns the portion of the string that is between the first occurrence of two specified substrings. | [Documentation](docs/BetweenFirst.md)   |
 | ✔✔ `JStr.camel`         | Converts the string to camel case.                                                                  | [Documentation](docs/Camel.md)          |
-| ✔ `JStr.charAt`        | Returns the character at the specified position in the string.                                      | [Documentation](docs/CharAt.md)         |
+| ✔✔ `JStr.charAt`        | Returns the character at the specified position in the string.                                      | [Documentation](docs/CharAt.md)         |
 | ✔✔ `JStr.contains`      | Checks if the string contains a specified substring.                                                | [Documentation](docs/Contains.md)       |
 | ✔ `JStr.containsAll`   | Checks if the string contains all of the specified substrings.                                      | [Documentation](docs/ContainsAll.md)    |
 | ✔ `JStr.endsWith`      | Checks if the string ends with a specified suffix.                                                  | [Documentation](docs/EndsWith.md)       |
@@ -82,14 +82,14 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔✔ `JStr.capitalize`   | Converts the string to a capitalize format.                                                         | [Documentation](docs/Capitalize.md)     |
 | `JStr.inlineMarkdown`  | Converts the string to inline Markdown format.                                                      | [Documentation](docs/InlineMarkdown.md) |
 | ✔ `JStr.is`            | Checks if the string is equal to a specified value.                                                 | [Documentation](docs/Is.md)             |
-| ✔ `JStr.isAscii`       | Checks if the string contains only ASCII characters.                                                | [Documentation](docs/IsAscii.md)        |
+| ✔✔ `JStr.isAscii`       | Checks if the string contains only ASCII characters.                                                | [Documentation](docs/IsAscii.md)        |
 | ✔ `JStr.isJson`        | Checks if the string is a valid JSON format.                                                        | [Documentation](docs/IsJson.md)         |
 | ✔ `JStr.isUlid`        | Checks if the string is a valid ULID (Universally Unique Lexicographically Sortable Identifier).    | [Documentation](docs/IsUlid.md)         |
 | ✔ `JStr.isUrl`         | Checks if the string is a valid URL.                                                                | [Documentation](docs/IsUrl.md)          |
 | ✔ `JStr.isUuid`        | Checks if the string is a valid UUID (Universally Unique Identifier).                               | [Documentation](docs/IsUuid.md)         |
 | ✔ `JStr.kebab`         | Converts the string to kebab case.                                                                  | [Documentation](docs/Kebab.md)          |
 | ✔ `JStr.lcfirst`       | Converts the first character of the string to lowercase.                                            | [Documentation](docs/Lcfirst.md)        |
-| ✔ `JStr.length`        | Returns the length of the string.                                                                   | [Documentation](docs/Length.md)         |
+| ✔✔ `JStr.length`        | Returns the length of the string.                                                                   | [Documentation](docs/Length.md)         |
 | ✔ `JStr.limit`         | Limits the length of the string to a specified number of characters.                                | [Documentation](docs/Limit.md)          |
 | ✔✔ `JStr.lower`         | Converts the string to lowercase.                                                                   | [Documentation](docs/Lower.md)          |
 | ✔ `JStr.ltrim`         | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)          |
@@ -134,7 +134,7 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔ `JStr.ucsplit`       | Splits the string into an array of words.                                                           | [Documentation](docs/Ucsplit.md)        |
 | ✔✔ `JStr.upper`         | Converts the string to uppercase.                                                                   | [Documentation](docs/Upper.md)          |
 | `JStr.ulid`            | Generates a ULID (Universally Unique Lexicographically Sortable Identifier).                        | [Documentation](docs/Ulid.md)           |
-| ✔ `JStr.uuid`          | Generates a UUID (Universally Unique Identifier).                                                   | [Documentation](docs/Uuid.md)           |
+| ✔✔ `JStr.uuid`          | Generates a UUID (Universally Unique Identifier).                                                   | [Documentation](docs/Uuid.md)           |
 | ✔ `JStr.wordCount`     | Counts the number of words in the string.                                                           | [Documentation](docs/WordCount.md)      |
 | ✔ `JStr.wordWrap`      | Wraps the string at a specified length with a specified line ending.                                | [Documentation](docs/WordWrap.md)       |
 | ✔ `JStr.words`         | Splits the string into an array of words.                                                           | [Documentation](docs/Words.md)          |
@@ -152,14 +152,14 @@ clarity and conciseness in your code.
 | ✔✔ `after`                  | Returns the portion of the string that comes after a specified substring.                           | [Documentation](docs/After.md)           |
 | ✔✔ `afterLast`              | Returns the portion of the string that comes after the last occurrence of a specified substring.    | [Documentation](docs/AfterLast.md)       |
 | ✔ `append`                 | Appends a string or an array of strings to the end of the current string.                           | [Documentation](docs/Append.md)          |
-| ✔ `ascii`                  | Returns the ASCII representation of the string.                                                     | [Documentation](docs/Ascii.md)           |
+| ✔✔ `ascii`                  | Returns the ASCII representation of the string.                                                     | [Documentation](docs/Ascii.md)           |
 | `basename`                 | Returns the trailing name component of a path.                                                      | [Documentation](docs/Basename.md)        |
 | ✔✔ `before`                 | Returns the portion of the string that comes before a specified substring.                          | [Documentation](docs/Before.md)          |
 | ✔✔ `beforeLast`             | Returns the portion of the string that comes before the last occurrence of a specified substring.   | [Documentation](docs/BeforeLast.md)      |
 | ✔✔ `between`                | Returns the portion of the string that is between two specified substrings.                         | [Documentation](docs/Between.md)         |
 | ✔✔ `betweenFirst`           | Returns the portion of the string that is between the first occurrence of two specified substrings. | [Documentation](docs/BetweenFirst.md)    |
 | ✔✔ `camel`                 | Converts the string to camel case.                                                                  | [Documentation](docs/Camel.md)           |
-| ✔ `charAt`                 | Returns the character at the specified position in the string.                                      | [Documentation](docs/CharAt.md)          |
+| ✔✔ `charAt`                 | Returns the character at the specified position in the string.                                      | [Documentation](docs/CharAt.md)          |
 | `classBasename`            | Returns the class basename of a fully qualified class name.                                         | [Documentation](docs/ClassBasename.md)   |
 | ✔✔ `contains`               | Checks if the string contains a specified substring.                                                | [Documentation](docs/Contains.md)        |
 | ✔ `containsAll`            | Checks if the string contains all of the specified substrings.                                      | [Documentation](docs/ContainsAll.md)     |
@@ -173,7 +173,7 @@ clarity and conciseness in your code.
 | ✔✔ `capitalize`            | Converts the string to a capitalize format.                                                         | [Documentation](docs/Capitalize.md)      |
 | `inlineMarkdown`           | Converts the string to inline Markdown format.                                                      | [Documentation](docs/InlineMarkdown.md)  |
 | ✔ `is`                     | Checks if the string is equal to a specified value.                                                 | [Documentation](docs/Is.md)              |
-| ✔ `isAscii`                | Checks if the string contains only ASCII characters.                                                | [Documentation](docs/IsAscii.md)         |
+| ✔✔ `isAscii`                | Checks if the string contains only ASCII characters.                                                | [Documentation](docs/IsAscii.md)         |
 | ✔ `isEmpty`                | Checks if the string is empty.                                                                      | [Documentation](docs/IsEmpty.md)         |
 | ✔ `isNotEmpty`             | Checks if the string is not empty.                                                                  | [Documentation](docs/IsNotEmpty.md)      |
 | ✔ `isJson`                 | Checks if the string is a valid JSON format.                                                        | [Documentation](docs/IsJson.md)          |
@@ -182,7 +182,7 @@ clarity and conciseness in your code.
 | ✔ `isUuid`                 | Checks if the string is a valid UUID (Universally Unique Identifier).                               | [Documentation](docs/IsUuid.md)          |
 | ✔ `kebab`                  | Converts the string to kebab case.                                                                  | [Documentation](docs/Kebab.md)           |
 | ✔ `lcfirst`                | Converts the first character of the string to lowercase.                                            | [Documentation](docs/Lcfirst.md)         |
-| ✔ `length`                 | Returns the length of the string.                                                                   | [Documentation](docs/Length.md)          |
+| ✔✔ `length`                 | Returns the length of the string.                                                                   | [Documentation](docs/Length.md)          |
 | ✔ `limit`                  | Limits the length of the string to a specified number of characters.                                | [Documentation](docs/Limit.md)           |
 | ✔✔ `lower`                  | Converts the string to lowercase.                                                                   | [Documentation](docs/Lower.md)           |
 | ✔ `ltrim`                  | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)           |
