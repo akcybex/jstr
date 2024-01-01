@@ -143,7 +143,7 @@ class JStr {
      * const result = JStr.chatAt("Hello World", 6);
      * // result: "W"
      */
-    static chatAt(subject: string, index: number): any {
+    static charAt(subject: string, index: number): any {
         const length = subject.length;
 
         if (index < 0 ? index < -length : index > length - 1) {
@@ -491,7 +491,7 @@ class JStr {
      * const result = new JStr("hello world").length();
      * // result: 11
      */
-    static length(value: string, _encoding: string | null): number {
+    static length(value: string, _encoding?: string | null): number {
         return value.length;
     }
 

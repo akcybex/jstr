@@ -124,8 +124,8 @@ class Stringable {
 	 * const result = JStr.chatAt("Hello World", 6);
 	 * // result: "W"
 	 */
-	chatAt(index: number): any {
-		return new Stringable(JStr.chatAt(this.value, index));
+	charAt(index: number): any {
+		return new Stringable(JStr.charAt(this.value, index));
 	}
 
 	/**
@@ -378,7 +378,7 @@ class Stringable {
 	 * const result = new JStr("hello world").length();
 	 * // result: 11
 	 */
-	length(encoding: string | null): number {
+	length(encoding?: string | null): number {
 		return JStr.length(this.value, encoding);
 	}
 
