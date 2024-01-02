@@ -323,26 +323,26 @@ class JStr {
      * // result: true
      */
     static is(pattern: any | any[], value: string): boolean {
-        if (!Array.isArray(pattern)) {
-            pattern = [pattern];
-        }
+		if (!Array.isArray(pattern)) {
+			pattern = [pattern];
+		}
 
-        for (const pat of pattern) {
-            const currentPattern = pat.toString();
+		for (const pat of pattern) {
+			const currentPattern = pat.toString();
 
-            if (currentPattern === value) {
-                return true;
-            }
+			if (currentPattern === value) {
+				return true;
+			}
 
-            const escapedPattern = currentPattern.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-            const wildcardPattern = escapedPattern.replace(/\\\*/g, '.*');
+			const escapedPattern = currentPattern.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+			const wildcardPattern = escapedPattern.replace(/\\\*/g, '.*');
 
-            if (new RegExp('^' + wildcardPattern + '\\z', 'u').test(value)) {
-                return true;
-            }
-        }
+			if (new RegExp('^' + wildcardPattern + '$', 'u').test(value)) {
+				return true;
+			}
+		}
 
-        return false;
+		return false;
     }
 
     /**
