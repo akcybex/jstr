@@ -430,8 +430,8 @@ class Stringable {
 	 * const result = JStr.trim('   hello   ');
 	 * // result: 'hello'
 	 */
-	trim(): Stringable {
-		return new Stringable(JStr.trim(this.value));
+	trim(characters: string = ''): Stringable {
+		return new Stringable(JStr.trim(this.value, characters));
 	}
 
 	/**

@@ -74,10 +74,10 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔✔ `JStr.camel`         | Converts the string to camel case.                                                                  | [Documentation](docs/Camel.md)          |
 | ✔✔ `JStr.charAt`        | Returns the character at the specified position in the string.                                      | [Documentation](docs/CharAt.md)         |
 | ✔✔ `JStr.contains`      | Checks if the string contains a specified substring.                                                | [Documentation](docs/Contains.md)       |
-| ✔ `JStr.containsAll`   | Checks if the string contains all of the specified substrings.                                      | [Documentation](docs/ContainsAll.md)    |
-| ✔ `JStr.endsWith`      | Checks if the string ends with a specified suffix.                                                  | [Documentation](docs/EndsWith.md)       |
+| ✔✔ `JStr.containsAll`   | Checks if the string contains all of the specified substrings.                                      | [Documentation](docs/ContainsAll.md)    |
+| ✔✔ `JStr.endsWith`      | Checks if the string ends with a specified suffix.                                                  | [Documentation](docs/EndsWith.md)       |
 | ✔ `JStr.excerpt`       | Returns an excerpt from the string with a specified length.                                         | [Documentation](docs/Excerpt.md)        |
-| ✔ `JStr.finish`        | Ensures that the string ends with a specified suffix.                                               | [Documentation](docs/Finish.md)         |
+| ✔✔ `JStr.finish`        | Ensures that the string ends with a specified suffix.                                               | [Documentation](docs/Finish.md)         |
 | ✔✔ `JStr.headline`     | Converts the string to a headline format.                                                           | [Documentation](docs/Headline.md)       |
 | ✔✔ `JStr.capitalize`   | Converts the string to a capitalize format.                                                         | [Documentation](docs/Capitalize.md)     |
 | `JStr.inlineMarkdown`  | Converts the string to inline Markdown format.                                                      | [Documentation](docs/InlineMarkdown.md) |
@@ -128,7 +128,7 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔ `JStr.swap`          | Swaps the case of each character in the string.                                                     | [Documentation](docs/Swap.md)           |
 | ✔ `JStr.take`          | Returns the first n characters from the string.                                                     | [Documentation](docs/Take.md)           |
 | ✔ `JStr.title`         | Converts the first character of each word in the string to uppercase.                               | [Documentation](docs/Title.md)          |
-| ✔ `JStr.trim`          | Removes whitespace from the beginning and end of the string.                                        | [Documentation](docs/Trim.md)           |
+| ✔✔ `JStr.trim`          | Removes whitespace from the beginning and end of the string.                                        | [Documentation](docs/Trim.md)           |
 | `JStr.toHtmlString`    | Converts the string to its HTML-encoded representation.                                             | [Documentation](docs/ToHtmlString.md)   |
 | ✔✔ `JStr.ucfirst`       | Converts the first character of the string to uppercase.                                            | [Documentation](docs/Ucfirst.md)        |
 | ✔ `JStr.ucsplit`       | Splits the string into an array of words.                                                           | [Documentation](docs/Ucsplit.md)        |
@@ -162,19 +162,19 @@ clarity and conciseness in your code.
 | ✔✔ `charAt`                 | Returns the character at the specified position in the string.                                      | [Documentation](docs/CharAt.md)          |
 | `classBasename`            | Returns the class basename of a fully qualified class name.                                         | [Documentation](docs/ClassBasename.md)   |
 | ✔✔ `contains`               | Checks if the string contains a specified substring.                                                | [Documentation](docs/Contains.md)        |
-| ✔ `containsAll`            | Checks if the string contains all of the specified substrings.                                      | [Documentation](docs/ContainsAll.md)     |
+| ✔✔ `containsAll`            | Checks if the string contains all of the specified substrings.                                      | [Documentation](docs/ContainsAll.md)     |
 | `dirname`                  | Returns the directory name component of a path.                                                     | [Documentation](docs/Dirname.md)         |
-| ✔ `endsWith`               | Checks if the string ends with a specified suffix.                                                  | [Documentation](docs/EndsWith.md)        |
+| ✔✔ `endsWith`               | Checks if the string ends with a specified suffix.                                                  | [Documentation](docs/EndsWith.md)        |
 | ✔ `excerpt`                | Returns an excerpt from the string with a specified length.                                         | [Documentation](docs/Excerpt.md)         |
 | ✔ `exactly`                | Checks if the string is exactly equal to a specified value.                                         | [Documentation](docs/Exactly.md)         |
 | ✔ `explode`                | Splits the string by a specified delimiter and returns an array of the parts.                       | [Documentation](docs/Explode.md)         |
-| ✔ `finish`                 | Ensures that the string ends with a specified suffix.                                               | [Documentation](docs/Finish.md)          |
+| ✔✔ `finish`                 | Ensures that the string ends with a specified suffix.                                               | [Documentation](docs/Finish.md)          |
 | ✔✔ `headline`              | Converts the string to a headline format.                                                           | [Documentation](docs/Headline.md)        |
 | ✔✔ `capitalize`            | Converts the string to a capitalize format.                                                         | [Documentation](docs/Capitalize.md)      |
 | `inlineMarkdown`           | Converts the string to inline Markdown format.                                                      | [Documentation](docs/InlineMarkdown.md)  |
 | ✔ `is`                     | Checks if the string is equal to a specified value.                                                 | [Documentation](docs/Is.md)              |
 | ✔✔ `isAscii`                | Checks if the string contains only ASCII characters.                                                | [Documentation](docs/IsAscii.md)         |
-| ✔ `isEmpty`                | Checks if the string is empty.                                                                      | [Documentation](docs/IsEmpty.md)         |
+| ✔✔ `isEmpty`                | Checks if the string is empty.                                                                      | [Documentation](docs/IsEmpty.md)         |
 | ✔ `isNotEmpty`             | Checks if the string is not empty.                                                                  | [Documentation](docs/IsNotEmpty.md)      |
 | ✔ `isJson`                 | Checks if the string is a valid JSON format.                                                        | [Documentation](docs/IsJson.md)          |
 | ✔ `isUlid`                 | Checks if the string is a valid ULID (Universally Unique Lexicographically Sortable Identifier).    | [Documentation](docs/IsUlid.md)          |
@@ -226,7 +226,7 @@ clarity and conciseness in your code.
 | ✔ `tap`                    | Passes the string to a callback and returns the string.                                             | [Documentation](docs/Tap.md)             |
 | ✔ `test`                   | Performs a regular expression match on the string and returns a boolean.                            | [Documentation](docs/Test.md)            |
 | ✔ `title`                  | Converts the first character of each word in the string to uppercase.                               | [Documentation](docs/Title.md)           |
-| ✔ `trim`                   | Removes whitespace from the beginning and end of the string.                                        | [Documentation](docs/Trim.md)            |
+| ✔✔ `trim`                   | Removes whitespace from the beginning and end of the string.                                        | [Documentation](docs/Trim.md)            |
 | ✔✔ `ucfirst`               | Converts the first character of the string to uppercase.                                            | [Documentation](docs/Ucfirst.md)         |
 | ✔ `ucsplit`                | Splits the string into an array of words.                                                           | [Documentation](docs/Ucsplit.md)         |
 | ✔✔ `upper`                  | Converts the string to uppercase.                                                                   | [Documentation](docs/Upper.md)           |

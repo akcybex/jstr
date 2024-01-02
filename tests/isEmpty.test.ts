@@ -5,10 +5,10 @@ import JStr from '../src/main.ts';
  */
 
 describe('JStr dynamic isEmpty method', () => {
-	test('should return true for an empty string', () => {
-		expect(JStr.of('  ').squish().isEmpty()).toBe(true);
+    test('should return true for an empty string', () => {
+        expect(JStr.of('  ').squish().isEmpty()).toBe(true);
 
-	});
+    });
 
     test('should return true for an empty string', () => {
         expect(JStr.of('  ').trim().isEmpty()).toBe(true);

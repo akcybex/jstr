@@ -19,7 +19,7 @@ const result = JStr.charAt("This is my name", 5);
 console.log(result); // Outputs: 'i'
 ```
 
-### Example#2
+### Example#3
 
 ```javascript
 import JStr from "@akcybex/jstr";

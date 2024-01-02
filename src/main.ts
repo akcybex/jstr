@@ -323,26 +323,26 @@ class JStr {
      * // result: true
      */
     static is(pattern: any | any[], value: string): boolean {
-        if (!Array.isArray(pattern)) {
-            pattern = [pattern];
-        }
+		if (!Array.isArray(pattern)) {
+			pattern = [pattern];
+		}
 
-        for (const pat of pattern) {
-            const currentPattern = pat.toString();
+		for (const pat of pattern) {
+			const currentPattern = pat.toString();
 
-            if (currentPattern === value) {
-                return true;
-            }
+			if (currentPattern === value) {
+				return true;
+			}
 
-            const escapedPattern = currentPattern.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-            const wildcardPattern = escapedPattern.replace(/\\\*/g, '.*');
+			const escapedPattern = currentPattern.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+			const wildcardPattern = escapedPattern.replace(/\\\*/g, '.*');
 
-            if (new RegExp('^' + wildcardPattern + '\\z', 'u').test(value)) {
-                return true;
-            }
-        }
+			if (new RegExp('^' + wildcardPattern + '$', 'u').test(value)) {
+				return true;
+			}
+		}
 
-        return false;
+		return false;
     }
 
     /**
@@ -541,31 +541,31 @@ class JStr {
         return value.replace(/^\s+/u, characters);
     }
 
-	/**
-	 * Removes specified characters or whitespace from the beginning and end of the string.
-	 * @param value - The string to trim.
-	 * @param characters - The characters to remove from the start and end of the string. Defaults to whitespace.
-	 * @returns The string with specified characters or leading and trailing whitespace removed.
-	 * @example
-	 * const result = JStr.trim('---hello---', '-');
-	 * // result: 'hello'
-	 */
-	static trim(value: string, characters: string = ''): string {
-		let pattern;
+    /**
+     * Removes specified characters or whitespace from the beginning and end of the string.
+     * @param value - The string to trim.
+     * @param characters - The characters to remove from the start and end of the string. Defaults to whitespace.
+     * @returns The string with specified characters or leading and trailing whitespace removed.
+     * @example
+     * const result = JStr.trim('---hello---', '-');
+     * // result: 'hello'
+     */
+    static trim(value: string, characters: string = ''): string {
+        let pattern;
 
-		if (characters) {
-			// Escape special regex characters in the `characters` string
-			const escapedCharacters = characters.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&');
-			// Build a pattern that matches any of the escaped characters
-			pattern = `^[${escapedCharacters}]+|[${escapedCharacters}]+$`;
-		} else {
-			// If no characters are provided, target whitespace
-			pattern = '^\\s+|\\s+$';
-		}
+        if (characters) {
+            // Escape special regex characters in the `characters` string
+            const escapedCharacters = characters.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&');
+            // Build a pattern that matches any of the escaped characters
+            pattern = `^[${escapedCharacters}]+|[${escapedCharacters}]+$`;
+        } else {
+            // If no characters are provided, target whitespace
+            pattern = '^\\s+|\\s+$';
+        }
 
-		const regex = new RegExp(pattern, 'g');
-		return value.replace(regex, '');
-	}
+        const regex = new RegExp(pattern, 'g');
+        return value.replace(regex, '');
+    }
 
     /**
      * Removes whitespace from the end of the string.
