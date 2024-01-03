@@ -107,7 +107,7 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔ `JStr.pluralStudly`  | Converts the string to plural studly form.                                                          | [Documentation](docs/PluralStudly.md)   |
 | ✔ `JStr.position`      | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)       |
 | ✔ `JStr.random`        | Generates a random string.                                                                          | [Documentation](docs/Random.md)         |
-| ✔ `JStr.remove`        | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)         |
+| ✔✔ `JStr.remove`        | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)         |
 | ✔✔ `JStr.repeat`        | Repeats the string a specified number of times.                                                     | [Documentation](docs/Repeat.md)         |
 | ✔ `JStr.replace`       | Replaces occurrences of a specified substring with another substring.                               | [Documentation](docs/Replace.md)        |
 | ✔ `JStr.replaceArray`  | Replaces occurrences of specified substrings with corresponding replacements.                       | [Documentation](docs/ReplaceArray.md)   |
@@ -199,7 +199,7 @@ clarity and conciseness in your code.
 | ✔ `plural`                 | Converts the string to plural form.                                                                 | [Documentation](docs/Plural.md)          |
 | ✔ `position`               | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)        |
 | ✔ `prepend`                | Prepends a string or an array of strings to the beginning of the current string.                    | [Documentation](docs/Prepend.md)         |
-| ✔ `remove`                 | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)          |
+| ✔✔ `remove`                 | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)          |
 | ✔✔ `repeat`                 | Repeats the string a specified number of times.                                                     | [Documentation](docs/Repeat.md)          |
 | ✔ `replace`                | Replaces occurrences of a specified substring with another substring.                               | [Documentation](docs/Replace.md)         |
 | ✔ `replaceArray`           | Replaces occurrences of specified substrings with corresponding replacements.                       | [Documentation](docs/ReplaceArray.md)    |
