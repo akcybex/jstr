@@ -81,16 +81,16 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔✔ `JStr.headline`     | Converts the string to a headline format.                                                           | [Documentation](docs/Headline.md)       |
 | ✔✔ `JStr.capitalize`   | Converts the string to a capitalize format.                                                         | [Documentation](docs/Capitalize.md)     |
 | `JStr.inlineMarkdown`  | Converts the string to inline Markdown format.                                                      | [Documentation](docs/InlineMarkdown.md) |
-| ✔ `JStr.is`            | Checks if the string is equal to a specified value.                                                 | [Documentation](docs/Is.md)             |
+| ✔✔ `JStr.is`            | Checks if the string is equal to a specified value.                                                 | [Documentation](docs/Is.md)             |
 | ✔✔ `JStr.isAscii`       | Checks if the string contains only ASCII characters.                                                | [Documentation](docs/IsAscii.md)        |
-| ✔ `JStr.isJson`        | Checks if the string is a valid JSON format.                                                        | [Documentation](docs/IsJson.md)         |
+| ✔✔ `JStr.isJson`        | Checks if the string is a valid JSON format.                                                        | [Documentation](docs/IsJson.md)         |
 | ✔ `JStr.isUlid`        | Checks if the string is a valid ULID (Universally Unique Lexicographically Sortable Identifier).    | [Documentation](docs/IsUlid.md)         |
-| ✔ `JStr.isUrl`         | Checks if the string is a valid URL.                                                                | [Documentation](docs/IsUrl.md)          |
+| ✔✔ `JStr.isUrl`         | Checks if the string is a valid URL.                                                                | [Documentation](docs/IsUrl.md)          |
 | ✔ `JStr.isUuid`        | Checks if the string is a valid UUID (Universally Unique Identifier).                               | [Documentation](docs/IsUuid.md)         |
 | ✔ `JStr.kebab`         | Converts the string to kebab case.                                                                  | [Documentation](docs/Kebab.md)          |
 | ✔ `JStr.lcfirst`       | Converts the first character of the string to lowercase.                                            | [Documentation](docs/Lcfirst.md)        |
 | ✔✔ `JStr.length`        | Returns the length of the string.                                                                   | [Documentation](docs/Length.md)         |
-| ✔ `JStr.limit`         | Limits the length of the string to a specified number of characters.                                | [Documentation](docs/Limit.md)          |
+| ✔✔ `JStr.limit`         | Limits the length of the string to a specified number of characters.                                | [Documentation](docs/Limit.md)          |
 | ✔✔ `JStr.lower`         | Converts the string to lowercase.                                                                   | [Documentation](docs/Lower.md)          |
 | ✔ `JStr.ltrim`         | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)          |
 | `JStr.markdown`        | Converts the string to Markdown format.                                                             | [Documentation](docs/Markdown.md)       |
@@ -172,18 +172,18 @@ clarity and conciseness in your code.
 | ✔✔ `headline`              | Converts the string to a headline format.                                                           | [Documentation](docs/Headline.md)        |
 | ✔✔ `capitalize`            | Converts the string to a capitalize format.                                                         | [Documentation](docs/Capitalize.md)      |
 | `inlineMarkdown`           | Converts the string to inline Markdown format.                                                      | [Documentation](docs/InlineMarkdown.md)  |
-| ✔ `is`                     | Checks if the string is equal to a specified value.                                                 | [Documentation](docs/Is.md)              |
+| ✔✔ `is`                     | Checks if the string is equal to a specified value.                                                 | [Documentation](docs/Is.md)              |
 | ✔✔ `isAscii`                | Checks if the string contains only ASCII characters.                                                | [Documentation](docs/IsAscii.md)         |
 | ✔✔ `isEmpty`                | Checks if the string is empty.                                                                      | [Documentation](docs/IsEmpty.md)         |
 | ✔ `isNotEmpty`             | Checks if the string is not empty.                                                                  | [Documentation](docs/IsNotEmpty.md)      |
-| ✔ `isJson`                 | Checks if the string is a valid JSON format.                                                        | [Documentation](docs/IsJson.md)          |
+| ✔✔ `isJson`                 | Checks if the string is a valid JSON format.                                                        | [Documentation](docs/IsJson.md)          |
 | ✔ `isUlid`                 | Checks if the string is a valid ULID (Universally Unique Lexicographically Sortable Identifier).    | [Documentation](docs/IsUlid.md)          |
-| ✔ `isUrl`                  | Checks if the string is a valid URL.                                                                | [Documentation](docs/IsUrl.md)           |
+| ✔✔ `isUrl`                  | Checks if the string is a valid URL.                                                                | [Documentation](docs/IsUrl.md)           |
 | ✔ `isUuid`                 | Checks if the string is a valid UUID (Universally Unique Identifier).                               | [Documentation](docs/IsUuid.md)          |
 | ✔ `kebab`                  | Converts the string to kebab case.                                                                  | [Documentation](docs/Kebab.md)           |
 | ✔ `lcfirst`                | Converts the first character of the string to lowercase.                                            | [Documentation](docs/Lcfirst.md)         |
 | ✔✔ `length`                 | Returns the length of the string.                                                                   | [Documentation](docs/Length.md)          |
-| ✔ `limit`                  | Limits the length of the string to a specified number of characters.                                | [Documentation](docs/Limit.md)           |
+| ✔✔ `limit`                  | Limits the length of the string to a specified number of characters.                                | [Documentation](docs/Limit.md)           |
 | ✔✔ `lower`                  | Converts the string to lowercase.                                                                   | [Documentation](docs/Lower.md)           |
 | ✔ `ltrim`                  | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)           |
 | `markdown`                 | Converts the string to Markdown format.                                                             | [Documentation](docs/Markdown.md)        |

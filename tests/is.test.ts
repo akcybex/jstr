@@ -12,10 +12,25 @@ describe("JStr static is method", () => {
         expect(JStr.is(pattern, value)).toBe(true);
     });
 
-	test("JStr.is() - should return false when a single pattern matches the value", () => {
-		const pattern = 'baz*';
-		const value = 'foobar';
-		expect(JStr.is(pattern, value)).toBe(false);
-	});
+    test("JStr.is() - should return false when a single pattern matches the value", () => {
+        const pattern = 'baz*';
+        const value = 'foobar';
+        expect(JStr.is(pattern, value)).toBe(false);
+    });
+});
+
+describe("JStr dynamic is method", () => {
+    // find the Hello from string
+    test("JStr.is() - should return true when a single pattern matches the value", () => {
+        const pattern = 'foo*';
+        const value = 'foobar';
+        expect(JStr.of(value).is(pattern)).toBe(true);
+    });
+
+    test("JStr.is() - should return false when a single pattern matches the value", () => {
+        const pattern = 'baz*';
+        const value = 'foobar';
+        expect(JStr.of(value).is(pattern)).toBe(false);
+    });
 });
 
