@@ -87,12 +87,12 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔ `JStr.isUlid`        | Checks if the string is a valid ULID (Universally Unique Lexicographically Sortable Identifier).    | [Documentation](docs/IsUlid.md)         |
 | ✔✔ `JStr.isUrl`         | Checks if the string is a valid URL.                                                                | [Documentation](docs/IsUrl.md)          |
 | ✔ `JStr.isUuid`        | Checks if the string is a valid UUID (Universally Unique Identifier).                               | [Documentation](docs/IsUuid.md)         |
-| ✔ `JStr.kebab`         | Converts the string to kebab case.                                                                  | [Documentation](docs/Kebab.md)          |
-| ✔ `JStr.lcfirst`       | Converts the first character of the string to lowercase.                                            | [Documentation](docs/Lcfirst.md)        |
+| ✔✔ `JStr.kebab`         | Converts the string to kebab case.                                                                  | [Documentation](docs/Kebab.md)          |
+| ✔✔ `JStr.lcfirst`       | Converts the first character of the string to lowercase.                                            | [Documentation](docs/Lcfirst.md)        |
 | ✔✔ `JStr.length`        | Returns the length of the string.                                                                   | [Documentation](docs/Length.md)         |
 | ✔✔ `JStr.limit`         | Limits the length of the string to a specified number of characters.                                | [Documentation](docs/Limit.md)          |
 | ✔✔ `JStr.lower`         | Converts the string to lowercase.                                                                   | [Documentation](docs/Lower.md)          |
-| ✔ `JStr.ltrim`         | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)          |
+| ✔✔ `JStr.ltrim`         | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)          |
 | `JStr.markdown`        | Converts the string to Markdown format.                                                             | [Documentation](docs/Markdown.md)       |
 | ✔ `JStr.mask`          | Masks part of the string with a specified character.                                                | [Documentation](docs/Mask.md)           |
 | ✔ `JStr.match`         | Performs a regular expression match on the string.                                                  | [Documentation](docs/Match.md)          |
@@ -113,7 +113,7 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔ `JStr.replaceArray`  | Replaces occurrences of specified substrings with corresponding replacements.                       | [Documentation](docs/ReplaceArray.md)   |
 | ✔ `JStr.replaceFirst`  | Replaces the first occurrence of a specified substring with another substring.                      | [Documentation](docs/ReplaceFirst.md)   |
 | ✔ `JStr.replaceLast`   | Replaces the last occurrence of a specified substring with another substring.                       | [Documentation](docs/ReplaceLast.md)    |
-| ✔ `JStr.rtrim`         | Removes whitespace from the end of the string.                                                      | [Documentation](docs/Rtrim.md)          |
+| ✔✔ `JStr.rtrim`         | Removes whitespace from the end of the string.                                                      | [Documentation](docs/Rtrim.md)          |
 | ✔ `JStr.reverse`       | Reverses the characters of the string.                                                              | [Documentation](docs/Reverse.md)        |
 | ✔ `JStr.singular`      | Converts the string to singular form.                                                               | [Documentation](docs/Singular.md)       |
 | ✔ `JStr.slug`          | Converts the string to a URL-friendly slug.                                                         | [Documentation](docs/Slug.md)           |
@@ -180,12 +180,12 @@ clarity and conciseness in your code.
 | ✔ `isUlid`                 | Checks if the string is a valid ULID (Universally Unique Lexicographically Sortable Identifier).    | [Documentation](docs/IsUlid.md)          |
 | ✔✔ `isUrl`                  | Checks if the string is a valid URL.                                                                | [Documentation](docs/IsUrl.md)           |
 | ✔ `isUuid`                 | Checks if the string is a valid UUID (Universally Unique Identifier).                               | [Documentation](docs/IsUuid.md)          |
-| ✔ `kebab`                  | Converts the string to kebab case.                                                                  | [Documentation](docs/Kebab.md)           |
-| ✔ `lcfirst`                | Converts the first character of the string to lowercase.                                            | [Documentation](docs/Lcfirst.md)         |
+| ✔✔ `kebab`                  | Converts the string to kebab case.                                                                  | [Documentation](docs/Kebab.md)           |
+| ✔✔ `lcfirst`                | Converts the first character of the string to lowercase.                                            | [Documentation](docs/Lcfirst.md)         |
 | ✔✔ `length`                 | Returns the length of the string.                                                                   | [Documentation](docs/Length.md)          |
 | ✔✔ `limit`                  | Limits the length of the string to a specified number of characters.                                | [Documentation](docs/Limit.md)           |
 | ✔✔ `lower`                  | Converts the string to lowercase.                                                                   | [Documentation](docs/Lower.md)           |
-| ✔ `ltrim`                  | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)           |
+| ✔✔ `ltrim`                  | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)           |
 | `markdown`                 | Converts the string to Markdown format.                                                             | [Documentation](docs/Markdown.md)        |
 | ✔ `mask`                   | Masks part of the string with a specified character.                                                | [Documentation](docs/Mask.md)            |
 | ✔ `match`                  | Performs a regular expression match on the string.                                                  | [Documentation](docs/Match.md)           |
@@ -207,7 +207,7 @@ clarity and conciseness in your code.
 | ✔ `replaceLast`            | Replaces the last occurrence of a specified substring with another substring.                       | [Documentation](docs/ReplaceLast.md)     |
 | ✔ `replaceMatches`         | Replaces occurrences of a specified pattern with a callback result.                                 | [Documentation](docs/ReplaceMatches.md)  |
 | ✔ `reverse`                | Reverses the characters of the string.                                                              | [Documentation](docs/Reverse.md)         |
-| ✔ `rtrim`                  | Removes whitespace from the end of the string.                                                      | [Documentation](docs/Rtrim.md)           |
+| ✔✔ `rtrim`                  | Removes whitespace from the end of the string.                                                      | [Documentation](docs/Rtrim.md)           |
 | ✔ `scan`                   | Returns an array of all occurrences of a regular expression pattern in the string.                  | [Documentation](docs/Scan.md)            |
 | ✔ `singular`               | Converts the string to singular form.                                                               | [Documentation](docs/Singular.md)        |
 | ✔ `slug`                   | Converts the string to a URL-friendly slug.                                                         | [Documentation](docs/Slug.md)            |
