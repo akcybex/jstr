@@ -323,26 +323,26 @@ class JStr {
      * // result: true
      */
     static is(pattern: any | any[], value: string): boolean {
-		if (!Array.isArray(pattern)) {
-			pattern = [pattern];
-		}
+        if (!Array.isArray(pattern)) {
+            pattern = [pattern];
+        }
 
-		for (const pat of pattern) {
-			const currentPattern = pat.toString();
+        for (const pat of pattern) {
+            const currentPattern = pat.toString();
 
-			if (currentPattern === value) {
-				return true;
-			}
+            if (currentPattern === value) {
+                return true;
+            }
 
-			const escapedPattern = currentPattern.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-			const wildcardPattern = escapedPattern.replace(/\\\*/g, '.*');
+            const escapedPattern = currentPattern.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            const wildcardPattern = escapedPattern.replace(/\\\*/g, '.*');
 
-			if (new RegExp('^' + wildcardPattern + '$', 'u').test(value)) {
-				return true;
-			}
-		}
+            if (new RegExp('^' + wildcardPattern + '$', 'u').test(value)) {
+                return true;
+            }
+        }
 
-		return false;
+        return false;
     }
 
     /**
@@ -537,8 +537,8 @@ class JStr {
      * const result = JStr.ltrim('   hello');
      * // result: 'hello'
      */
-    static ltrim(value: string, characters: string = '\r\n\t\v\0'): string {
-        return value.replace(/^\s+/u, characters);
+    static ltrim(value: string, characters: string = ' '): string {
+        return value.replace(new RegExp(`^[${characters}]+`), '');
     }
 
     /**
@@ -576,8 +576,8 @@ class JStr {
      * const result = JStr.rtrim('hello   ');
      * // result: 'hello'
      */
-    static rtrim(value: string, characters: string = '\r\n\t\v\0'): string {
-        return value.replace(/\s+$/u, characters);
+    static rtrim(value: string, characters: string = ' '): string {
+        return value.replace(new RegExp(`[${characters}]+$`), '');
     }
 
     /**

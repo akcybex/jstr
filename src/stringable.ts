@@ -419,7 +419,7 @@ class Stringable {
 	 * const result = JStr.ltrim('   hello');
 	 * // result: 'hello'
 	 */
-	ltrim(characters: string = '\r\n\t\v\0'): Stringable {
+	ltrim(characters: string = ' '): Stringable {
 		return new Stringable(JStr.ltrim(this.value, characters));
 	}
 
@@ -442,7 +442,7 @@ class Stringable {
 	 * const result = JStr.rtrim('hello   ');
 	 * // result: 'hello'
 	 */
-	rtrim(characters: string = '\r\n\t\v\0'): Stringable {
+	rtrim(characters: string = ' '): Stringable {
 		return new Stringable(JStr.rtrim(this.value, characters));
 	}
 
