@@ -54,7 +54,7 @@ After including the script, `jstr` will be available globally:
 ## Available Methods
 
 > [!NOTE]  
-> Methods with ✔ mark are included in the library and tested as well.
+> Methods with ✔✔ mark are included in the library and tested as well.
 
 ### Strings
 
