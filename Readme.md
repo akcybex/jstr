@@ -99,10 +99,10 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔ `JStr.matchAll`      | Performs a global regular expression match on the string.                                           | [Documentation](docs/MatchAll.md)       |
 | ✔ `JStr.isMatch`       | Checks if the string matches a specified pattern.                                                   | [Documentation](docs/IsMatch.md)        |
 | `JStr.orderedUuid`     | Generates an ordered UUID (Universally Unique Identifier).                                          | [Documentation](docs/OrderedUuid.md)    |
-| ✔ `JStr.padBoth`       | Pads the string on both sides with a specified character to a specified length.                     | [Documentation](docs/PadBoth.md)        |
-| ✔ `JStr.padLeft`       | Pads the string on the left side with a specified character to a specified length.                  | [Documentation](docs/PadLeft.md)        |
-| ✔ `JStr.padRight`      | Pads the string on the right side with a specified character to a specified length.                 | [Documentation](docs/PadRight.md)       |
-| ✔ `JStr.password`      | Generates a password string.                                                                        | [Documentation](docs/Password.md)       |
+| ✔✔ `JStr.padBoth`       | Pads the string on both sides with a specified character to a specified length.                     | [Documentation](docs/PadBoth.md)        |
+| ✔✔ `JStr.padLeft`       | Pads the string on the left side with a specified character to a specified length.                  | [Documentation](docs/PadLeft.md)        |
+| ✔✔ `JStr.padRight`      | Pads the string on the right side with a specified character to a specified length.                 | [Documentation](docs/PadRight.md)       |
+| ✔✔ `JStr.password`      | Generates a password string.                                                                        | [Documentation](docs/Password.md)       |
 | ✔ `JStr.plural`        | Converts the string to plural form.                                                                 | [Documentation](docs/Plural.md)         |
 | ✔ `JStr.pluralStudly`  | Converts the string to plural studly form.                                                          | [Documentation](docs/PluralStudly.md)   |
 | ✔ `JStr.position`      | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)       |
@@ -192,9 +192,9 @@ clarity and conciseness in your code.
 | ✔ `matchAll`               | Performs a global regular expression match on the string.                                           | [Documentation](docs/MatchAll.md)        |
 | ✔ `isMatch`                | Checks if the string matches a specified pattern.                                                   | [Documentation](docs/IsMatch.md)         |
 | ✔ `newLine`                | Replaces each occurrence of a newline character with a specified string.                            | [Documentation](docs/NewLine.md)         |
-| ✔ `padBoth`                | Pads the string on both sides with a specified character to a specified length.                     | [Documentation](docs/PadBoth.md)         |
-| ✔ `padLeft`                | Pads the string on the left side with a specified character to a specified length.                  | [Documentation](docs/PadLeft.md)         |
-| ✔ `padRight`               | Pads the string on the right side with a specified character to a specified length.                 | [Documentation](docs/PadRight.md)        |
+| ✔✔ `padBoth`                | Pads the string on both sides with a specified character to a specified length.                     | [Documentation](docs/PadBoth.md)         |
+| ✔✔ `padLeft`                | Pads the string on the left side with a specified character to a specified length.                  | [Documentation](docs/PadLeft.md)         |
+| ✔✔ `padRight`               | Pads the string on the right side with a specified character to a specified length.                 | [Documentation](docs/PadRight.md)        |
 | ✔ `pipe`                   | Passes the string to a callback and returns the result.                                             | [Documentation](docs/Pipe.md)            |
 | ✔ `plural`                 | Converts the string to plural form.                                                                 | [Documentation](docs/Plural.md)          |
 | ✔ `position`               | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)        |
