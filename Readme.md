@@ -105,8 +105,8 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔✔ `JStr.password`      | Generates a password string.                                                                        | [Documentation](docs/Password.md)       |
 | ✔ `JStr.plural`        | Converts the string to plural form.                                                                 | [Documentation](docs/Plural.md)         |
 | ✔ `JStr.pluralStudly`  | Converts the string to plural studly form.                                                          | [Documentation](docs/PluralStudly.md)   |
-| ✔ `JStr.position`      | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)       |
-| ✔ `JStr.random`        | Generates a random string.                                                                          | [Documentation](docs/Random.md)         |
+| ✔✔ `JStr.position`      | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)       |
+| ✔✔ `JStr.random`        | Generates a random string.                                                                          | [Documentation](docs/Random.md)         |
 | ✔✔ `JStr.remove`        | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)         |
 | ✔✔ `JStr.repeat`        | Repeats the string a specified number of times.                                                     | [Documentation](docs/Repeat.md)         |
 | ✔ `JStr.replace`       | Replaces occurrences of a specified substring with another substring.                               | [Documentation](docs/Replace.md)        |
@@ -197,7 +197,7 @@ clarity and conciseness in your code.
 | ✔✔ `padRight`               | Pads the string on the right side with a specified character to a specified length.                 | [Documentation](docs/PadRight.md)        |
 | ✔ `pipe`                   | Passes the string to a callback and returns the result.                                             | [Documentation](docs/Pipe.md)            |
 | ✔ `plural`                 | Converts the string to plural form.                                                                 | [Documentation](docs/Plural.md)          |
-| ✔ `position`               | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)        |
+| ✔✔ `position`               | Finds the position of the first occurrence of a substring in the string.                            | [Documentation](docs/Position.md)        |
 | ✔ `prepend`                | Prepends a string or an array of strings to the beginning of the current string.                    | [Documentation](docs/Prepend.md)         |
 | ✔✔ `remove`                 | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)          |
 | ✔✔ `repeat`                 | Repeats the string a specified number of times.                                                     | [Documentation](docs/Repeat.md)          |
@@ -225,7 +225,7 @@ clarity and conciseness in your code.
 | ✔ `take`                   | Returns the first n characters from the string.                                                     | [Documentation](docs/Take.md)            |
 | ✔ `tap`                    | Passes the string to a callback and returns the string.                                             | [Documentation](docs/Tap.md)             |
 | ✔ `test`                   | Performs a regular expression match on the string and returns a boolean.                            | [Documentation](docs/Test.md)            |
-| ✔ `title`                  | Converts the first character of each word in the string to uppercase.                               | [Documentation](docs/Title.md)           |
+| ✔✔ `title`                  | Converts the first character of each word in the string to uppercase.                               | [Documentation](docs/Title.md)           |
 | ✔✔ `trim`                   | Removes whitespace from the beginning and end of the string.                                        | [Documentation](docs/Trim.md)            |
 | ✔✔ `ucfirst`               | Converts the first character of the string to uppercase.                                            | [Documentation](docs/Ucfirst.md)         |
 | ✔ `ucsplit`                | Splits the string into an array of words.                                                           | [Documentation](docs/Ucsplit.md)         |

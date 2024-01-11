@@ -898,31 +898,35 @@ class JStr {
         return result as string;
     }
 
-    /**
-     * Replace the given value in the given string.
-     * @param {string | string[]} search - The value or array of values to search for.
-     * @param {string | string[]} replace - The value or array of values for replacement.
-     * @param {string} subject - The input string.
-     * @param {boolean} caseSensitive - Whether the replacement should be case-sensitive. Default is true.
-     * @returns {string} The resulting string after replacement.
-     * @example
-     * const result = JStr.replace(["apple", "orange"], ["fruit1", "fruit2"], "An apple and an orange.");
-     * // result: "An fruit1 and an fruit2."
-     */
-    static replace(
-        search: string | string[],
-        replace: string | string[],
-        subject: string,
-        caseSensitive: boolean = true,
-    ): string {
-        const searchArray = Array.isArray(search) ? search : [search];
-        const replaceArray = Array.isArray(replace) ? replace : [replace];
+	/**
+	 * Replace the given value or array of values in the given string.
+	 * @param {string | string[]} search - The value or array of values to search for.
+	 * @param {string | string[]} replace - The value or array of values for replacement.
+	 * @param {string} subject - The input string.
+	 * @param {boolean} caseSensitive - Whether the replacement should be case-sensitive. Default is true.
+	 * @returns {string} The resulting string after replacement.
+	 * @example
+	 * const result = JStr.replace(["apple", "orange"], ["fruit1", "fruit2"], "An apple and an orange.");
+	 * // result: "An fruit1 and a fruit2."
+	 */
+	static replace(
+		search: string | string[],
+		replace: string | string[],
+		subject: string,
+		caseSensitive: boolean = true,
+	): string {
+		const searchArray = Array.isArray(search) ? search : [search];
+		const replaceArray = Array.isArray(replace) ? replace : [replace];
 
-        const regexFlags = caseSensitive ? '' : 'i';
-        const regex = new RegExp(searchArray.map(s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|'), regexFlags);
+		let result = subject;
 
-        return subject.replace(regex, match => replaceArray.shift() ?? match);
-    }
+		for (let i = 0; i < searchArray.length; i++) {
+			const regex = new RegExp(searchArray[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), caseSensitive ? 'g' : 'gi');
+			result = result.replace(regex, replaceArray[i] || searchArray[i]);
+		}
+
+		return result;
+	}
 
     /**
      * Replace the first occurrence of a given value in the string.
