@@ -13,21 +13,21 @@ describe('JStr static replace method', () => {
         expect(JStr.replace(search, replaceValue, subject)).toBe("Hello, planet!");
     });
 
-    // test('JStr.replace() - should replace multiple occurrences of search with replace', () => {
-    //     const search = 'o';
-    //     const replaceValue = 'O';
-    //     const subject = 'Hello, world!';
-    //     expect(JStr.replace(search, replaceValue, subject)).toBe("HellO, wOrld!");
-    // });
+    test('JStr.replace() - should replace multiple occurrences of search with replace', () => {
+        const search = 'o';
+        const replaceValue = 'O';
+        const subject = 'Hello, world!';
+        expect(JStr.replace(search, replaceValue, subject)).toBe("HellO, wOrld!");
+    });
 
-    // test('JStr.replace() - should replace using arrays for search and replace', () => {
-    //     const search = ['o', 'l'];
-    //     const replaceValue = ['O', 'L'];
-    //     const subject = 'Hello, world!';
+    test('JStr.replace() - should replace using arrays for search and replace', () => {
+        const search = ['o', 'l'];
+        const replaceValue = ['O', 'L'];
+        const subject = 'Hello, world!';
 
 
-    //     expect(JStr.replace(search, replaceValue, subject)).toBe("HeLLo, WOrLd!");
-    // });
+        expect(JStr.replace(search, replaceValue, subject)).toBe("HeLLO, wOrLd!");
+    });
 
 
 });
