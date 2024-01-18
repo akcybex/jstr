@@ -30,19 +30,33 @@ describe('JStr static mask function', () => {
         expect(result).toBe('XXXdefgh');
     });
 
-    // Additional tests to consider:
+});
 
-    // test('should handle null length argument', () => {
-    //     const result = JStr.mask('example', 'X', 2, null);
-    //     expect(result).toBe('exXmple');
-    // });
-	//
-    // test('should throw an error if index is out of bounds and length is null', () => {
-    //     expect(() => JStr.mask('example', 'X', 10, null)).toThrow();
-    // });
-	//
-    // test('should mask the entire string if index is 0 and length is null', () => {
-    //     const result = JStr.mask('example', 'X', 0, null);
-    //     expect(result).toBe('XXXXXXXX');
-    // });
+describe('JStr dynamic mask function', () => {
+    test('should return the original value if character is an empty string', () => {
+        const result = JStr.of('example').mask('', 2, 3).toString();
+        expect(result).toBe('example');
+    });
+
+    test('should return the original value if the segment is empty', () => {
+        const result = JStr.of('example').mask('X', 10, 3).toString();
+        expect(result).toBe('example');
+    });
+
+    test('should mask the specified segment with the given character', () => {
+        const result = JStr.of('1234567890').mask('X', 2, 6).toString();
+        expect(result).toBe('12XXXXXX90');
+    });
+
+    test('should handle negative index correctly', () => {
+        const result = JStr.of('abcdefgh').mask('X', 2, 2).toString();
+        expect(result).toBe('abXXefgh');
+    });
+
+    test('should handle negative index that is out of bounds correctly', () => {
+        const result = JStr.of('abcdefgh').mask('X', 0, 3).toString();
+        expect(result).toBe('XXXdefgh');
+    });
+
+
 });

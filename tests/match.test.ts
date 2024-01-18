@@ -42,6 +42,44 @@ describe("JStr match static method", () => {
     });
 })
 
+describe("JStr match dynamic method", () => {
+
+    // Test for successful matching with a captured group
+    test('should return the captured group when a match is found', () => {
+        const pattern = /(\d{4})-(\d{2})-(\d{2})/g;
+        const subject = 'The date is 2024-01-15';
+        const expectedMatch = '2024-01-15';
+
+        expect(JStr.of(subject).match(pattern).toString()).toBe(expectedMatch);
+    });
+
+    // Test for successful matching without a captured group
+    test('should return the entire match when there is no captured group', () => {
+        const pattern = /hello/;
+        const subject = 'hello, world!';
+        const expectedMatch = 'hello';
+
+        expect(JStr.of(subject).match(pattern).toString()).toBe(expectedMatch);
+    });
+
+    // Test for no match
+    test('should return empty string when there is no match', () => {
+        const pattern = /abc/;
+        const subject = 'xyz';
+        const expectedMatch = '';
+
+        expect(JStr.of(subject).match(pattern).toString()).toBe(expectedMatch);
+    });
+    // greedy match
+    test('should return empty string when there is no match', () => {
+        const pattern = /(ab)*c/ig;
+        const subject = 'ababcabab';
+        const expectedMatch = 'ababc';
+
+        expect(JStr.of(subject).match(pattern).toString()).toBe(expectedMatch);
+    });
+})
+
 
 
 
