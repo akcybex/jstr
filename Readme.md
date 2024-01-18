@@ -94,8 +94,8 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔✔ `JStr.lower`         | Converts the string to lowercase.                                                                   | [Documentation](docs/Lower.md)          |
 | ✔✔ `JStr.ltrim`         | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)          |
 | `JStr.markdown`        | Converts the string to Markdown format.                                                             | [Documentation](docs/Markdown.md)       |
-| ✔ `JStr.mask`          | Masks part of the string with a specified character.                                                | [Documentation](docs/Mask.md)           |
-| ✔ `JStr.match`         | Performs a regular expression match on the string.                                                  | [Documentation](docs/Match.md)          |
+| ✔✔ `JStr.mask`          | Masks part of the string with a specified character.                                                | [Documentation](docs/Mask.md)           |
+| ✔✔ `JStr.match`         | Performs a regular expression match on the string.                                                  | [Documentation](docs/Match.md)          |
 | ✔ `JStr.matchAll`      | Performs a global regular expression match on the string.                                           | [Documentation](docs/MatchAll.md)       |
 | ✔ `JStr.isMatch`       | Checks if the string matches a specified pattern.                                                   | [Documentation](docs/IsMatch.md)        |
 | `JStr.orderedUuid`     | Generates an ordered UUID (Universally Unique Identifier).                                          | [Documentation](docs/OrderedUuid.md)    |
@@ -187,8 +187,8 @@ clarity and conciseness in your code.
 | ✔✔ `lower`                  | Converts the string to lowercase.                                                                   | [Documentation](docs/Lower.md)           |
 | ✔✔ `ltrim`                  | Removes whitespace from the beginning of the string.                                                | [Documentation](docs/Ltrim.md)           |
 | `markdown`                 | Converts the string to Markdown format.                                                             | [Documentation](docs/Markdown.md)        |
-| ✔ `mask`                   | Masks part of the string with a specified character.                                                | [Documentation](docs/Mask.md)            |
-| ✔ `match`                  | Performs a regular expression match on the string.                                                  | [Documentation](docs/Match.md)           |
+| ✔✔ `mask`                   | Masks part of the string with a specified character.                                                | [Documentation](docs/Mask.md)            |
+| ✔✔ `match`                  | Performs a regular expression match on the string.                                                  | [Documentation](docs/Match.md)           |
 | ✔ `matchAll`               | Performs a global regular expression match on the string.                                           | [Documentation](docs/MatchAll.md)        |
 | ✔ `isMatch`                | Checks if the string matches a specified pattern.                                                   | [Documentation](docs/IsMatch.md)         |
 | ✔ `newLine`                | Replaces each occurrence of a newline character with a specified string.                            | [Documentation](docs/NewLine.md)         |
