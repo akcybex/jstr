@@ -35,15 +35,11 @@ describe("JStr match static method", () => {
     // greedy match
     test('should return empty string when there is no match', () => {
         const pattern = /(ab)*c/ig;
-        const subject = 'abababab';
-        const expectedMatch = 'abaabc';
+        const subject = 'ababcabab';
+        const expectedMatch = 'ababc';
 
         expect(JStr.match(pattern, subject)).toBe(expectedMatch);
     });
-
-
-
-
 })
 
 
