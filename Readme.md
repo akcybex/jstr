@@ -96,8 +96,8 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | `JStr.markdown`        | Converts the string to Markdown format.                                                             | [Documentation](docs/Markdown.md)       |
 | ✔✔ `JStr.mask`          | Masks part of the string with a specified character.                                                | [Documentation](docs/Mask.md)           |
 | ✔✔ `JStr.match`         | Performs a regular expression match on the string.                                                  | [Documentation](docs/Match.md)          |
-| ✔ `JStr.matchAll`      | Performs a global regular expression match on the string.                                           | [Documentation](docs/MatchAll.md)       |
-| ✔ `JStr.isMatch`       | Checks if the string matches a specified pattern.                                                   | [Documentation](docs/IsMatch.md)        |
+| ✔✔ `JStr.matchAll`      | Performs a global regular expression match on the string.                                           | [Documentation](docs/MatchAll.md)       |
+| ✔✔ `JStr.isMatch`       | Checks if the string matches a specified pattern.                                                   | [Documentation](docs/IsMatch.md)        |
 | `JStr.orderedUuid`     | Generates an ordered UUID (Universally Unique Identifier).                                          | [Documentation](docs/OrderedUuid.md)    |
 | ✔✔ `JStr.padBoth`       | Pads the string on both sides with a specified character to a specified length.                     | [Documentation](docs/PadBoth.md)        |
 | ✔✔ `JStr.padLeft`       | Pads the string on the left side with a specified character to a specified length.                  | [Documentation](docs/PadLeft.md)        |
@@ -109,8 +109,8 @@ or relevant libraries. Common operations include concatenation, searching, repla
 | ✔✔ `JStr.random`        | Generates a random string.                                                                          | [Documentation](docs/Random.md)         |
 | ✔✔ `JStr.remove`        | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)         |
 | ✔✔ `JStr.repeat`        | Repeats the string a specified number of times.                                                     | [Documentation](docs/Repeat.md)         |
-| ✔ `JStr.replace`       | Replaces occurrences of a specified substring with another substring.                               | [Documentation](docs/Replace.md)        |
-| ✔ `JStr.replaceArray`  | Replaces occurrences of specified substrings with corresponding replacements.                       | [Documentation](docs/ReplaceArray.md)   |
+| ✔✔ `JStr.replace`       | Replaces occurrences of a specified substring with another substring.                               | [Documentation](docs/Replace.md)        |
+| ✔✔ `JStr.replaceArray`  | Replaces occurrences of specified substrings with corresponding replacements.                       | [Documentation](docs/ReplaceArray.md)   |
 | ✔ `JStr.replaceFirst`  | Replaces the first occurrence of a specified substring with another substring.                      | [Documentation](docs/ReplaceFirst.md)   |
 | ✔ `JStr.replaceLast`   | Replaces the last occurrence of a specified substring with another substring.                       | [Documentation](docs/ReplaceLast.md)    |
 | ✔✔ `JStr.rtrim`         | Removes whitespace from the end of the string.                                                      | [Documentation](docs/Rtrim.md)          |
@@ -189,8 +189,8 @@ clarity and conciseness in your code.
 | `markdown`                 | Converts the string to Markdown format.                                                             | [Documentation](docs/Markdown.md)        |
 | ✔✔ `mask`                   | Masks part of the string with a specified character.                                                | [Documentation](docs/Mask.md)            |
 | ✔✔ `match`                  | Performs a regular expression match on the string.                                                  | [Documentation](docs/Match.md)           |
-| ✔ `matchAll`               | Performs a global regular expression match on the string.                                           | [Documentation](docs/MatchAll.md)        |
-| ✔ `isMatch`                | Checks if the string matches a specified pattern.                                                   | [Documentation](docs/IsMatch.md)         |
+| ✔✔ `matchAll`               | Performs a global regular expression match on the string.                                           | [Documentation](docs/MatchAll.md)        |
+| ✔✔ `isMatch`                | Checks if the string matches a specified pattern.                                                   | [Documentation](docs/IsMatch.md)         |
 | ✔ `newLine`                | Replaces each occurrence of a newline character with a specified string.                            | [Documentation](docs/NewLine.md)         |
 | ✔✔ `padBoth`                | Pads the string on both sides with a specified character to a specified length.                     | [Documentation](docs/PadBoth.md)         |
 | ✔✔ `padLeft`                | Pads the string on the left side with a specified character to a specified length.                  | [Documentation](docs/PadLeft.md)         |
@@ -201,8 +201,8 @@ clarity and conciseness in your code.
 | ✔ `prepend`                | Prepends a string or an array of strings to the beginning of the current string.                    | [Documentation](docs/Prepend.md)         |
 | ✔✔ `remove`                 | Removes a specified substring from the string.                                                      | [Documentation](docs/Remove.md)          |
 | ✔✔ `repeat`                 | Repeats the string a specified number of times.                                                     | [Documentation](docs/Repeat.md)          |
-| ✔ `replace`                | Replaces occurrences of a specified substring with another substring.                               | [Documentation](docs/Replace.md)         |
-| ✔ `replaceArray`           | Replaces occurrences of specified substrings with corresponding replacements.                       | [Documentation](docs/ReplaceArray.md)    |
+| ✔✔ `replace`                | Replaces occurrences of a specified substring with another substring.                               | [Documentation](docs/Replace.md)         |
+| ✔✔ `replaceArray`           | Replaces occurrences of specified substrings with corresponding replacements.                       | [Documentation](docs/ReplaceArray.md)    |
 | ✔ `replaceFirst`           | Replaces the first occurrence of a specified substring with another substring.                      | [Documentation](docs/ReplaceFirst.md)    |
 | ✔ `replaceLast`            | Replaces the last occurrence of a specified substring with another substring.                       | [Documentation](docs/ReplaceLast.md)     |
 | ✔ `replaceMatches`         | Replaces occurrences of a specified pattern with a callback result.                                 | [Documentation](docs/ReplaceMatches.md)  |

@@ -663,7 +663,12 @@ class JStr {
      * // result: ['123', '456']
      */
     static matchAll(pattern: RegExp, subject: string): Array<string> {
-        const matches = subject.matchAll(pattern);
+        let regex: RegExp = pattern;
+        if (!pattern.global) {
+            regex = new RegExp(pattern.source, pattern.flags + 'g');
+        }
+
+        const matches = subject.matchAll(regex);
         return matches ? Array.from(matches).map(match => match[1] ?? match[0]) : [];
     }
 
@@ -898,35 +903,35 @@ class JStr {
         return result as string;
     }
 
-	/**
-	 * Replace the given value or array of values in the given string.
-	 * @param {string | string[]} search - The value or array of values to search for.
-	 * @param {string | string[]} replace - The value or array of values for replacement.
-	 * @param {string} subject - The input string.
-	 * @param {boolean} caseSensitive - Whether the replacement should be case-sensitive. Default is true.
-	 * @returns {string} The resulting string after replacement.
-	 * @example
-	 * const result = JStr.replace(["apple", "orange"], ["fruit1", "fruit2"], "An apple and an orange.");
-	 * // result: "An fruit1 and a fruit2."
-	 */
-	static replace(
-		search: string | string[],
-		replace: string | string[],
-		subject: string,
-		caseSensitive: boolean = true,
-	): string {
-		const searchArray = Array.isArray(search) ? search : [search];
-		const replaceArray = Array.isArray(replace) ? replace : [replace];
+    /**
+     * Replace the given value or array of values in the given string.
+     * @param {string | string[]} search - The value or array of values to search for.
+     * @param {string | string[]} replace - The value or array of values for replacement.
+     * @param {string} subject - The input string.
+     * @param {boolean} caseSensitive - Whether the replacement should be case-sensitive. Default is true.
+     * @returns {string} The resulting string after replacement.
+     * @example
+     * const result = JStr.replace(["apple", "orange"], ["fruit1", "fruit2"], "An apple and an orange.");
+     * // result: "An fruit1 and a fruit2."
+     */
+    static replace(
+        search: string | string[],
+        replace: string | string[],
+        subject: string,
+        caseSensitive: boolean = true,
+    ): string {
+        const searchArray = Array.isArray(search) ? search : [search];
+        const replaceArray = Array.isArray(replace) ? replace : [replace];
 
-		let result = subject;
+        let result = subject;
 
-		for (let i = 0; i < searchArray.length; i++) {
-			const regex = new RegExp(searchArray[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), caseSensitive ? 'g' : 'gi');
-			result = result.replace(regex, replaceArray[i] || searchArray[i]);
-		}
+        for (let i = 0; i < searchArray.length; i++) {
+            const regex = new RegExp(searchArray[i].replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), caseSensitive ? 'g' : 'gi');
+            result = result.replace(regex, replaceArray[i] || searchArray[i]);
+        }
 
-		return result;
-	}
+        return result;
+    }
 
     /**
      * Replace the first occurrence of a given value in the string.
