@@ -35,7 +35,7 @@
     "semantic-release": "^22.0.12",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.12"
   },
   "dependencies": {
     "@babel/preset-env": "^7.23.6",
