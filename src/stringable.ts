@@ -717,7 +717,7 @@ class Stringable {
 	 * // result: "An apple and an fruit."
 	 */
 	replaceLast(search: string, replace: string): Stringable {
-		return new Stringable(JStr.replaceFirst(search, replace, this.value));
+		return new Stringable(JStr.replaceLast(search, replace, this.value));
 	}
 
 	/**
